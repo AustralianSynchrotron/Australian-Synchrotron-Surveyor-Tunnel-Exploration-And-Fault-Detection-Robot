@@ -2,7 +2,7 @@ Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot
 =======
 
 Australian Synchrotron Tunnel Bot
-![](https://raw.github.com/AustralianSynchrotron/Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot/master/drawings/logos/DonkeyStencil_LeoReynolds.jpg)
+![](https://raw.github.com/AustralianSynchrotron/Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot/master/drawings/logos/RoboDonkey.png)
 
 Requirements
 ------------
