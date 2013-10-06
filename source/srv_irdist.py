@@ -21,6 +21,14 @@ from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
 from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
 from Phidgets.Devices.InterfaceKit import InterfaceKit
 
+import signal
+
+interupt = False
+
+def signal_handler(signum, frame):
+    global interupt
+    interupt = True
+
 #Create an interfacekit object
 try:
     interfaceKitHUB = InterfaceKit()
@@ -158,7 +166,10 @@ print "\n"
 if not interfaceKitHUB.getRatiometric:
     interfaceKitHUB.setRatiometric(True)
 
+#Register interupt callback
+signal.signal(signal.SIGINT, signal_handler)
 
+#Setup zmq sockets
 context = zmq.Context()
 distance_socket = context.socket(zmq.PUB)
 distance_socket.setsockopt(zmq.LINGER, 1000)
@@ -172,6 +183,22 @@ array = ['ne','e','se','nw','w','sw','front','rear']
 while True:
     message = []
 
+    if interupt:
+        print('Interupt: Shutting down script...')
+        #try and shut down the interface kits
+        try:
+            interfaceKitHUB.closePhidget()
+            interfaceKitLCD.closePhidget()
+
+        except PhidgetException as e:
+            print("Phidget Exception %i: %s" % (e.code, e.details))
+            print("Exiting....")
+            exit(1)
+
+        print("Done.")
+        exit(2)
+        break
+
     for i in range(interfaceKitHUB.getSensorCount()):
         try:
             #intval = interfaceKitHUB.getSensorValue(i)
@@ -182,27 +209,36 @@ while True:
             if i >= 6:
                 #Sonar sensor range 0cm - 645cm
                 #Plugged into analog input 6 & 7 for N (forward) and S (reverse)
-                #for j in range(6,7):
+
+                #turn on the sonar sensor via digital output 'i'
                 interfaceKitHUB.setOutputState(i,True)
                 #intval = interfaceKitHUB.getSensorValue(i)
-                sleep(0.1)
-                intval = interfaceKitHUB.getSensorRawValue(i)
+                sleep(0.1) # Wait for sonar to activate
+                intval = interfaceKitHUB.getSensorRawValue(i) #Read sonar
                 print intval, i
-                distance_mm = (intval / 4.095 ) * 12.96
+                distance_mm = (intval / 4.095 ) * 12.96 #convert raw value to mm
+                #Check that value is within permissable range
                 if distance_mm > 6450.0:
                     distance_mm = -1
+
+                #turn off the sonar sensor via digital output 'i'
                 interfaceKitHUB.setOutputState(i,False)
                 sleep(0.4)
+                #save value into array
                 message.append(distance_mm)
             else:
                 #IR range 20cm - 150cm (2.5V - 0.4V)
+                #Read seonsor value
                 intval = interfaceKitHUB.getSensorRawValue(i)
                 print intval
+                #convert raw value to mm
                 distance_mm = (9462/((intval / 4.095) - 16.92)) * 10
                 #Not a reliable mesaurement below 200mm (20cm) or above 1500 (150cm)
                 if (distance_mm < 200.0) or (distance_mm > 1500.0):
                     distance_mm = -1
                 sleep(0.5)
+
+                #save value into array
                 message.append(distance_mm)
 
             print( "Distance - Device %i: %smm" % ( i, distance_mm ) )
@@ -213,6 +249,7 @@ while True:
     sleep(1)
 
     #msg = {'front': '32.543'}
+    #Export distance array via json to ipc://distance.ipc
     msg = dict(zip(array,message))
     distance_socket.send_json(msg)
 

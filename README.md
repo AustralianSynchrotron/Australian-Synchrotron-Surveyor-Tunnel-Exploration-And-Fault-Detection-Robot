@@ -1,9 +1,8 @@
-ass-bot
+Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot
 =======
 
 Australian Synchrotron Tunnel Bot
 
-![AssBot](https://raw.github.com/AustralianSynchrotron/ass-bot/master/assbot_logo.jpg)
 
 Requirements
 ------------
