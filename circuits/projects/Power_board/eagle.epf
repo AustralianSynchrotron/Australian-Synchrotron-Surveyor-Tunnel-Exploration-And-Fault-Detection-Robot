@@ -7,32 +7,11 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Board-Holes.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Button-Switch.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Header-Connector.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - ICs.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - LED.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Oscillators.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - RCLD.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Supply.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Transformers.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Transistor-FET-reg.lbr"
-UsedLibrary="D:/Documents/eagle/eagle_libs/iStivi_Eagle_Library/iStivi - Tubes.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Board-Holes.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Button-Switch.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Header-Connector.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - ICs.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - LED.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Oscillators.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - RCLD.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Supply.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Transformers.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Transistor-FET-reg.lbr"
-UsedLibrary="D:/Documents/eagle/iStivi_Eagle_Library/iStivi - Tubes.lbr"
+UsedLibrary="D:/Documents/GitHub/ass-bot/circuits/assbot-lib/parts.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="307 77 1371 846"
+Loc="133 250 1321 951"
 State=2
 Number=0
 

@@ -717,7 +717,7 @@ grid 2.54 mm, diameter 5 mm</description>
 <wire x1="2" y1="-1" x2="2" y2="1" width="0.2032" layer="21"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 <pad name="P$1" x="0" y="0" drill="1.2" diameter="3"/>
-<text x="-1.27" y="2.54" size="1.27" layer="21">&gt;NAME</text>
+<text x="-1.27" y="2.54" size="1.27" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -909,6 +909,11 @@ grid 2.54 mm, diameter 5 mm</description>
 <text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="+" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
 <pin name="-" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
+<symbol name="GND">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1319,19 +1324,6 @@ Schottky 100V 30A rectifier</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="1V60R" prefix="G">
-<description>&lt;b&gt;NC ACCU&lt;/b&gt; Varta</description>
-<gates>
-<gate name="1" symbol="BATTERY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="BATTERY">
 <description>&lt;b&gt;BATTERY&lt;/b&gt;
 &lt;p&gt;battery with hole variants to mount to board</description>
@@ -1353,6 +1345,19 @@ Schottky 100V 30A rectifier</description>
 <connect gate="G$1" pin="+" pad="2"/>
 <connect gate="G$1" pin="-" pad="1"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="GND" prefix="GND">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
 <technologies>
 <technology name=""/>
 </technologies>
