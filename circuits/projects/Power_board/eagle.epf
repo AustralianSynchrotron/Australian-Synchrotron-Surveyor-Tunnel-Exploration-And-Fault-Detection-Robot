@@ -1,20 +1,20 @@
 [Eagle]
 Version="06 04 00"
 Platform="Windows"
-Serial="62191E841E-LSR-WLM-1EL"
+Serial="711AD3A3E4-LSR-WLM-1CP"
 Globals="Globals"
 Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="D:/Documents/GitHub/ass-bot/circuits/assbot-lib/parts.lbr"
+UsedLibrary="C:/Users/Stephen/Documents/GitHub/ass-bot/circuits/assbot-lib/parts.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="133 250 1321 951"
+Loc="298 67 1711 896"
 State=2
 Number=0
 
 [Desktop]
-Screen="3200 1200"
+Screen="1920 1080"
 Window="Win_1"
