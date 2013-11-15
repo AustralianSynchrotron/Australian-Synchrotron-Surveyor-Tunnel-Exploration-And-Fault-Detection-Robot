@@ -233,7 +233,8 @@
 <rectangle x1="-3.175" y1="-7.874" x2="-1.905" y2="-5.08" layer="21"/>
 <rectangle x1="-0.635" y1="-7.874" x2="0.635" y2="-5.08" layer="21"/>
 <rectangle x1="1.905" y1="-7.874" x2="3.175" y2="-5.08" layer="21"/>
-<hole x="0" y="7.366" drill="3.302"/>
+<hole x="0" y="7.366" drill="3"/>
+<smd name="@P$2" x="0" y="3.81" dx="12" dy="15" layer="1"/>
 </package>
 <package name="TO220-DIODE-V">
 <description>TO220 diode with pins 1 and 3 anode</description>
@@ -1298,7 +1299,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="RELAY" library="parts" deviceset="RT424A" device="" technology="05" value="5V"/>
 <part name="D3-24V" library="parts" deviceset="NTST30100SG" device="-H" value="30A"/>
 <part name="VR-MB" library="parts" deviceset="LT323AT" device="-SINK" value="LT323A"/>
-<part name="MOBO+12V" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="MOBO+5V" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="C1" library="parts" deviceset="CAPACITOR" device="" value="10uF"/>
 <part name="C2" library="parts" deviceset="CAPACITOR" device="" value="2.2uF"/>
 <part name="M1-FUSE" library="parts" deviceset="FUSE" device="" value="3A"/>
@@ -1424,7 +1425,7 @@ Always powered</text>
 <instance part="RELAY" gate="3" x="73.66" y="74.93" rot="R180"/>
 <instance part="D3-24V" gate="G$1" x="77.47" y="60.96" rot="R270"/>
 <instance part="VR-MB" gate="G$1" x="133.35" y="134.62"/>
-<instance part="MOBO+12V" gate="G$1" x="179.07" y="134.62" rot="MR0"/>
+<instance part="MOBO+5V" gate="G$1" x="179.07" y="134.62" rot="MR0"/>
 <instance part="C1" gate="G$1" x="153.67" y="127"/>
 <instance part="C2" gate="G$1" x="123.19" y="116.84" rot="R90"/>
 <instance part="M1-FUSE" gate="G$1" x="34.29" y="58.42" smashed="yes" rot="R270">
@@ -1489,7 +1490,7 @@ Always powered</text>
 <pinref part="VR-MB" gate="G$1" pin="GND"/>
 <wire x1="133.35" y1="127" x2="133.35" y2="116.84" width="0.1524" layer="91"/>
 <junction x="133.35" y="116.84"/>
-<pinref part="MOBO+12V" gate="G$1" pin="1"/>
+<pinref part="MOBO+5V" gate="G$1" pin="1"/>
 <wire x1="171.45" y1="132.08" x2="163.83" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="163.83" y1="116.84" x2="153.67" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
@@ -1559,7 +1560,7 @@ Always powered</text>
 </net>
 <net name="N$8" class="2">
 <segment>
-<pinref part="MOBO+12V" gate="G$1" pin="2"/>
+<pinref part="MOBO+5V" gate="G$1" pin="2"/>
 <pinref part="VR-MB" gate="G$1" pin="OUT"/>
 <wire x1="171.45" y1="134.62" x2="153.67" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
