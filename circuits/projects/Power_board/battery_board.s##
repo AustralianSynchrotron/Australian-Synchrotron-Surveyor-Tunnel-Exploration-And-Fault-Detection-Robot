@@ -234,6 +234,7 @@
 <rectangle x1="-0.635" y1="-7.874" x2="0.635" y2="-5.08" layer="21"/>
 <rectangle x1="1.905" y1="-7.874" x2="3.175" y2="-5.08" layer="21"/>
 <hole x="0" y="7.366" drill="3.302"/>
+<smd name="@P$2" x="0" y="3.81" dx="12" dy="15" layer="1"/>
 </package>
 <package name="TO220-DIODE-V">
 <description>TO220 diode with pins 1 and 3 anode</description>
