@@ -213,6 +213,8 @@ TS-005</description>
 <pad name="2" x="5" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
 <text x="-3.81" y="-3.81" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 <text x="9.525" y="-3.81" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.905" y1="-1.905" x2="1.905" y2="1.905" layer="41"/>
+<rectangle x1="3.175" y1="-1.905" x2="6.985" y2="1.905" layer="41"/>
 </package>
 <package name="SCREWTERMINAL-3.81MM">
 <description>&lt;b&gt;SCREW TERMINAL 3.81mm&lt;/b&gt;</description>
@@ -228,6 +230,8 @@ TS-005</description>
 <pad name="2" x="3.81" y="0" drill="1.2" diameter="2.5" shape="octagon"/>
 <text x="-2.54" y="-2.54" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 <text x="7.62" y="-2.54" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.27" y1="-1.27" x2="1.27" y2="1.27" layer="41"/>
+<rectangle x1="2.54" y1="-1.27" x2="5.08" y2="1.27" layer="41"/>
 </package>
 <package name="1-HOLE">
 <description>single board hole</description>
@@ -596,6 +600,7 @@ type 0207, grid 2.5 mm</description>
 <pad name="2" x="1.27" y="0" drill="0.6" diameter="1.5"/>
 <text x="-0.0508" y="1.016" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.0508" y="-2.2352" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.2225" y1="-0.9525" x2="2.2225" y2="0.9525" layer="41"/>
 </package>
 <package name="0207/5V">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
@@ -682,6 +687,8 @@ grid 2.54 mm, diameter 5 mm</description>
 <text x="2.413" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.413" y="-2.413" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
+<rectangle x1="-2.2225" y1="-0.9525" x2="-0.3175" y2="0.9525" layer="41"/>
+<rectangle x1="0.3175" y1="-0.9525" x2="2.2225" y2="0.9525" layer="41"/>
 </package>
 <package name="2-HOLES_BIG">
 <description>2 holes for board 1.2mm drill at 5.08 spacing</description>
@@ -741,8 +748,11 @@ grid 2.54 mm, diameter 5 mm</description>
 <pad name="1" x="0" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
 <pad name="2" x="5" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
 <pad name="3" x="10" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
-<text x="-1.27" y="2.54" size="0.4064" layer="25">&gt;NAME</text>
-<text x="6.35" y="2.54" size="0.4064" layer="27">&gt;VALUE</text>
+<text x="-5.08" y="-1.27" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<text x="15.24" y="-1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.905" y1="-1.905" x2="1.905" y2="1.905" layer="41"/>
+<rectangle x1="3.175" y1="-1.905" x2="6.985" y2="1.905" layer="41"/>
+<rectangle x1="8.255" y1="-1.905" x2="12.065" y2="1.905" layer="41"/>
 </package>
 <package name="LED1210">
 <description>&lt;b&gt;LED SMT1210&lt;/b&gt;</description>
@@ -1743,7 +1753,7 @@ Schottky 100V 30A rectifier</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="3-HOLES">
+<deviceset name="3-HOLES" uservalue="yes">
 <description>&lt;b&gt;TERMINAL 3-PIN&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="3-PINS" x="0" y="0"/>

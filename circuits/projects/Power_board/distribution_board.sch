@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -105,21 +105,6 @@
 <libraries>
 <library name="parts">
 <packages>
-<package name="SCREWTERMINAL-5MM">
-<description>&lt;b&gt;SCREW TERMINAL 5mm&lt;/b&gt;</description>
-<wire x1="-2.5" y1="4.8" x2="7.5" y2="4.8" width="0.2032" layer="21"/>
-<wire x1="7.5" y1="4.8" x2="7.5" y2="-3.4" width="0.2032" layer="21"/>
-<wire x1="7.5" y1="-3.4" x2="7.5" y2="-5.4" width="0.2032" layer="21"/>
-<wire x1="7.5" y1="-5.4" x2="-2.5" y2="-5.4" width="0.2032" layer="21"/>
-<wire x1="-2.5" y1="-5.4" x2="-2.5" y2="-3.4" width="0.2032" layer="21"/>
-<wire x1="-2.5" y1="-3.4" x2="-2.5" y2="4.8" width="0.2032" layer="21"/>
-<wire x1="7.5" y1="-3.4" x2="-2.5" y2="-3.4" width="0.2032" layer="21"/>
-<circle x="2.5" y="3.7" radius="0.2828" width="0.127" layer="51"/>
-<pad name="1" x="0" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
-<pad name="2" x="5" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
-<text x="-3.81" y="-3.81" size="1.016" layer="25" rot="R90">&gt;NAME</text>
-<text x="9.525" y="-3.81" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
-</package>
 <package name="2-HOLES_BIG">
 <description>2 holes for board 1.2mm drill at 5.08 spacing</description>
 <pad name="1" x="-2.54" y="0" drill="1.2" diameter="3" rot="R90"/>
@@ -158,6 +143,8 @@
 <pad name="2" x="3.81" y="0" drill="1.2" diameter="2.5" shape="octagon"/>
 <text x="-2.54" y="-2.54" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 <text x="7.62" y="-2.54" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.27" y1="-1.27" x2="1.27" y2="1.27" layer="41"/>
+<rectangle x1="2.54" y1="-1.27" x2="5.08" y2="1.27" layer="41"/>
 </package>
 <package name="2-HOLES">
 <description>2 holes on board at 2.54mm header pin spacing.</description>
@@ -296,6 +283,8 @@ grid 2.54 mm, diameter 5 mm</description>
 <text x="2.413" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.413" y="-2.413" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
+<rectangle x1="-2.2225" y1="-0.9525" x2="-0.3175" y2="0.9525" layer="41"/>
+<rectangle x1="0.3175" y1="-0.9525" x2="2.2225" y2="0.9525" layer="41"/>
 </package>
 <package name="R0805">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;</description>
@@ -402,6 +391,7 @@ type 0207, grid 2.5 mm</description>
 <pad name="2" x="1.27" y="0" drill="0.6" diameter="1.5"/>
 <text x="-0.0508" y="1.016" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-0.0508" y="-2.2352" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.2225" y1="-0.9525" x2="2.2225" y2="0.9525" layer="41"/>
 </package>
 <package name="0207/5V">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
@@ -464,8 +454,65 @@ type 0207, grid 7.5 mm</description>
 <pad name="1" x="0" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
 <pad name="2" x="5" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
 <pad name="3" x="10" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
-<text x="-1.27" y="2.54" size="0.4064" layer="25">&gt;NAME</text>
-<text x="6.35" y="2.54" size="0.4064" layer="27">&gt;VALUE</text>
+<text x="-5.08" y="-1.27" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<text x="15.24" y="-1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.905" y1="-1.905" x2="1.905" y2="1.905" layer="41"/>
+<rectangle x1="3.175" y1="-1.905" x2="6.985" y2="1.905" layer="41"/>
+<rectangle x1="8.255" y1="-1.905" x2="12.065" y2="1.905" layer="41"/>
+</package>
+<package name="TO220V-HEATSINK">
+<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
+<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
+<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
+<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
+<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
+<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
+<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
+<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
+<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
+<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
+<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
+<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
+<wire x1="9.25" y1="9.555" x2="7.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="-9.25" y1="9.555" x2="-7.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="9.25" y1="2.159" x2="9.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="7.25" y1="2.159" x2="7.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="-7.25" y1="2.159" x2="-7.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="-9.25" y1="2.159" x2="-9.25" y2="9.555" width="0.1524" layer="21"/>
+<wire x1="7" y1="1.905" x2="7.25" y2="2.159" width="0.1524" layer="21" curve="90"/>
+<wire x1="-7.25" y1="2.159" x2="-7" y2="1.905" width="0.1524" layer="21" curve="90"/>
+<wire x1="-9.25" y1="2.159" x2="-7" y2="-0.095" width="0.1524" layer="21" curve="90"/>
+<wire x1="7" y1="-0.095" x2="9.25" y2="2.159" width="0.1524" layer="21" curve="90"/>
+<wire x1="-7" y1="1.905" x2="7" y2="1.905" width="0.1524" layer="21"/>
+<wire x1="-7" y1="-0.095" x2="7" y2="-0.095" width="0.1524" layer="21"/>
+</package>
+<package name="SCREWTERMINAL-5MM-2">
+<description>&lt;b&gt;SCREW TERMINAL 5mm&lt;/b&gt;
+&lt;p&gt;2 holes</description>
+<wire x1="-2.5" y1="4.8" x2="7.5" y2="4.8" width="0.2032" layer="21"/>
+<wire x1="7.5" y1="4.8" x2="7.5" y2="-3.4" width="0.2032" layer="21"/>
+<wire x1="7.5" y1="-3.4" x2="7.5" y2="-5.4" width="0.2032" layer="21"/>
+<wire x1="7.5" y1="-5.4" x2="-2.5" y2="-5.4" width="0.2032" layer="21"/>
+<wire x1="-2.5" y1="-5.4" x2="-2.5" y2="-3.4" width="0.2032" layer="21"/>
+<wire x1="-2.5" y1="-3.4" x2="-2.5" y2="4.8" width="0.2032" layer="21"/>
+<wire x1="7.5" y1="-3.4" x2="-2.5" y2="-3.4" width="0.2032" layer="21"/>
+<circle x="2.5" y="3.7" radius="0.2828" width="0.127" layer="51"/>
+<pad name="1" x="0" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
+<pad name="2" x="5" y="0" drill="1.2" diameter="3.5" shape="octagon"/>
+<text x="-3.81" y="-3.81" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<text x="9.525" y="-3.81" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.905" y1="-1.905" x2="1.905" y2="1.905" layer="41"/>
+<rectangle x1="3.175" y1="-1.905" x2="6.985" y2="1.905" layer="41"/>
 </package>
 </packages>
 <symbols>
@@ -587,7 +634,7 @@ type 0207, grid 7.5 mm</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="SC5MM" package="SCREWTERMINAL-5MM">
+<device name="SC5MM" package="SCREWTERMINAL-5MM-2">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -769,6 +816,16 @@ type 0207, grid 7.5 mm</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="-SINK" package="TO220V-HEATSINK">
+<connects>
+<connect gate="G$1" pin="ADJ" pad="1"/>
+<connect gate="G$1" pin="IN" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="LM1085IT" prefix="IC" uservalue="yes">
@@ -798,9 +855,19 @@ type 0207, grid 7.5 mm</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="-SINK" package="TO220V-HEATSINK">
+<connects>
+<connect gate="A" pin="GND" pad="1"/>
+<connect gate="A" pin="IN" pad="3"/>
+<connect gate="A" pin="OUT" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
-<deviceset name="3-HOLES">
+<deviceset name="3-HOLES" uservalue="yes">
 <description>&lt;b&gt;TERMINAL 3-PIN&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="3-PINS" x="0" y="0"/>
@@ -828,6 +895,12 @@ type 0207, grid 7.5 mm</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="ground" width="0.8128" drill="0">
+<clearance class="1" value="0.508"/>
+</class>
+<class number="2" name="power" width="0.6096" drill="0">
+<clearance class="2" value="0.508"/>
+</class>
 </classes>
 <parts>
 <part name="GND2" library="parts" deviceset="GND" device=""/>
@@ -835,10 +908,7 @@ type 0207, grid 7.5 mm</description>
 <part name="VR-5-2" library="parts" deviceset="L7805ACD2T-TR" device="" value="L7805"/>
 <part name="VR-5-3" library="parts" deviceset="L7805ACD2T-TR" device="" value="L7805"/>
 <part name="VR-5-4" library="parts" deviceset="L7805ACD2T-TR" device="" value="L7805"/>
-<part name="C3" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="C4" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="C5" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="C6" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
+<part name="C_5V" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="5V_1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="5V_2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="5V_3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
@@ -847,63 +917,57 @@ type 0207, grid 7.5 mm</description>
 <part name="C8" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C9" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C10" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C11" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="C12" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
+<part name="C_ACT" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="12V_AM1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="12V_AM2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="C13" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C14" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="VR-S1" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S1" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C15" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C16" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
+<part name="C_SERVO1" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R5" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R6" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-S2" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S2" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C17" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C18" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R7" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R8" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-S3" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S3" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C19" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C20" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R9" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R10" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-S4" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S4" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C21" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C22" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R11" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R12" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO4" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-S5" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S5" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C23" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C24" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R13" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R14" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO5" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-S6" library="parts" deviceset="LM338T" device="-V"/>
+<part name="VR-S6" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C25" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C26" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R15" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R16" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
 <part name="12V_SERVO6" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="VR-12-2" library="parts" deviceset="L7812CD2T-TR" device="TO-263" value="L7812"/>
 <part name="VR-12-1" library="parts" deviceset="L7812CD2T-TR" device="TO-263" value="l7812"/>
-<part name="C27" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="C28" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="C29" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
+<part name="C_12V" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="C30" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="12V_REG-1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="12V_REG-2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="VR-A-1" library="parts" deviceset="LM1085IT" device="-V" value="LM1085-12V"/>
-<part name="VR-A-2" library="parts" deviceset="LM1085IT" device="-V" value="LM1085-12V"/>
+<part name="VR-A-1" library="parts" deviceset="LM1085IT" device="-SINK" value="LM1085-12V"/>
+<part name="VR-A-2" library="parts" deviceset="LM1085IT" device="-SINK" value="LM1085-12V"/>
 <part name="12V-1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="12V-2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="12V-3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
 <part name="INPUT" library="parts" deviceset="3-HOLES" device=""/>
 <part name="OUTPUT" library="parts" deviceset="3-HOLES" device=""/>
+<part name="C_SERVO2" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -939,10 +1003,7 @@ Servo Motor Power</text>
 <instance part="VR-5-2" gate="G$1" x="312.42" y="138.43"/>
 <instance part="VR-5-3" gate="G$1" x="312.42" y="118.11"/>
 <instance part="VR-5-4" gate="G$1" x="312.42" y="97.79"/>
-<instance part="C3" gate="G$1" x="294.64" y="153.67"/>
-<instance part="C4" gate="G$1" x="294.64" y="133.35"/>
-<instance part="C5" gate="G$1" x="294.64" y="113.03"/>
-<instance part="C6" gate="G$1" x="294.64" y="92.71"/>
+<instance part="C_5V" gate="G$1" x="274.32" y="172.72" rot="R270"/>
 <instance part="5V_1" gate="G$1" x="368.3" y="158.75" rot="MR0"/>
 <instance part="5V_2" gate="G$1" x="368.3" y="138.43" rot="MR0"/>
 <instance part="5V_3" gate="G$1" x="368.3" y="118.11" rot="MR0"/>
@@ -951,53 +1012,46 @@ Servo Motor Power</text>
 <instance part="C8" gate="G$1" x="337.82" y="133.35"/>
 <instance part="C9" gate="G$1" x="337.82" y="113.03"/>
 <instance part="C10" gate="G$1" x="337.82" y="92.71"/>
-<instance part="C11" gate="G$1" x="215.9" y="148.59" rot="R180"/>
-<instance part="C12" gate="G$1" x="215.9" y="128.27" rot="R180"/>
+<instance part="C_ACT" gate="G$1" x="232.41" y="148.59" rot="R90"/>
 <instance part="12V_AM1" gate="G$1" x="152.4" y="140.97" rot="MR180"/>
 <instance part="12V_AM2" gate="G$1" x="152.4" y="120.65" rot="MR180"/>
 <instance part="C13" gate="G$1" x="180.34" y="148.59" rot="R180"/>
 <instance part="C14" gate="G$1" x="180.34" y="128.27" rot="R180"/>
 <instance part="VR-S1" gate="G$1" x="59.69" y="63.5" rot="R270"/>
 <instance part="C15" gate="G$1" x="52.07" y="38.1" rot="R270"/>
-<instance part="C16" gate="G$1" x="49.53" y="80.01" rot="R270"/>
+<instance part="C_SERVO1" gate="G$1" x="233.68" y="96.52" rot="R180"/>
 <instance part="R5" gate="G$1" x="55.88" y="50.8" rot="R180"/>
 <instance part="R6" gate="G$1" x="44.45" y="63.5" rot="R180"/>
 <instance part="12V_SERVO1" gate="G$1" x="60.96" y="12.7" rot="MR90"/>
 <instance part="VR-S2" gate="G$1" x="95.25" y="63.5" rot="R270"/>
 <instance part="C17" gate="G$1" x="87.63" y="38.1" rot="R270"/>
-<instance part="C18" gate="G$1" x="85.09" y="80.01" rot="R270"/>
 <instance part="R7" gate="G$1" x="91.44" y="50.8" rot="R180"/>
 <instance part="R8" gate="G$1" x="80.01" y="63.5" rot="R180"/>
 <instance part="12V_SERVO2" gate="G$1" x="96.52" y="12.7" rot="MR90"/>
 <instance part="VR-S3" gate="G$1" x="130.81" y="63.5" rot="R270"/>
 <instance part="C19" gate="G$1" x="123.19" y="38.1" rot="R270"/>
-<instance part="C20" gate="G$1" x="120.65" y="80.01" rot="R270"/>
 <instance part="R9" gate="G$1" x="127" y="50.8" rot="R180"/>
 <instance part="R10" gate="G$1" x="115.57" y="63.5" rot="R180"/>
 <instance part="12V_SERVO3" gate="G$1" x="132.08" y="12.7" rot="MR90"/>
 <instance part="VR-S4" gate="G$1" x="166.37" y="63.5" rot="R270"/>
 <instance part="C21" gate="G$1" x="158.75" y="38.1" rot="R270"/>
-<instance part="C22" gate="G$1" x="156.21" y="80.01" rot="R270"/>
 <instance part="R11" gate="G$1" x="162.56" y="50.8" rot="R180"/>
 <instance part="R12" gate="G$1" x="151.13" y="63.5" rot="R180"/>
 <instance part="12V_SERVO4" gate="G$1" x="167.64" y="12.7" rot="MR90"/>
 <instance part="VR-S5" gate="G$1" x="201.93" y="63.5" rot="R270"/>
 <instance part="C23" gate="G$1" x="194.31" y="38.1" rot="R270"/>
-<instance part="C24" gate="G$1" x="191.77" y="80.01" rot="R270"/>
 <instance part="R13" gate="G$1" x="198.12" y="50.8" rot="R180"/>
 <instance part="R14" gate="G$1" x="186.69" y="63.5" rot="R180"/>
 <instance part="12V_SERVO5" gate="G$1" x="203.2" y="12.7" rot="MR90"/>
 <instance part="VR-S6" gate="G$1" x="237.49" y="63.5" rot="R270"/>
 <instance part="C25" gate="G$1" x="229.87" y="38.1" rot="R270"/>
-<instance part="C26" gate="G$1" x="227.33" y="80.01" rot="R270"/>
 <instance part="R15" gate="G$1" x="233.68" y="50.8" rot="R180"/>
 <instance part="R16" gate="G$1" x="222.25" y="63.5" rot="R180"/>
 <instance part="12V_SERVO6" gate="G$1" x="238.76" y="12.7" rot="MR90"/>
 <instance part="VR-12-2" gate="1" x="85.09" y="116.84" rot="R180"/>
 <instance part="VR-12-1" gate="1" x="85.09" y="142.24" rot="R180"/>
-<instance part="C27" gate="G$1" x="107.95" y="120.65" rot="R180"/>
 <instance part="C28" gate="G$1" x="63.5" y="120.65" rot="R180"/>
-<instance part="C29" gate="G$1" x="107.95" y="146.05" rot="R180"/>
+<instance part="C_12V" gate="G$1" x="133.35" y="142.24" rot="R180"/>
 <instance part="C30" gate="G$1" x="63.5" y="146.05" rot="R180"/>
 <instance part="12V_REG-1" gate="G$1" x="38.1" y="116.84" rot="MR180"/>
 <instance part="12V_REG-2" gate="G$1" x="38.1" y="142.24" rot="MR180"/>
@@ -1008,43 +1062,37 @@ Servo Motor Power</text>
 <instance part="12V-3" gate="G$1" x="327.66" y="39.37" rot="R90"/>
 <instance part="INPUT" gate="G$1" x="259.08" y="214.63" rot="R270"/>
 <instance part="OUTPUT" gate="G$1" x="307.34" y="214.63" rot="R270"/>
+<instance part="C_SERVO2" gate="G$1" x="137.16" y="96.52" rot="R180"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="GND" class="1">
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="259.08" y1="77.47" x2="259.08" y2="85.09" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="85.09" x2="259.08" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="105.41" x2="259.08" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="125.73" x2="259.08" y2="135.89" width="0.1524" layer="91"/>
-<wire x1="259.08" y1="135.89" x2="259.08" y2="148.59" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="135.89" x2="259.08" y2="146.05" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="146.05" x2="259.08" y2="148.59" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="148.59" x2="259.08" y2="156.21" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="156.21" x2="259.08" y2="168.824459375" width="0.1524" layer="91"/>
-<wire x1="259.08" y1="168.91" x2="115.57" y2="168.91" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="168.91" x2="133.35" y2="168.91" width="0.1524" layer="91"/>
 <pinref part="VR-5-2" gate="G$1" pin="GND"/>
+<wire x1="133.35" y1="168.91" x2="115.57" y2="168.91" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="130.81" x2="307.34" y2="125.73" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="125.73" x2="294.64" y2="125.73" width="0.1524" layer="91"/>
 <junction x="259.08" y="125.73"/>
 <pinref part="VR-5-3" gate="G$1" pin="GND"/>
-<wire x1="294.64" y1="125.73" x2="259.08" y2="125.73" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="125.73" x2="259.08" y2="125.73" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="110.49" x2="307.34" y2="105.41" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="105.41" x2="294.64" y2="105.41" width="0.1524" layer="91"/>
 <junction x="259.08" y="105.41"/>
 <pinref part="VR-5-4" gate="G$1" pin="GND"/>
-<wire x1="294.64" y1="105.41" x2="259.08" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="105.41" x2="259.08" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="90.17" x2="307.34" y2="85.09" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="85.09" x2="294.64" y2="85.09" width="0.1524" layer="91"/>
 <junction x="259.08" y="85.09"/>
-<wire x1="294.64" y1="85.09" x2="276.86" y2="85.09" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="-"/>
+<wire x1="307.34" y1="85.09" x2="276.86" y2="85.09" width="0.1524" layer="91"/>
 <wire x1="276.86" y1="85.09" x2="259.08" y2="85.09" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="128.27" x2="294.64" y2="125.73" width="0.1524" layer="91"/>
-<junction x="294.64" y="125.73"/>
-<pinref part="C5" gate="G$1" pin="-"/>
-<wire x1="294.64" y1="107.95" x2="294.64" y2="105.41" width="0.1524" layer="91"/>
-<junction x="294.64" y="105.41"/>
 <pinref part="C8" gate="G$1" pin="-"/>
 <wire x1="307.34" y1="125.73" x2="335.28" y2="125.73" width="0.1524" layer="91"/>
 <wire x1="335.28" y1="125.73" x2="337.82" y2="128.27" width="0.1524" layer="91"/>
@@ -1071,18 +1119,10 @@ Servo Motor Power</text>
 <junction x="335.28" y="85.09"/>
 <wire x1="195.58" y1="148.59" x2="203.2" y2="156.21" width="0.1524" layer="91"/>
 <junction x="259.08" y="156.21"/>
-<wire x1="203.2" y1="156.21" x2="215.9" y2="156.21" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="156.21" x2="259.08" y2="156.21" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="156.21" x2="259.08" y2="156.21" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="128.27" x2="203.2" y2="135.89" width="0.1524" layer="91"/>
 <junction x="259.08" y="135.89"/>
-<pinref part="C12" gate="G$1" pin="-"/>
-<wire x1="203.2" y1="135.89" x2="215.9" y2="135.89" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="135.89" x2="259.08" y2="135.89" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="133.35" x2="215.9" y2="135.89" width="0.1524" layer="91"/>
-<junction x="215.9" y="135.89"/>
-<pinref part="C11" gate="G$1" pin="-"/>
-<wire x1="215.9" y1="153.67" x2="215.9" y2="156.21" width="0.1524" layer="91"/>
-<junction x="215.9" y="156.21"/>
+<wire x1="203.2" y1="135.89" x2="259.08" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="135.89" x2="180.34" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="135.89" x2="203.2" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="156.21" x2="180.34" y2="156.21" width="0.1524" layer="91"/>
@@ -1097,30 +1137,13 @@ Servo Motor Power</text>
 <wire x1="160.02" y1="143.51" x2="172.72" y2="156.21" width="0.1524" layer="91"/>
 <pinref part="12V_AM2" gate="G$1" pin="1"/>
 <wire x1="160.02" y1="123.19" x2="172.72" y2="135.89" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="-"/>
-<wire x1="294.64" y1="87.63" x2="294.64" y2="85.09" width="0.1524" layer="91"/>
-<junction x="294.64" y="85.09"/>
-<pinref part="5V_1" gate="G$1" pin="1"/>
-<wire x1="350.52" y1="146.05" x2="360.68" y2="156.21" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="-"/>
-<pinref part="C3" gate="G$1" pin="-"/>
-<wire x1="294.64" y1="148.59" x2="294.64" y2="146.05" width="0.1524" layer="91"/>
-<pinref part="VR-5-1" gate="G$1" pin="GND"/>
-<wire x1="312.42" y1="151.13" x2="307.34" y2="146.05" width="0.1524" layer="91"/>
-<wire x1="307.34" y1="146.05" x2="294.64" y2="146.05" width="0.1524" layer="91"/>
-<junction x="307.34" y="146.05"/>
-<wire x1="307.34" y1="146.05" x2="335.28" y2="146.05" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="146.05" x2="337.82" y2="148.59" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="146.05" x2="350.52" y2="146.05" width="0.1524" layer="91"/>
-<junction x="335.28" y="146.05"/>
-<wire x1="294.64" y1="148.59" x2="259.08" y2="148.59" width="0.1524" layer="91"/>
-<junction x="294.64" y="148.59"/>
 <junction x="259.08" y="148.59"/>
-<wire x1="259.08" y1="105.41" x2="214.63" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="105.41" x2="233.68" y2="105.41" width="0.1524" layer="91"/>
 <pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="233.68" y1="105.41" x2="214.63" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="179.07" y1="63.5" x2="181.61" y2="63.5" width="0.1524" layer="91"/>
 <junction x="179.07" y="63.5"/>
-<wire x1="72.39" y1="80.01" x2="72.39" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="72.39" y1="63.5" x2="72.39" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="107.95" y1="105.41" x2="72.39" y2="105.41" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="107.95" y1="63.5" x2="110.49" y2="63.5" width="0.1524" layer="91"/>
@@ -1132,14 +1155,11 @@ Servo Motor Power</text>
 <wire x1="120.65" y1="20.32" x2="107.95" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="107.95" y1="33.02" x2="107.95" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="107.95" y1="38.1" x2="107.95" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="107.95" y1="80.01" x2="107.95" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="C20" gate="G$1" pin="-"/>
-<wire x1="115.57" y1="80.01" x2="107.95" y2="80.01" width="0.1524" layer="91"/>
-<junction x="107.95" y="80.01"/>
-<wire x1="107.95" y1="80.01" x2="107.95" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="107.95" y1="63.5" x2="107.95" y2="105.41" width="0.1524" layer="91"/>
 <junction x="107.95" y="105.41"/>
-<wire x1="142.24" y1="105.41" x2="107.95" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="105.41" x2="137.16" y2="105.41" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="105.41" x2="107.95" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="143.51" y1="63.5" x2="146.05" y2="63.5" width="0.1524" layer="91"/>
 <junction x="143.51" y="63.5"/>
 <pinref part="C21" gate="G$1" pin="-"/>
@@ -1150,21 +1170,14 @@ Servo Motor Power</text>
 <wire x1="143.51" y1="33.02" x2="143.51" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="143.51" y1="38.1" x2="143.51" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="143.51" y1="80.01" x2="143.51" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="C22" gate="G$1" pin="-"/>
-<wire x1="151.13" y1="80.01" x2="143.51" y2="80.01" width="0.1524" layer="91"/>
-<junction x="143.51" y="80.01"/>
 <wire x1="143.51" y1="80.01" x2="142.24" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="81.28" x2="142.24" y2="105.41" width="0.1524" layer="91"/>
 <junction x="142.24" y="105.41"/>
-<wire x1="214.63" y1="80.01" x2="214.63" y2="105.41" width="0.1524" layer="91"/>
+<wire x1="214.63" y1="63.5" x2="214.63" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="214.63" y1="105.41" x2="179.07" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="179.07" y1="105.41" x2="142.24" y2="105.41" width="0.1524" layer="91"/>
 <junction x="179.07" y="105.41"/>
-<pinref part="C24" gate="G$1" pin="-"/>
-<wire x1="186.69" y1="80.01" x2="179.07" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="179.07" y1="80.01" x2="179.07" y2="105.41" width="0.1524" layer="91"/>
-<junction x="179.07" y="80.01"/>
-<wire x1="179.07" y1="80.01" x2="179.07" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="179.07" y1="63.5" x2="179.07" y2="105.41" width="0.1524" layer="91"/>
 <pinref part="C23" gate="G$1" pin="-"/>
 <wire x1="189.23" y1="38.1" x2="179.07" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="12V_SERVO5" gate="G$1" pin="1"/>
@@ -1176,8 +1189,6 @@ Servo Motor Power</text>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="36.83" y1="63.5" x2="39.37" y2="63.5" width="0.1524" layer="91"/>
 <junction x="36.83" y="63.5"/>
-<pinref part="C16" gate="G$1" pin="-"/>
-<wire x1="44.45" y1="80.01" x2="36.83" y2="80.01" width="0.1524" layer="91"/>
 <wire x1="36.83" y1="80.01" x2="36.83" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="C15" gate="G$1" pin="-"/>
 <wire x1="46.99" y1="38.1" x2="36.83" y2="38.1" width="0.1524" layer="91"/>
@@ -1188,10 +1199,8 @@ Servo Motor Power</text>
 <wire x1="36.83" y1="33.02" x2="36.83" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="36.83" y1="80.01" x2="62.23" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="62.23" y1="105.41" x2="72.39" y2="105.41" width="0.1524" layer="91"/>
-<junction x="36.83" y="80.01"/>
 <junction x="72.39" y="105.41"/>
 <wire x1="111.76" y1="165.1" x2="115.57" y2="168.91" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="127" x2="63.5" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="128.27" x2="66.04" y2="130.81" width="0.1524" layer="91"/>
 <junction x="66.04" y="130.81"/>
 <pinref part="12V_REG-1" gate="G$1" pin="1"/>
@@ -1202,18 +1211,10 @@ Servo Motor Power</text>
 <wire x1="85.09" y1="124.46" x2="85.09" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="85.09" y1="128.27" x2="87.63" y2="130.81" width="0.1524" layer="91"/>
 <junction x="87.63" y="130.81"/>
-<wire x1="87.63" y1="130.81" x2="110.49" y2="130.81" width="0.1524" layer="91"/>
-<wire x1="110.49" y1="130.81" x2="111.76" y2="130.81" width="0.1524" layer="91"/>
+<wire x1="87.63" y1="130.81" x2="111.76" y2="130.81" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="165.1" x2="111.76" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="C27" gate="G$1" pin="-"/>
 <wire x1="111.76" y1="157.48" x2="111.76" y2="130.81" width="0.1524" layer="91"/>
-<wire x1="107.95" y1="125.73" x2="107.95" y2="128.27" width="0.1524" layer="91"/>
-<wire x1="107.95" y1="128.27" x2="110.49" y2="130.81" width="0.1524" layer="91"/>
-<junction x="110.49" y="130.81"/>
-<pinref part="C29" gate="G$1" pin="-"/>
-<wire x1="107.95" y1="151.13" x2="107.95" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="107.95" y1="154.94" x2="110.49" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="87.63" y1="157.48" x2="110.49" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="87.63" y1="157.48" x2="111.76" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="VR-12-1" gate="1" pin="GND"/>
 <wire x1="85.09" y1="149.86" x2="85.09" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="85.09" y1="154.94" x2="87.63" y2="157.48" width="0.1524" layer="91"/>
@@ -1226,8 +1227,6 @@ Servo Motor Power</text>
 <pinref part="12V_REG-2" gate="G$1" pin="1"/>
 <wire x1="45.72" y1="144.78" x2="58.42" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="157.48" x2="66.04" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="110.49" y1="157.48" x2="111.76" y2="157.48" width="0.1524" layer="91"/>
-<junction x="110.49" y="157.48"/>
 <junction x="111.76" y="157.48"/>
 <pinref part="VR-A-1" gate="A" pin="GND"/>
 <pinref part="VR-A-2" gate="A" pin="GND"/>
@@ -1253,10 +1252,9 @@ Servo Motor Power</text>
 <pinref part="INPUT" gate="G$1" pin="2"/>
 <wire x1="259.08" y1="207.01" x2="259.08" y2="184.15" width="0.1524" layer="91"/>
 <junction x="259.08" y="168.91"/>
-<pinref part="C18" gate="G$1" pin="-"/>
-<wire x1="259.08" y1="184.15" x2="259.08" y2="168.91" width="0.1524" layer="91"/>
-<wire x1="80.01" y1="80.01" x2="72.39" y2="80.01" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="184.15" x2="259.08" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="259.08" y1="172.72" x2="259.08" y2="168.91" width="0.1524" layer="91"/>
 <wire x1="72.39" y1="63.5" x2="74.93" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="72.39" y1="38.1" x2="72.39" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="12V_SERVO2" gate="G$1" pin="1"/>
@@ -1265,11 +1263,7 @@ Servo Motor Power</text>
 <wire x1="72.39" y1="33.02" x2="72.39" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="C17" gate="G$1" pin="-"/>
 <wire x1="82.55" y1="38.1" x2="72.39" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="72.39" y1="80.01" x2="72.39" y2="63.5" width="0.1524" layer="91"/>
-<junction x="72.39" y="80.01"/>
 <junction x="72.39" y="63.5"/>
-<pinref part="C26" gate="G$1" pin="-"/>
-<wire x1="222.25" y1="80.01" x2="214.63" y2="80.01" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="214.63" y1="63.5" x2="217.17" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="C25" gate="G$1" pin="-"/>
@@ -1279,9 +1273,7 @@ Servo Motor Power</text>
 <wire x1="227.33" y1="20.32" x2="214.63" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="214.63" y1="33.02" x2="214.63" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="214.63" y1="38.1" x2="214.63" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="214.63" y1="63.5" x2="214.63" y2="80.01" width="0.1524" layer="91"/>
 <junction x="214.63" y="63.5"/>
-<junction x="214.63" y="80.01"/>
 <pinref part="OUTPUT" gate="G$1" pin="2"/>
 <wire x1="307.34" y1="207.01" x2="307.34" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="193.04" x2="297.18" y2="184.15" width="0.1524" layer="91"/>
@@ -1289,30 +1281,70 @@ Servo Motor Power</text>
 <junction x="259.08" y="184.15"/>
 <label x="307.34" y="198.12" size="1.778" layer="95" rot="R90"/>
 <label x="259.08" y="196.85" size="1.778" layer="95" rot="R90"/>
+<pinref part="C_SERVO1" gate="G$1" pin="-"/>
+<wire x1="233.68" y1="101.6" x2="233.68" y2="105.41" width="0.1524" layer="91"/>
+<junction x="233.68" y="105.41"/>
+<pinref part="C_ACT" gate="G$1" pin="-"/>
+<wire x1="237.49" y1="148.59" x2="259.08" y2="148.59" width="0.1524" layer="91"/>
+<pinref part="5V_1" gate="G$1" pin="1"/>
+<pinref part="C7" gate="G$1" pin="-"/>
+<pinref part="VR-5-1" gate="G$1" pin="GND"/>
+<wire x1="312.42" y1="151.13" x2="307.34" y2="146.05" width="0.1524" layer="91"/>
+<junction x="307.34" y="146.05"/>
+<wire x1="307.34" y1="146.05" x2="335.28" y2="146.05" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="146.05" x2="337.82" y2="148.59" width="0.1524" layer="91"/>
+<junction x="335.28" y="146.05"/>
+<wire x1="335.28" y1="146.05" x2="350.52" y2="146.05" width="0.1524" layer="91"/>
+<wire x1="350.52" y1="146.05" x2="360.68" y2="156.21" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="146.05" x2="259.08" y2="146.05" width="0.1524" layer="91"/>
+<junction x="259.08" y="146.05"/>
+<pinref part="C_5V" gate="G$1" pin="-"/>
+<wire x1="269.24" y1="172.72" x2="259.08" y2="172.72" width="0.1524" layer="91"/>
+<junction x="259.08" y="172.72"/>
+<pinref part="C_12V" gate="G$1" pin="-"/>
+<wire x1="133.35" y1="147.32" x2="133.35" y2="168.91" width="0.1524" layer="91"/>
+<junction x="133.35" y="168.91"/>
+<pinref part="C28" gate="G$1" pin="-"/>
+<wire x1="63.5" y1="125.73" x2="63.5" y2="128.27" width="0.1524" layer="91"/>
+<pinref part="C_SERVO2" gate="G$1" pin="-"/>
+<wire x1="137.16" y1="101.6" x2="137.16" y2="105.41" width="0.1524" layer="91"/>
+<junction x="137.16" y="105.41"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="N$7" class="2">
 <segment>
 <pinref part="5V_1" gate="G$1" pin="2"/>
 <pinref part="VR-5-1" gate="G$1" pin="OUT"/>
-<wire x1="360.68" y1="158.75" x2="320.04" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="158.75" x2="337.82" y2="158.75" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="+"/>
+<wire x1="337.82" y1="158.75" x2="320.04" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="156.21" x2="337.82" y2="158.75" width="0.1524" layer="91"/>
+<junction x="337.82" y="158.75"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="N$13" class="2">
 <segment>
 <pinref part="5V_2" gate="G$1" pin="2"/>
 <pinref part="VR-5-2" gate="G$1" pin="OUT"/>
-<wire x1="360.68" y1="138.43" x2="320.04" y2="138.43" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="138.43" x2="337.82" y2="138.43" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="+"/>
+<wire x1="337.82" y1="138.43" x2="320.04" y2="138.43" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="135.89" x2="337.82" y2="138.43" width="0.1524" layer="91"/>
+<junction x="337.82" y="138.43"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="N$14" class="2">
 <segment>
 <pinref part="5V_3" gate="G$1" pin="2"/>
 <pinref part="VR-5-3" gate="G$1" pin="OUT"/>
-<wire x1="360.68" y1="118.11" x2="320.04" y2="118.11" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="118.11" x2="337.82" y2="118.11" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="+"/>
+<wire x1="337.82" y1="118.11" x2="320.04" y2="118.11" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="115.57" x2="337.82" y2="118.11" width="0.1524" layer="91"/>
+<junction x="337.82" y="118.11"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="N$15" class="2">
 <segment>
 <pinref part="5V_4" gate="G$1" pin="2"/>
 <pinref part="VR-5-4" gate="G$1" pin="OUT"/>
@@ -1323,7 +1355,7 @@ Servo Motor Power</text>
 <junction x="337.82" y="97.79"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="N$18" class="2">
 <segment>
 <wire x1="187.96" y1="120.65" x2="180.34" y2="120.65" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="+"/>
@@ -1334,7 +1366,7 @@ Servo Motor Power</text>
 <pinref part="VR-A-2" gate="A" pin="OUT"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="N$23" class="2">
 <segment>
 <pinref part="VR-S1" gate="G$1" pin="OUT"/>
 <wire x1="60.96" y1="55.88" x2="60.96" y2="50.8" width="0.1524" layer="91"/>
@@ -1362,11 +1394,15 @@ Servo Motor Power</text>
 <net name="N$17" class="0">
 <segment>
 <pinref part="12V_AM1" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="140.97" x2="160.02" y2="140.97" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="140.97" x2="180.34" y2="140.97" width="0.1524" layer="91"/>
 <pinref part="VR-A-1" gate="A" pin="OUT"/>
+<pinref part="C13" gate="G$1" pin="+"/>
+<wire x1="180.34" y1="140.97" x2="160.02" y2="140.97" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="146.05" x2="180.34" y2="140.97" width="0.1524" layer="91"/>
+<junction x="180.34" y="140.97"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="N$25" class="2">
 <segment>
 <pinref part="VR-S2" gate="G$1" pin="OUT"/>
 <wire x1="96.52" y1="55.88" x2="96.52" y2="50.8" width="0.1524" layer="91"/>
@@ -1391,7 +1427,7 @@ Servo Motor Power</text>
 <junction x="85.09" y="63.5"/>
 </segment>
 </net>
-<net name="N$28" class="0">
+<net name="N$28" class="2">
 <segment>
 <pinref part="VR-S3" gate="G$1" pin="OUT"/>
 <wire x1="132.08" y1="55.88" x2="132.08" y2="50.8" width="0.1524" layer="91"/>
@@ -1416,7 +1452,7 @@ Servo Motor Power</text>
 <junction x="120.65" y="63.5"/>
 </segment>
 </net>
-<net name="N$31" class="0">
+<net name="N$31" class="2">
 <segment>
 <pinref part="VR-S4" gate="G$1" pin="OUT"/>
 <wire x1="167.64" y1="55.88" x2="167.64" y2="50.8" width="0.1524" layer="91"/>
@@ -1441,7 +1477,7 @@ Servo Motor Power</text>
 <junction x="156.21" y="63.5"/>
 </segment>
 </net>
-<net name="N$34" class="0">
+<net name="N$34" class="2">
 <segment>
 <pinref part="VR-S5" gate="G$1" pin="OUT"/>
 <wire x1="203.2" y1="55.88" x2="203.2" y2="50.8" width="0.1524" layer="91"/>
@@ -1466,7 +1502,7 @@ Servo Motor Power</text>
 <junction x="191.77" y="63.5"/>
 </segment>
 </net>
-<net name="N$37" class="0">
+<net name="N$37" class="2">
 <segment>
 <pinref part="VR-S6" gate="G$1" pin="OUT"/>
 <wire x1="238.76" y1="55.88" x2="238.76" y2="50.8" width="0.1524" layer="91"/>
@@ -1491,110 +1527,89 @@ Servo Motor Power</text>
 <junction x="227.33" y="63.5"/>
 </segment>
 </net>
-<net name="24V" class="0">
+<net name="24V" class="2">
 <segment>
-<wire x1="223.52" y1="194.31" x2="223.52" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="190.5" x2="223.52" y2="143.51" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="143.51" x2="223.52" y2="123.19" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="140.97" x2="220.98" y2="140.97" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="140.97" x2="223.52" y2="143.51" width="0.1524" layer="91"/>
-<junction x="223.52" y="143.51"/>
-<wire x1="203.2" y1="120.65" x2="215.9" y2="120.65" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="120.65" x2="220.98" y2="120.65" width="0.1524" layer="91"/>
-<wire x1="220.98" y1="120.65" x2="223.52" y2="123.19" width="0.1524" layer="91"/>
-<pinref part="C12" gate="G$1" pin="+"/>
-<wire x1="215.9" y1="125.73" x2="215.9" y2="120.65" width="0.1524" layer="91"/>
-<junction x="215.9" y="120.65"/>
-<wire x1="223.52" y1="123.19" x2="223.52" y2="114.3" width="0.1524" layer="91"/>
-<junction x="223.52" y="123.19"/>
-<pinref part="VR-S6" gate="G$1" pin="IN"/>
-<wire x1="223.52" y1="114.3" x2="223.52" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="71.12" x2="238.76" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="80.01" x2="238.76" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="238.76" y1="87.63" x2="236.22" y2="90.17" width="0.1524" layer="91"/>
-<pinref part="C26" gate="G$1" pin="+"/>
-<wire x1="229.87" y1="80.01" x2="238.76" y2="80.01" width="0.1524" layer="91"/>
-<junction x="238.76" y="80.01"/>
-<wire x1="223.52" y1="90.17" x2="236.22" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="90.17" x2="200.66" y2="90.17" width="0.1524" layer="91"/>
-<junction x="223.52" y="90.17"/>
-<pinref part="VR-S1" gate="G$1" pin="IN"/>
-<wire x1="200.66" y1="90.17" x2="165.1" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="90.17" x2="129.54" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="90.17" x2="93.98" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="90.17" x2="63.5" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="71.12" x2="60.96" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C16" gate="G$1" pin="+"/>
-<wire x1="52.07" y1="80.01" x2="60.96" y2="80.01" width="0.1524" layer="91"/>
-<junction x="60.96" y="80.01"/>
-<wire x1="60.96" y1="80.01" x2="60.96" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="90.17" x2="60.96" y2="87.63" width="0.1524" layer="91"/>
-<pinref part="VR-A-1" gate="A" pin="IN"/>
-<pinref part="VR-A-2" gate="A" pin="IN"/>
-<pinref part="INPUT" gate="G$1" pin="1"/>
-<wire x1="256.54" y1="207.01" x2="256.54" y2="194.31" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="194.31" x2="255.27" y2="194.31" width="0.1524" layer="91"/>
-<wire x1="255.27" y1="194.31" x2="223.52" y2="194.31" width="0.1524" layer="91"/>
 <pinref part="VR-12-2" gate="1" pin="IN"/>
-<wire x1="107.95" y1="116.84" x2="92.71" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="C27" gate="G$1" pin="+"/>
-<wire x1="107.95" y1="118.11" x2="107.95" y2="116.84" width="0.1524" layer="91"/>
-<junction x="107.95" y="116.84"/>
-<wire x1="119.38" y1="116.84" x2="107.95" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="116.84" x2="92.71" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="116.84" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="VR-12-1" gate="1" pin="IN"/>
-<wire x1="92.71" y1="142.24" x2="107.95" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="C29" gate="G$1" pin="+"/>
-<wire x1="107.95" y1="143.51" x2="107.95" y2="142.24" width="0.1524" layer="91"/>
-<junction x="107.95" y="142.24"/>
-<wire x1="107.95" y1="142.24" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="92.71" y1="142.24" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="142.24" x2="121.92" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="139.7" x2="121.92" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="114.3" x2="223.52" y2="114.3" width="0.1524" layer="91"/>
 <junction x="121.92" y="114.3"/>
-<junction x="223.52" y="114.3"/>
-<pinref part="VR-S5" gate="G$1" pin="IN"/>
-<wire x1="203.2" y1="71.12" x2="203.2" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C24" gate="G$1" pin="+"/>
-<wire x1="194.31" y1="80.01" x2="203.2" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="80.01" x2="203.2" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="87.63" x2="200.66" y2="90.17" width="0.1524" layer="91"/>
-<junction x="203.2" y="80.01"/>
-<junction x="200.66" y="90.17"/>
-<pinref part="VR-S4" gate="G$1" pin="IN"/>
-<wire x1="167.64" y1="71.12" x2="167.64" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C22" gate="G$1" pin="+"/>
-<wire x1="158.75" y1="80.01" x2="167.64" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="80.01" x2="167.64" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="87.63" x2="165.1" y2="90.17" width="0.1524" layer="91"/>
-<junction x="167.64" y="80.01"/>
-<junction x="165.1" y="90.17"/>
-<pinref part="VR-S3" gate="G$1" pin="IN"/>
-<wire x1="132.08" y1="71.12" x2="132.08" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C20" gate="G$1" pin="+"/>
-<wire x1="123.19" y1="80.01" x2="132.08" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="80.01" x2="132.08" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="87.63" x2="129.54" y2="90.17" width="0.1524" layer="91"/>
-<junction x="132.08" y="80.01"/>
-<junction x="129.54" y="90.17"/>
-<pinref part="VR-S2" gate="G$1" pin="IN"/>
-<wire x1="96.52" y1="71.12" x2="96.52" y2="80.01" width="0.1524" layer="91"/>
-<pinref part="C18" gate="G$1" pin="+"/>
-<wire x1="87.63" y1="80.01" x2="96.52" y2="80.01" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="80.01" x2="96.52" y2="87.63" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="87.63" x2="93.98" y2="90.17" width="0.1524" layer="91"/>
-<junction x="96.52" y="80.01"/>
-<junction x="93.98" y="90.17"/>
+<wire x1="121.92" y1="114.3" x2="133.35" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="INPUT" gate="G$1" pin="1"/>
+<wire x1="133.35" y1="114.3" x2="238.76" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="207.01" x2="256.54" y2="194.31" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="194.31" x2="223.52" y2="194.31" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="194.31" x2="223.52" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="300.99" y1="190.5" x2="250.19" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="250.19" y1="190.5" x2="223.52" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="194.31" x2="300.99" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="OUTPUT" gate="G$1" pin="1"/>
 <wire x1="304.8" y1="207.01" x2="304.8" y2="194.31" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="194.31" x2="300.99" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="300.99" y1="190.5" x2="223.52" y2="190.5" width="0.1524" layer="91"/>
-<junction x="223.52" y="190.5"/>
 <label x="304.8" y="198.12" size="1.778" layer="95" rot="R90"/>
 <label x="256.54" y="196.85" size="1.778" layer="95" rot="R90"/>
+<wire x1="238.76" y1="114.3" x2="250.19" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="250.19" y1="114.3" x2="250.19" y2="190.5" width="0.1524" layer="91"/>
+<junction x="250.19" y="190.5"/>
+<pinref part="VR-S1" gate="G$1" pin="IN"/>
+<wire x1="60.96" y1="71.12" x2="60.96" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="90.17" x2="60.96" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="90.17" x2="63.5" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="VR-S2" gate="G$1" pin="IN"/>
+<wire x1="96.52" y1="71.12" x2="96.52" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="87.63" x2="93.98" y2="90.17" width="0.1524" layer="91"/>
+<junction x="93.98" y="90.17"/>
+<wire x1="129.54" y1="90.17" x2="93.98" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="VR-S3" gate="G$1" pin="IN"/>
+<wire x1="132.08" y1="71.12" x2="132.08" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="87.63" x2="129.54" y2="90.17" width="0.1524" layer="91"/>
+<junction x="129.54" y="90.17"/>
+<pinref part="VR-S6" gate="G$1" pin="IN"/>
+<wire x1="238.76" y1="71.12" x2="238.76" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="87.63" x2="236.22" y2="90.17" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="90.17" x2="236.22" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="C_SERVO1" gate="G$1" pin="+"/>
+<wire x1="233.68" y1="93.98" x2="233.68" y2="90.17" width="0.1524" layer="91"/>
+<junction x="233.68" y="90.17"/>
+<wire x1="233.68" y1="90.17" x2="200.66" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="VR-S5" gate="G$1" pin="IN"/>
+<wire x1="203.2" y1="71.12" x2="203.2" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="87.63" x2="200.66" y2="90.17" width="0.1524" layer="91"/>
+<junction x="200.66" y="90.17"/>
+<wire x1="200.66" y1="90.17" x2="165.1" y2="90.17" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="90.17" x2="137.16" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="VR-S4" gate="G$1" pin="IN"/>
+<wire x1="137.16" y1="90.17" x2="129.54" y2="90.17" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="71.12" x2="167.64" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="87.63" x2="165.1" y2="90.17" width="0.1524" layer="91"/>
+<junction x="165.1" y="90.17"/>
+<wire x1="238.76" y1="114.3" x2="238.76" y2="87.63" width="0.1524" layer="91"/>
+<junction x="238.76" y="87.63"/>
+<pinref part="VR-A-1" gate="A" pin="IN"/>
+<wire x1="203.2" y1="140.97" x2="220.98" y2="140.97" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="140.97" x2="223.52" y2="143.51" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="143.51" x2="223.52" y2="123.19" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="120.65" x2="223.52" y2="123.19" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="120.65" x2="220.98" y2="120.65" width="0.1524" layer="91"/>
+<pinref part="VR-A-2" gate="A" pin="IN"/>
+<junction x="223.52" y="143.51"/>
+<junction x="223.52" y="190.5"/>
+<wire x1="223.52" y1="143.51" x2="223.52" y2="148.59" width="0.1524" layer="91"/>
+<pinref part="C_12V" gate="G$1" pin="+"/>
+<wire x1="223.52" y1="148.59" x2="223.52" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="133.35" y1="139.7" x2="133.35" y2="114.3" width="0.1524" layer="91"/>
+<junction x="133.35" y="114.3"/>
+<pinref part="C_ACT" gate="G$1" pin="+"/>
+<wire x1="229.87" y1="148.59" x2="223.52" y2="148.59" width="0.1524" layer="91"/>
+<junction x="223.52" y="148.59"/>
+<pinref part="C_SERVO2" gate="G$1" pin="+"/>
+<wire x1="137.16" y1="93.98" x2="137.16" y2="90.17" width="0.1524" layer="91"/>
+<junction x="137.16" y="90.17"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$3" class="2">
 <segment>
 <pinref part="C28" gate="G$1" pin="+"/>
 <wire x1="63.5" y1="118.11" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
@@ -1605,7 +1620,7 @@ Servo Motor Power</text>
 <junction x="63.5" y="116.84"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="N$21" class="2">
 <segment>
 <pinref part="C30" gate="G$1" pin="+"/>
 <wire x1="63.5" y1="143.51" x2="63.5" y2="142.24" width="0.1524" layer="91"/>
@@ -1616,71 +1631,59 @@ Servo Motor Power</text>
 <junction x="63.5" y="142.24"/>
 </segment>
 </net>
-<net name="12V" class="0">
+<net name="12V" class="2">
 <segment>
+<pinref part="INPUT" gate="G$1" pin="3"/>
+<wire x1="261.62" y1="194.31" x2="261.62" y2="207.01" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="194.31" x2="261.62" y2="194.31" width="0.1524" layer="91"/>
 <pinref part="12V-3" gate="G$1" pin="2"/>
 <wire x1="327.66" y1="45.72" x2="327.66" y2="46.99" width="0.1524" layer="91"/>
-<pinref part="VR-5-4" gate="G$1" pin="IN"/>
-<wire x1="287.02" y1="161.29" x2="287.02" y2="140.97" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="140.97" x2="287.02" y2="120.65" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="120.65" x2="287.02" y2="100.33" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="97.79" x2="294.64" y2="97.79" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="97.79" x2="289.56" y2="97.79" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="97.79" x2="287.02" y2="100.33" width="0.1524" layer="91"/>
-<pinref part="VR-5-3" gate="G$1" pin="IN"/>
-<wire x1="304.8" y1="118.11" x2="294.64" y2="118.11" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="118.11" x2="289.56" y2="118.11" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="118.11" x2="287.02" y2="120.65" width="0.1524" layer="91"/>
-<junction x="287.02" y="120.65"/>
-<pinref part="VR-5-2" gate="G$1" pin="IN"/>
-<wire x1="304.8" y1="138.43" x2="294.64" y2="138.43" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="138.43" x2="289.56" y2="138.43" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="138.43" x2="287.02" y2="140.97" width="0.1524" layer="91"/>
-<junction x="287.02" y="140.97"/>
-<pinref part="VR-5-1" gate="G$1" pin="IN"/>
-<wire x1="304.8" y1="158.75" x2="294.64" y2="158.75" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="158.75" x2="289.56" y2="158.75" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="158.75" x2="287.02" y2="161.29" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="+"/>
-<wire x1="294.64" y1="156.21" x2="294.64" y2="158.75" width="0.1524" layer="91"/>
-<junction x="294.64" y="158.75"/>
-<pinref part="C4" gate="G$1" pin="+"/>
-<wire x1="294.64" y1="135.89" x2="294.64" y2="138.43" width="0.1524" layer="91"/>
-<junction x="294.64" y="138.43"/>
-<pinref part="C5" gate="G$1" pin="+"/>
-<wire x1="294.64" y1="115.57" x2="294.64" y2="118.11" width="0.1524" layer="91"/>
-<junction x="294.64" y="118.11"/>
-<pinref part="C6" gate="G$1" pin="+"/>
-<wire x1="294.64" y1="95.25" x2="294.64" y2="97.79" width="0.1524" layer="91"/>
-<junction x="294.64" y="97.79"/>
-<wire x1="287.02" y1="100.33" x2="287.02" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="60.96" x2="290.83" y2="57.15" width="0.1524" layer="91"/>
-<junction x="287.02" y="100.33"/>
-<wire x1="290.83" y1="57.15" x2="294.64" y2="57.15" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="57.15" x2="309.88" y2="57.15" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="57.15" x2="325.12" y2="57.15" width="0.1524" layer="91"/>
+<junction x="327.66" y="46.99"/>
+<wire x1="327.66" y1="46.99" x2="327.66" y2="54.61" width="0.1524" layer="91"/>
 <wire x1="325.12" y1="57.15" x2="327.66" y2="54.61" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="57.15" x2="325.12" y2="57.15" width="0.1524" layer="91"/>
 <pinref part="12V-2" gate="G$1" pin="2"/>
 <wire x1="312.42" y1="46.99" x2="312.42" y2="54.61" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="54.61" x2="309.88" y2="57.15" width="0.1524" layer="91"/>
 <junction x="309.88" y="57.15"/>
+<wire x1="294.64" y1="57.15" x2="309.88" y2="57.15" width="0.1524" layer="91"/>
 <pinref part="12V-1" gate="G$1" pin="2"/>
 <wire x1="297.18" y1="46.99" x2="297.18" y2="54.61" width="0.1524" layer="91"/>
 <wire x1="297.18" y1="54.61" x2="294.64" y2="57.15" width="0.1524" layer="91"/>
 <junction x="294.64" y="57.15"/>
-<wire x1="327.66" y1="46.99" x2="327.66" y2="54.61" width="0.1524" layer="91"/>
-<junction x="327.66" y="46.99"/>
-<pinref part="INPUT" gate="G$1" pin="3"/>
-<wire x1="287.02" y1="161.29" x2="287.02" y2="175.26" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="175.26" x2="287.02" y2="194.31" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="194.31" x2="261.62" y2="194.31" width="0.1524" layer="91"/>
-<wire x1="261.62" y1="194.31" x2="261.62" y2="207.01" width="0.1524" layer="91"/>
+<wire x1="290.83" y1="57.15" x2="294.64" y2="57.15" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="60.96" x2="290.83" y2="57.15" width="0.1524" layer="91"/>
+<pinref part="VR-5-4" gate="G$1" pin="IN"/>
+<wire x1="304.8" y1="97.79" x2="289.56" y2="97.79" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="97.79" x2="287.02" y2="100.33" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="100.33" x2="287.02" y2="60.96" width="0.1524" layer="91"/>
+<junction x="287.02" y="100.33"/>
+<wire x1="287.02" y1="120.65" x2="287.02" y2="100.33" width="0.1524" layer="91"/>
+<pinref part="VR-5-3" gate="G$1" pin="IN"/>
+<wire x1="304.8" y1="118.11" x2="289.56" y2="118.11" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="118.11" x2="287.02" y2="120.65" width="0.1524" layer="91"/>
+<junction x="287.02" y="120.65"/>
+<wire x1="287.02" y1="140.97" x2="287.02" y2="120.65" width="0.1524" layer="91"/>
+<pinref part="VR-5-2" gate="G$1" pin="IN"/>
+<wire x1="304.8" y1="138.43" x2="289.56" y2="138.43" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="138.43" x2="287.02" y2="140.97" width="0.1524" layer="91"/>
+<junction x="287.02" y="140.97"/>
+<wire x1="287.02" y1="161.29" x2="287.02" y2="140.97" width="0.1524" layer="91"/>
+<pinref part="VR-5-1" gate="G$1" pin="IN"/>
+<wire x1="304.8" y1="158.75" x2="289.56" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="158.75" x2="287.02" y2="161.29" width="0.1524" layer="91"/>
 <junction x="287.02" y="161.29"/>
+<wire x1="287.02" y1="161.29" x2="287.02" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="C_5V" gate="G$1" pin="+"/>
+<wire x1="276.86" y1="172.72" x2="287.02" y2="172.72" width="0.1524" layer="91"/>
+<junction x="287.02" y="172.72"/>
+<wire x1="287.02" y1="172.72" x2="287.02" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="287.02" y1="175.26" x2="287.02" y2="194.31" width="0.1524" layer="91"/>
+<junction x="287.02" y="175.26"/>
+<wire x1="290.83" y1="175.26" x2="287.02" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="190.5" x2="290.83" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="OUTPUT" gate="G$1" pin="3"/>
 <wire x1="309.88" y1="207.01" x2="309.88" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="190.5" x2="290.83" y2="175.26" width="0.1524" layer="91"/>
-<wire x1="290.83" y1="175.26" x2="287.02" y2="175.26" width="0.1524" layer="91"/>
-<junction x="287.02" y="175.26"/>
 <label x="309.88" y="198.12" size="1.778" layer="95" rot="R90"/>
 <label x="261.62" y="196.85" size="1.778" layer="95" rot="R90"/>
 </segment>
