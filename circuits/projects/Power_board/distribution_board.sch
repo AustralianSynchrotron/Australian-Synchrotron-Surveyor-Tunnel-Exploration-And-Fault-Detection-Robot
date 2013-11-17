@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -168,65 +168,6 @@
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
-<package name="TO220H">
-<description>&lt;b&gt;TO-220&lt;/b&gt;</description>
-<wire x1="-5.207" y1="-7.62" x2="5.207" y2="-7.62" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="8.255" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="-7.62" x2="5.207" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="4.826" x2="4.318" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="4.318" y1="4.826" x2="4.318" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="4.318" y1="6.35" x2="5.207" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="5.207" y1="6.35" x2="5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="-7.62" x2="-5.207" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="4.826" x2="-4.318" y2="4.826" width="0.1524" layer="21"/>
-<wire x1="-4.318" y1="4.826" x2="-4.318" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="-4.318" y1="6.35" x2="-5.207" y2="6.35" width="0.1524" layer="21"/>
-<wire x1="-5.207" y1="6.35" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
-<wire x1="-4.572" y1="-6.985" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="1.27" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
-<wire x1="4.572" y1="1.27" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
-<wire x1="-4.572" y1="-6.985" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
-<circle x="0" y="4.826" radius="1.8034" width="0.1524" layer="21"/>
-<circle x="0" y="4.826" radius="2.54" width="0" layer="43"/>
-<circle x="0" y="4.826" radius="2.54" width="0" layer="42"/>
-<pad name="1" x="-2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-10.16" drill="1.1176" shape="long" rot="R90"/>
-<text x="-5.461" y="-10.922" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="7.366" y="-11.049" size="1.778" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<rectangle x1="2.159" y1="-11.049" x2="2.921" y2="-10.414" layer="21"/>
-<rectangle x1="-0.381" y1="-11.049" x2="0.381" y2="-10.414" layer="21"/>
-<rectangle x1="-2.921" y1="-11.049" x2="-2.159" y2="-10.414" layer="21"/>
-<rectangle x1="-3.175" y1="-10.414" x2="-1.905" y2="-7.62" layer="21"/>
-<rectangle x1="-0.635" y1="-10.414" x2="0.635" y2="-7.62" layer="21"/>
-<rectangle x1="1.905" y1="-10.414" x2="3.175" y2="-7.62" layer="21"/>
-<hole x="0" y="4.826" drill="3.302"/>
-</package>
-<package name="TO220V">
-<description>&lt;b&gt;TO 200 vertical&lt;/b&gt;</description>
-<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
-<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
-<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
-<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
-<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
-<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
-<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
-<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
-<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
-<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
-<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
-<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
-<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
-<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
-<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
-<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
-<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
-</package>
 <package name="TO263">
 <description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
 TS-005</description>
@@ -278,8 +219,8 @@ grid 2.54 mm, diameter 5 mm</description>
 <wire x1="-0.762" y1="1.27" x2="-0.762" y2="0" width="0.1524" layer="51"/>
 <wire x1="0.635" y1="0" x2="1.651" y2="0" width="0.1524" layer="51"/>
 <circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
-<pad name="-" x="1.27" y="0" drill="0.8128" diameter="1.6002" shape="octagon"/>
-<pad name="+" x="-1.27" y="0" drill="0.8128" diameter="1.6002"/>
+<pad name="-" x="1.27" y="0" drill="0.8" diameter="1.8" shape="octagon"/>
+<pad name="+" x="-1.27" y="0" drill="0.8" diameter="1.8"/>
 <text x="2.413" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.413" y="-2.413" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
@@ -467,9 +408,9 @@ type 0207, grid 7.5 mm</description>
 <wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
 <wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
 <circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
-<pad name="1" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="3" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1" shape="long" rot="R90"/>
 <text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
@@ -513,6 +454,65 @@ type 0207, grid 7.5 mm</description>
 <text x="9.525" y="-3.81" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 <rectangle x1="-1.905" y1="-1.905" x2="1.905" y2="1.905" layer="41"/>
 <rectangle x1="3.175" y1="-1.905" x2="6.985" y2="1.905" layer="41"/>
+</package>
+<package name="TO220H">
+<description>&lt;b&gt;TO-220&lt;/b&gt;</description>
+<wire x1="-5.207" y1="-7.62" x2="5.207" y2="-7.62" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="8.255" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="-7.62" x2="5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="4.826" x2="4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="4.826" x2="4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="4.318" y1="6.35" x2="5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="5.207" y1="6.35" x2="5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="-7.62" x2="-5.207" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="4.826" x2="-4.318" y2="4.826" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="4.826" x2="-4.318" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-4.318" y1="6.35" x2="-5.207" y2="6.35" width="0.1524" layer="21"/>
+<wire x1="-5.207" y1="6.35" x2="-5.207" y2="8.255" width="0.1524" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="4.572" y2="-6.985" width="0.0508" layer="21"/>
+<wire x1="4.572" y1="1.27" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<wire x1="-4.572" y1="-6.985" x2="-4.572" y2="1.27" width="0.0508" layer="21"/>
+<circle x="0" y="4.826" radius="1.8034" width="0.1524" layer="21"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="43"/>
+<circle x="0" y="4.826" radius="2.54" width="0" layer="42"/>
+<pad name="1" x="-2.54" y="-10.16" drill="1.1" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-10.16" drill="1.1" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-10.16" drill="1.1" shape="long" rot="R90"/>
+<text x="-5.461" y="-10.922" size="1.778" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="7.366" y="-11.049" size="1.778" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="2.159" y1="-11.049" x2="2.921" y2="-10.414" layer="21"/>
+<rectangle x1="-0.381" y1="-11.049" x2="0.381" y2="-10.414" layer="21"/>
+<rectangle x1="-2.921" y1="-11.049" x2="-2.159" y2="-10.414" layer="21"/>
+<rectangle x1="-3.175" y1="-10.414" x2="-1.905" y2="-7.62" layer="21"/>
+<rectangle x1="-0.635" y1="-10.414" x2="0.635" y2="-7.62" layer="21"/>
+<rectangle x1="1.905" y1="-10.414" x2="3.175" y2="-7.62" layer="21"/>
+<hole x="0" y="4.826" drill="3.302"/>
+</package>
+<package name="TO220V">
+<description>&lt;b&gt;TO 200 vertical&lt;/b&gt;</description>
+<wire x1="5.08" y1="-1.143" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="4.953" y2="-4.064" width="0.127" layer="21"/>
+<wire x1="4.699" y1="-4.318" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-4.699" y2="-4.318" width="0.127" layer="21"/>
+<wire x1="-4.953" y1="-4.064" x2="-5.08" y2="-1.143" width="0.127" layer="21"/>
+<circle x="-4.4958" y="-3.7084" radius="0.254" width="0.127" layer="21"/>
+<pad name="1" x="-2.54" y="-2.54" drill="1" shape="long" rot="R90"/>
+<pad name="2" x="0" y="-2.54" drill="1" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="-2.54" drill="1" shape="long" rot="R90"/>
+<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="51" ratio="10">1</text>
+<text x="-0.635" y="-3.175" size="1.27" layer="51" ratio="10">2</text>
+<text x="1.905" y="-3.175" size="1.27" layer="51" ratio="10">3</text>
+<rectangle x1="-5.334" y1="-0.762" x2="5.334" y2="0" layer="21"/>
+<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.762" layer="21"/>
+<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.762" layer="21"/>
+<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.762" layer="51"/>
+<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.762" layer="21"/>
+<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.762" layer="21"/>
+<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.762" layer="51"/>
+<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.762" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -909,17 +909,17 @@ type 0207, grid 7.5 mm</description>
 <part name="VR-5-3" library="parts" deviceset="L7805ACD2T-TR" device="" value="L7805"/>
 <part name="VR-5-4" library="parts" deviceset="L7805ACD2T-TR" device="" value="L7805"/>
 <part name="C_5V" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="5V_1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="5V_2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="5V_3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="5V_4" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="5V_1" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="5V_2" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="5V_3" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="5V_4" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="C7" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C8" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C9" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C10" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C_ACT" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
-<part name="12V_AM1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="12V_AM2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_AM1" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="12V_AM2" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="C13" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C14" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="VR-S1" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
@@ -927,46 +927,46 @@ type 0207, grid 7.5 mm</description>
 <part name="C_SERVO1" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="R5" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R6" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO1" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-S2" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C17" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="R7" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R8" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO2" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-S3" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C19" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="R9" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R10" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO3" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-S4" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C21" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="R11" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R12" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO4" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO4" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-S5" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C23" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="R13" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R14" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO5" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO5" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-S6" library="parts" deviceset="LM338T" device="-SINK" value="LM338T-SINK"/>
 <part name="C25" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="R15" library="parts" deviceset="RESISTOR" device="0207/2V" value="270R"/>
 <part name="R16" library="parts" deviceset="RESISTOR" device="0207/2V" value="1K"/>
-<part name="12V_SERVO6" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_SERVO6" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-12-2" library="parts" deviceset="L7812CD2T-TR" device="TO-263" value="L7812"/>
-<part name="VR-12-1" library="parts" deviceset="L7812CD2T-TR" device="TO-263" value="l7812"/>
+<part name="VR-12-1" library="parts" deviceset="L7812CD2T-TR" device="TO-263" value="L7812"/>
 <part name="C28" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
 <part name="C_12V" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 <part name="C30" library="parts" deviceset="CAPACITOR_POL" device="" value="0.1uF"/>
-<part name="12V_REG-1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="12V_REG-2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
+<part name="12V_REG-1" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="12V_REG-2" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
 <part name="VR-A-1" library="parts" deviceset="LM1085IT" device="-SINK" value="LM1085-12V"/>
 <part name="VR-A-2" library="parts" deviceset="LM1085IT" device="-SINK" value="LM1085-12V"/>
-<part name="12V-1" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="12V-2" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="12V-3" library="parts" deviceset="2-HOLES" device="SC3.81MM"/>
-<part name="INPUT" library="parts" deviceset="3-HOLES" device=""/>
-<part name="OUTPUT" library="parts" deviceset="3-HOLES" device=""/>
+<part name="12V-1" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="12V-2" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="12V-3" library="parts" deviceset="2-HOLES" device="SC3.81MM" value="SC3.81MM"/>
+<part name="INPUT" library="parts" deviceset="3-HOLES" device="" value="SC3.8MM"/>
+<part name="OUTPUT" library="parts" deviceset="3-HOLES" device="" value="SC3.8MM"/>
 <part name="C_SERVO2" library="parts" deviceset="CAPACITOR_POL" device="" value="0.33uF"/>
 </parts>
 <sheets>
