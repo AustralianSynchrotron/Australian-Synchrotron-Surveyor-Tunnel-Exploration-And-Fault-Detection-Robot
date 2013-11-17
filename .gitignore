@@ -218,6 +218,6 @@ pip-log.txt
 # Eagle
 ################
 
-circuits/projects/power_board/*.epf
-circuits/projects/power_board/*.?#?
-circuits/projects/power_board/*.bak
+circuits/projects/Power_board/*.epf
+circuits/projects/Power_board/*.?#?
+circuits/projects/Power_board/*.bak
