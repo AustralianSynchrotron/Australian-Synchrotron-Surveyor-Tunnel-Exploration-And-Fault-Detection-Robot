@@ -132,8 +132,9 @@ void sendData(String myData)
   if (client.connected() ) {
     Serial.println("connecting...");
     // send the HTTP PUT request:
-    client.print("PUT");
-    client.println("HTTP/1.1");
+    client.println("POST /control HTTP/1.1");
+    //client.println("HTTP/1.1");
+    client.println("User-Agent: Arduino/1.5");
     client.println("Host: 10.6.0.4");
     client.print("Content-Length: ");
     client.println(myData.length());

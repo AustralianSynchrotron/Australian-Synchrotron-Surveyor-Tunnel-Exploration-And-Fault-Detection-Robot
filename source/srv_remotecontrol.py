@@ -7,16 +7,23 @@ class RemoteControl(object):
 
 	@cherrypy.expose
 	def control(self, **kws):
+		lx = 128
+		ly = 128
+		rx = 128
+		ry = 128
 
-		lx = kws['Lx']
-		ly = kws['Ly']
+		if "Lx" in kws:
+			lx = kws['Lx']
+		if "Ly" in kws:
+			ly = kws['Ly']
+		if "Rx" in kws:
+			rx = kws['Rx']
+		if "Ry" in kws:
+			ry = kws['Ry']
 
-		rx = kws['Rx']
-		ry = kws['Ry']
+		print("Received... leftH:%s leftV:%s rightH:%s rightV:%s" % (lx, ly, rx, ry))
 
-		print("Received... leftH:%s leftV:%s rightH:%s rightV%s" % lx, ly, rx, ry)
-
-		return "Received... leftH:%s leftV:%s rightH:%s rightV%s" % lx, ly, rx, ry
+		return "Received... leftH:%s leftV:%s rightH:%s rightV:%s" % (lx, ly, rx, ry)
 
 cherrypy.config.update({
     #'server.socket_host': '10.6.100.199',
