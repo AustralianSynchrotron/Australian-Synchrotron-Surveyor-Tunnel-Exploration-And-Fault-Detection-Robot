@@ -12,6 +12,8 @@ class RemoteControl(object):
 		rx = 128
 		ry = 128
 
+		print(kws)
+
 		if "Lx" in kws:
 			lx = kws['Lx']
 		if "Ly" in kws:
@@ -27,7 +29,8 @@ class RemoteControl(object):
 
 cherrypy.config.update({
     #'server.socket_host': '10.6.100.199',
-    'server.socket_port': 80
+    'server.socket_host': '10.6.0.17',
+    'server.socket_port': 8080
 })
 
 cherrypy.quickstart(RemoteControl())

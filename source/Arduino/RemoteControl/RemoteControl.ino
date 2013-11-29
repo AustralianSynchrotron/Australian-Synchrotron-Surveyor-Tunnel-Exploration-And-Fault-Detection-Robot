@@ -3,7 +3,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetClient.h>
-#include <EthernetServer.h>
+//#include <EthernetServer.h>
 //#include <EthernetUdp.h>
 
 #include <PS2X_lib.h>
@@ -12,14 +12,18 @@ PS2X ps2x;
 
 int error = 0; 
 byte type = 0;
-byte vibrate = 0;
+byte vibrate = 55;
 
 byte mac[] = {0x00, 0xDE, 0xFA, 0xCE, 0xD0, 0x69};
-byte ip[] = {10, 6, 0, 230}; //arduino fixed IP
-byte gateway[] = {10, 6, 0, 254};
-byte subnet[] = {255, 255, 0, 0};
-byte server[] = {10, 6, 0, 4}; //connection server
+//byte ip[] = {10, 6, 0, 230}; //arduino fixed IP if dhcp fails
+//byte gateway[] = {10, 6, 0, 254};
+//byte subnet[] = {255, 255, 0, 0};
+IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
+IPAddress gateway(10, 6, 0, 254);
+IPAddress subnet(255, 255, 0, 0);
+IPAddress server(10, 6, 0, 17); //connection server
 EthernetClient client;
+int port = 8080;
 
 void setup() {
   // put your setup code here, to run once:
@@ -72,21 +76,21 @@ void setup() {
     Serial.println("Failed to configure Ethernet using DHCP");
     Ethernet.begin(mac, ip);
   }
-  
+  Serial.println(Ethernet.localIP());
   delay(1000);
   
-  client.connect(server, 80);
+  //client.connect(server, port);
   
 }
 
-int tmp = 0;
+//int tmp = 0;
 
 void loop() {
   // put your main code here, to run repeatedly: 
   if(error == 1) //skip loop if no controller found
     return;
     
-  //ps2x.read_gamepad(false, vibrate);  
+  ps2x.read_gamepad(false, vibrate);
   
   //Use start button to exit program... reset to start
   //if(ps2x.Button(PSB_START))
@@ -98,7 +102,7 @@ void loop() {
   
   String controlString = "";
   
-  controlString+="?Rx=";
+  controlString+="Rx=";
   controlString+=ps2x.Analog(PSS_RX);
   controlString+="&Ry=";
   controlString+=ps2x.Analog(PSS_RY);
@@ -106,11 +110,15 @@ void loop() {
   controlString+=ps2x.Analog(PSS_LX);
   controlString+="&Ly=";
   controlString+=ps2x.Analog(PSS_LY);
-  controlString+="&tempInt=";
-  controlString+=tmp;
   
-  tmp+= 1;
+//  Serial.println(ps2x.Analog(PSS_LY),DEC);
+//  Serial.println(ps2x.Analog(PSS_RY),DEC);
+//  controlString+="&tempInt=";
+//  controlString+=tmp;
   
+//  tmp+= 1;
+  
+  Serial.println(controlString);
   sendData(controlString);
   
   //if(ps2x.Button(PSS_LY))
@@ -126,28 +134,35 @@ void loop() {
 
 void sendData(String myData)
 {
-  Serial.println("Preparing to send html data");
+  Serial.print("Preparing to send html data: ");
+  Serial.println(myData);
   // if there's a successful connection:
   
-  if (client.connected() ) {
+  int state = client.connect(server, port);
+  //int state = client.connected();
+  //Serial.println(state);
+  
+  if ( state ) {
     Serial.println("connecting...");
     // send the HTTP PUT request:
     client.println("POST /control HTTP/1.1");
-    //client.println("HTTP/1.1");
-    client.println("User-Agent: Arduino/1.5");
     client.println("Host: 10.6.0.4");
+    client.println("From: RemoteControl");
+    client.println("User-Agent: Arduino/1.5");
+    client.println("Connection: close");  
+    client.println("Content-Type: application/x-www-form-urlencoded"); 
     client.print("Content-Length: ");
     client.println(myData.length());
 
     // last pieces of the HTTP PUT request:
-    client.println("Content-Type: text/plain");
-    client.println("Connection: close");
     client.println();
-
     // here's the actual content of the PUT request:
     client.println(myData);
+    client.println();
     
-    //client.flush();
+    Serial.println("Message sent...");
+    
+    client.stop();
   } 
   else {
     // if you couldn't make a connection:
@@ -155,8 +170,11 @@ void sendData(String myData)
 
     //if no connection, restart the connection
     Serial.println("Restarting connection.");
+      // give the ethernet module time to boot up:
+
+    client.stop();
     //client.flush();
-    client.connect(server, 80);
+    //client.connect(server, port);
     delay(1000);
   }
   
