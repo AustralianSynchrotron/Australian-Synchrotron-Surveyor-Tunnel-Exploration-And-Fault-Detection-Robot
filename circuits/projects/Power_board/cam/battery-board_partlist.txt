@@ -1,0 +1,40 @@
+Partlist
+
+Exported from battery_board.brd at 2/12/2013 4:05:52 PM
+
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part         Value           Package              Library  Position (mil)        Orientation
+
+BATT1_V      1-HOLE          1-HOLE_BIG           parts    (3250 3200)           R0
+BATT2_V      1-HOLE          1-HOLE_BIG           parts    (2450 3200)           R0
+BATTERY1     12V             SCREWTERMINAL-5MM-2  parts    (3900 3600)           R180
+BATTERY2     12V             SCREWTERMINAL-5MM-2  parts    (3050 3600)           R180
+C1           10uF            C050-024X044         parts    (875 2250)            R180
+C2           2.2uF           C050-024X044         parts    (875 2750)            R180
+CHARGER      24V             SCREWTERMINAL-5MM-2  parts    (4950 3600)           R180
+CHARGE_ON    1-HOLE          1-HOLE_BIG           parts    (5150 2875)           R0
+D1           BZX55           DO35Z10              parts    (4500 2350)           R0
+D1-12V       30A             TO22-DIODE-H         parts    (3650 1150)           R270
+D2-12V       30A             TO22-DIODE-H         parts    (1500 3325)           R270
+D3-24V       30A             TO22-DIODE-H         parts    (2500 1150)           R270
+FUSE-M1      3A              SCREWTERMINAL-5MM-2  parts    (375 1300)            R270
+FUSE-M2      3A              SCREWTERMINAL-5MM-2  parts    (375 1775)            R270
+LED-12V                      LED5MM               parts    (5150 1800)           R0
+LED-24V                      LED5MM               parts    (5150 1450)           R0
+LED-CHARGE                   LED5MM               parts    (5150 2550)           R0
+LED-CHARGING                 LED5MM               parts    (5150 2150)           R0
+MOBO+5V      2-HOLESSC3.81MM SCREWTERMINAL-3.81MM parts    (250 2550)            R270
+MOTOR-1      2-HOLESSC5MM    SCREWTERMINAL-5MM-2  parts    (1850 300)            R0
+MOTOR-2      2-HOLESSC5MM    SCREWTERMINAL-5MM-2  parts    (950 300)             R0
+OUTPUT       3-HOLE          SCREWTERMINAL-5MM-3  parts    (3500 250)            R0
+R1           560R            0309/15              parts    (4600 2150)           R180
+R2           1k              0309/15              parts    (4600 1450)           R0
+R3           560R            0309/15              parts    (4600 1800)           R0
+R4           1k              0309/15              parts    (4600 2875)           R180
+R5           220R            0309/15              parts    (4600 2550)           R180
+RELAY        5V              RELAY_RT2            parts    (2750 2200)           R180
+RELAY_ON     1-HOLE          1-HOLE_BIG           parts    (3250 2575)           R0
+VR-MB        LT323A          TO220V-HEATSINK      parts    (1425 2500)           R270
