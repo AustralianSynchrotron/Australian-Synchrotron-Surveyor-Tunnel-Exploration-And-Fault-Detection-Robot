@@ -10,6 +10,7 @@ motors_socket.connect("tcp://localhost:8558") # Comment out for production
 class RemoteControl(object):
 	neutral_max = 137
 	neutral_min = 118
+	neutral = 128
 	v_max = 100
 	v_min = -100
 
@@ -20,12 +21,10 @@ class RemoteControl(object):
 
 	@cherrypy.expose
 	def control(self, **kws):
-		# if no message is received the set position to neutral
-		lx = 128
-		ly = 128
-		rx = 128
-		ry = 128
-
+		# if no message is received the set position to neutral, 0 acceleration
+		lx = ly = rx = ry = self.neutral
+		accel = 0
+		
 		print(kws)
 
 		if "Lx" in kws:
@@ -55,32 +54,32 @@ class RemoteControl(object):
 		quad = self.which_quadrant(lx,ly)
 
 		if quad == 1:
-			leftV = 100
-			lfx = lx - 128
-			lfy = 128 - ly
+			leftV = self.v_max
+			lfx = lx - self.neutral
+			lfy = self.neutral - ly
 			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			rightV = (tmpDeg / 90) * 100
+			rightV = (tmpDeg / 90) * self.v_max
 
 		elif quad == 2:
-			rightV = 100
-			lfx = 128 - lx
-			lfy = 128 - ly
+			rightV = self.v_max
+			lfx = self.neutral - lx
+			lfy = self.neutral - ly
 			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			leftV = (tmpDeg / 90) * 100
+			leftV = (tmpDeg / 90) * self.v_max
 
 		elif quad == 3:
-			rightV = -100
-			lfx = 128 - lx
-			lfy = ly - 128
+			rightV = self.v_min
+			lfx = self.neutral - lx
+			lfy = ly - self.neutral
 			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			leftV = -(tmpDeg / 90) * 100
+			leftV = (tmpDeg / 90) * self.v_min
 
 		elif quad == 4:
-			leftV = -100
-			lfx = lx - 128
-			lfy = ly - 128
+			leftV = self.v_min
+			lfx = lx - self.neutral
+			lfy = ly - self.neutral
 			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			rightV = -(tmpDeg / 90) * 100
+			rightV = (tmpDeg / 90) * self.v_min
 
 		else:  #neutral
 			leftV = 0
