@@ -13,5 +13,6 @@ Requirements
 4. libphidget LATEST
 5. libusb 1.0-0
 6. mjpg-streamer experimental
-7. Arduino 1.5
+7. cherrypy 3.2.x
+8. Arduino 1.5
 -- PS2X by Bill Porter
