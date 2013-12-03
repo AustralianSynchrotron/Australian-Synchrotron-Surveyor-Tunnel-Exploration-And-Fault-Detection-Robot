@@ -40,6 +40,7 @@ void setup() {
  //  Clk:     Blue:     7
  //  Power:   Yellow:   3v3
  //  Gnd:     Orange:   gnd
+ //  Vibe:    Red:      5v0
  
   if(error == 0){
    Serial.println("Found Controller, configured successful");
@@ -110,6 +111,8 @@ void loop() {
   controlString+=ps2x.Analog(PSS_LX);
   controlString+="&Ly=";
   controlString+=ps2x.Analog(PSS_LY);
+  controlString+="&BtnX=";
+  controlString+=ps2x.Analog(PSAB_BLUE);
   
 //  Serial.println(ps2x.Analog(PSS_LY),DEC);
 //  Serial.println(ps2x.Analog(PSS_RY),DEC);
