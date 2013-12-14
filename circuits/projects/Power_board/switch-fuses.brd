@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
+<grid distance="0.05" unitdist="inch" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -107,43 +107,25 @@
 <wire x1="75" y1="0" x2="75" y2="50" width="0" layer="20"/>
 <wire x1="75" y1="50" x2="0" y2="50" width="0" layer="20"/>
 <wire x1="0" y1="50" x2="0" y2="0" width="0" layer="20"/>
-<text x="5.08" y="19.05" size="1.27" layer="121" font="vector">B1</text>
-<text x="11.43" y="19.05" size="1.27" layer="121" font="vector">B1</text>
-<text x="5.08" y="30.48" size="1.27" layer="121" font="vector">B2</text>
-<text x="11.43" y="30.48" size="1.27" layer="121" font="vector">B2</text>
-<text x="57.15" y="17.78" size="2.1844" layer="121" font="vector">B1</text>
-<text x="57.15" y="29.21" size="2.1844" layer="121" font="vector">B2</text>
-<text x="66.04" y="31.75" size="1.27" layer="121" font="vector">V+</text>
-<text x="66.04" y="15.24" size="1.27" layer="121" font="vector">V+</text>
-<text x="66.04" y="26.67" size="1.27" layer="121" font="vector">V-</text>
-<text x="66.04" y="20.32" size="1.27" layer="121" font="vector">V-</text>
+<text x="6.35" y="16.51" size="1.27" layer="121" font="vector">B1</text>
+<text x="12.7" y="16.51" size="1.27" layer="121" font="vector">B1</text>
+<text x="6.35" y="33.02" size="1.27" layer="121" font="vector">B2</text>
+<text x="12.7" y="33.02" size="1.27" layer="121" font="vector">B2</text>
+<text x="67.31" y="15.24" size="2.1844" layer="121" font="vector" rot="R90">B1</text>
+<text x="67.31" y="33.02" size="2.1844" layer="121" font="vector" rot="R90">B2</text>
+<text x="62.23" y="38.1" size="1.27" layer="121" font="vector">V+</text>
+<text x="62.23" y="11.43" size="1.27" layer="121" font="vector">V+</text>
+<text x="62.23" y="29.21" size="1.27" layer="121" font="vector">V-</text>
+<text x="62.23" y="20.32" size="1.27" layer="121" font="vector">V-</text>
 </plain>
 <libraries>
 <library name="parts">
 <packages>
-<package name="2-HOLES_BIG">
-<description>2 holes for board 1.2mm drill at 5.08 spacing</description>
-<pad name="1" x="-2.54" y="0" drill="1.2" diameter="3" rot="R90"/>
-<pad name="2" x="2.54" y="0" drill="1.2" diameter="3" rot="R90"/>
-<text x="-3" y="2.75" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<wire x1="-0.5" y1="1" x2="-1.5" y2="2" width="0.2032" layer="21"/>
-<wire x1="-1.5" y1="2" x2="-3.5" y2="2" width="0.2032" layer="21"/>
-<wire x1="-3.5" y1="2" x2="-4.5" y2="1" width="0.2032" layer="21"/>
-<wire x1="-4.5" y1="1" x2="-4.5" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-4.5" y1="-1" x2="-3.5" y2="-2" width="0.2032" layer="21"/>
-<wire x1="-3.5" y1="-2" x2="-1.5" y2="-2" width="0.2032" layer="21"/>
-<wire x1="-1.5" y1="-2" x2="-0.5" y2="-1" width="0.2032" layer="21"/>
-<rectangle x1="-2.754" y1="-0.254" x2="-2.246" y2="0.254" layer="51"/>
-<wire x1="4.5" y1="1" x2="3.5" y2="2" width="0.2032" layer="21"/>
-<wire x1="3.5" y1="2" x2="1.5" y2="2" width="0.2032" layer="21"/>
-<wire x1="1.5" y1="2" x2="0.5" y2="1" width="0.2032" layer="21"/>
-<wire x1="0.5" y1="-1" x2="1.5" y2="-2" width="0.2032" layer="21"/>
-<wire x1="1.5" y1="-2" x2="3.5" y2="-2" width="0.2032" layer="21"/>
-<wire x1="3.5" y1="-2" x2="4.5" y2="-1" width="0.2032" layer="21"/>
-<wire x1="4.5" y1="-1" x2="4.5" y2="1" width="0.2032" layer="21"/>
-<rectangle x1="2.246" y1="-0.254" x2="2.754" y2="0.254" layer="51"/>
-<wire x1="-0.5" y1="-1" x2="0.5" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="1" x2="0.5" y2="1" width="0.2032" layer="21"/>
+<package name="2-HOLE-2.5MM">
+<description>2 Board Holes 2.5MM</description>
+<pad name="1" x="-3.81" y="0" drill="2.5" diameter="5" rot="R90"/>
+<pad name="2" x="3.81" y="0" drill="2.5" diameter="5" rot="R90"/>
+<text x="-2.54" y="3.81" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 </package>
 <package name="0309/15">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
@@ -289,7 +271,7 @@ design rules under a new name.</description>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
-<param name="slThermalIsolate" value="10mil"/>
+<param name="slThermalIsolate" value="0mil"/>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
@@ -394,24 +376,36 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="V+" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="12.7" y="25.4" rot="R90"/>
-<element name="V-" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="6.35" y="25.4" rot="R90"/>
-<element name="FUSE-2" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="33.02" y="27.94"/>
-<element name="FUSE-1" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="33.02" y="21.59"/>
-<element name="R1-FUSE" library="parts" package="0309/15" value="560R" x="43.18" y="13.97" rot="R180"/>
-<element name="R2-FUSE" library="parts" package="0309/15" value="560R" x="43.18" y="35.56" rot="R180"/>
-<element name="FUSE-LED1+" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="50.8" y="10.16"/>
-<element name="FUSE-LED2+" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="50.8" y="39.37"/>
-<element name="FUSE-LED1-" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="50.8" y="5.08"/>
-<element name="FUSE-LED2-" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="50.8" y="44.45"/>
-<element name="B1" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="63.5" y="19.05" rot="R90"/>
-<element name="B2" library="parts" package="2-HOLES_BIG" value="2-HOLES2-HOLES-5.08MM" x="63.5" y="30.48" rot="R90"/>
-<element name="R1-ON" library="parts" package="0309/15" value="560R" x="21.59" y="13.97" rot="R180"/>
-<element name="R2-ON" library="parts" package="0309/15" value="560R" x="21.59" y="35.56" rot="R180"/>
-<element name="ON-LED1+" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="29.21" y="10.16"/>
-<element name="ON-LED2+" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="29.21" y="39.37"/>
-<element name="ON-LED1-" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="29.21" y="5.08"/>
-<element name="ON-LED2-" library="parts" package="1-HOLE" value="1-HOLE&quot;" x="29.21" y="44.45"/>
+<element name="V+" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="12.7" y="25.4" smashed="yes" rot="R90">
+<attribute name="NAME" x="16.51" y="24.13" size="1.27" layer="25" ratio="10" rot="R90"/>
+</element>
+<element name="V-" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="6.35" y="25.4" smashed="yes" rot="R90">
+<attribute name="NAME" x="3.81" y="24.13" size="1.27" layer="25" ratio="10" rot="R90"/>
+</element>
+<element name="FUSE-2" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="31.75" y="29.21" smashed="yes">
+<attribute name="NAME" x="29.21" y="31.75" size="1.27" layer="25" ratio="10"/>
+</element>
+<element name="FUSE-1" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="31.75" y="21.59" smashed="yes">
+<attribute name="NAME" x="29.21" y="17.78" size="1.27" layer="25" ratio="10"/>
+</element>
+<element name="R1-FUSE" library="parts" package="0309/15" value="560R" x="43.18" y="11.43" rot="R180"/>
+<element name="R2-FUSE" library="parts" package="0309/15" value="560R" x="43.18" y="39.37" rot="R180"/>
+<element name="FUSE-LED1+" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="50.8" y="8.89"/>
+<element name="FUSE-LED2+" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="50.8" y="41.91"/>
+<element name="FUSE-LED1-" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="45.72" y="3.81"/>
+<element name="FUSE-LED2-" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="45.72" y="45.72"/>
+<element name="B1" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="58.42" y="16.51" smashed="yes" rot="R90">
+<attribute name="NAME" x="55.88" y="15.24" size="1.27" layer="25" ratio="10" rot="R90"/>
+</element>
+<element name="B2" library="parts" package="2-HOLE-2.5MM" value="2-HOLES2.5MM" x="58.42" y="34.29" smashed="yes" rot="R90">
+<attribute name="NAME" x="55.88" y="33.02" size="1.27" layer="25" ratio="10" rot="R90"/>
+</element>
+<element name="R1-ON" library="parts" package="0309/15" value="560R" x="21.59" y="12.7" rot="R180"/>
+<element name="R2-ON" library="parts" package="0309/15" value="560R" x="21.59" y="38.1" rot="R180"/>
+<element name="ON-LED1+" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="29.21" y="10.16"/>
+<element name="ON-LED2+" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="29.21" y="40.64"/>
+<element name="ON-LED1-" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="33.02" y="5.08"/>
+<element name="ON-LED2-" library="parts" package="1-HOLE" value="1-HOLE0.8MM" x="33.02" y="44.45"/>
 <element name="U$1" library="parts" package="3,0" value="" x="5" y="45"/>
 <element name="U$2" library="parts" package="3,0" value="" x="70" y="45"/>
 <element name="U$3" library="parts" package="3,0" value="" x="5" y="5"/>
@@ -422,90 +416,83 @@ design rules under a new name.</description>
 <contactref element="FUSE-2" pad="1"/>
 <contactref element="V+" pad="2"/>
 <contactref element="R2-ON" pad="2"/>
-<wire x1="14.097" y1="27.94" x2="30.48" y2="27.94" width="3.81" layer="16"/>
-<wire x1="14.097" y1="27.94" x2="12.7" y2="27.94" width="3.048" layer="16"/>
-<wire x1="12.7" y1="27.94" x2="12.7" y2="34.29" width="3.81" layer="16"/>
-<wire x1="12.7" y1="34.29" x2="13.97" y2="35.56" width="3.81" layer="16"/>
+<wire x1="12.827" y1="29.21" x2="27.94" y2="29.21" width="3.81" layer="16"/>
+<wire x1="12.827" y1="29.21" x2="12.7" y2="29.21" width="3.048" layer="16"/>
+<wire x1="12.7" y1="29.21" x2="12.7" y2="35.56" width="3.81" layer="16"/>
+<wire x1="12.7" y1="35.56" x2="13.97" y2="38.1" width="3.81" layer="16"/>
 </signal>
 <signal name="VIN2" class="1">
 <contactref element="FUSE-1" pad="1"/>
 <contactref element="V+" pad="1"/>
 <contactref element="R1-ON" pad="2"/>
-<wire x1="30.48" y1="21.59" x2="13.97" y2="21.59" width="3.81" layer="16"/>
-<wire x1="13.97" y1="21.59" x2="12.7" y2="22.86" width="3.048" layer="16"/>
-<wire x1="12.7" y1="22.86" x2="12.7" y2="15.24" width="3.81" layer="16"/>
-<wire x1="12.7" y1="15.24" x2="13.97" y2="13.97" width="3.81" layer="16"/>
+<wire x1="27.94" y1="21.59" x2="13.97" y2="21.59" width="3.81" layer="16"/>
+<wire x1="13.97" y1="21.59" x2="12.7" y2="21.59" width="3.048" layer="16"/>
+<wire x1="12.7" y1="21.59" x2="12.7" y2="15.24" width="3.81" layer="16"/>
+<wire x1="12.7" y1="15.24" x2="13.97" y2="12.7" width="3.81" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="FUSE-LED1+" pad="1"/>
 <contactref element="R1-FUSE" pad="1"/>
-<wire x1="50.8" y1="13.97" x2="50.8" y2="10.16" width="3.048" layer="16"/>
+<wire x1="50.8" y1="11.43" x2="50.8" y2="8.89" width="3.048" layer="16"/>
 </signal>
 <signal name="N$4">
 <contactref element="FUSE-LED2+" pad="1"/>
 <contactref element="R2-FUSE" pad="1"/>
-<wire x1="50.8" y1="35.56" x2="50.8" y2="39.37" width="3.048" layer="16"/>
+<wire x1="50.8" y1="39.37" x2="50.8" y2="41.91" width="3.048" layer="16"/>
 </signal>
 <signal name="V+1">
 <contactref element="R1-FUSE" pad="2"/>
 <contactref element="FUSE-1" pad="2"/>
 <contactref element="B1" pad="1"/>
-<wire x1="35.56" y1="21.59" x2="35.56" y2="13.97" width="3.81" layer="16"/>
-<wire x1="35.56" y1="21.59" x2="54.61" y2="21.59" width="3.81" layer="16"/>
-<wire x1="54.61" y1="21.59" x2="59.69" y2="16.51" width="3.81" layer="16"/>
-<wire x1="59.69" y1="16.51" x2="63.5" y2="16.51" width="3.81" layer="16"/>
+<wire x1="35.56" y1="21.59" x2="35.56" y2="11.43" width="3.81" layer="16"/>
+<wire x1="35.56" y1="21.59" x2="45.72" y2="21.59" width="3.81" layer="16"/>
+<wire x1="45.72" y1="21.59" x2="53.34" y2="16.51" width="3.81" layer="16"/>
+<wire x1="53.34" y1="16.51" x2="58.42" y2="12.7" width="3.81" layer="16"/>
 </signal>
 <signal name="V+2" class="1">
 <contactref element="R2-FUSE" pad="2"/>
 <contactref element="FUSE-2" pad="2"/>
 <contactref element="B2" pad="2"/>
-<wire x1="35.56" y1="27.94" x2="35.56" y2="27.686" width="3.048" layer="16"/>
-<wire x1="35.56" y1="27.686" x2="35.56" y2="27.94" width="3.048" layer="16"/>
-<wire x1="35.56" y1="27.94" x2="35.56" y2="35.56" width="3.048" layer="16"/>
-<wire x1="59.69" y1="33.02" x2="63.5" y2="33.02" width="3.81" layer="16"/>
-<wire x1="54.61" y1="27.94" x2="59.69" y2="33.02" width="3.81" layer="16"/>
-<wire x1="35.56" y1="27.94" x2="54.61" y2="27.94" width="3.81" layer="16"/>
-<wire x1="35.56" y1="27.94" x2="35.56" y2="27.686" width="3.048" layer="16"/>
+<wire x1="35.56" y1="29.21" x2="36.83" y2="28.956" width="3.048" layer="16"/>
+<wire x1="36.83" y1="28.956" x2="35.56" y2="29.21" width="3.048" layer="16"/>
+<wire x1="35.56" y1="29.21" x2="35.56" y2="39.37" width="3.048" layer="16"/>
+<wire x1="45.72" y1="29.21" x2="58.42" y2="38.1" width="3.81" layer="16"/>
+<wire x1="35.56" y1="29.21" x2="45.72" y2="29.21" width="3.81" layer="16"/>
+<wire x1="35.56" y1="29.21" x2="36.83" y2="28.956" width="3.048" layer="16"/>
 </signal>
 <signal name="V-1">
 <contactref element="V-" pad="1"/>
 <contactref element="FUSE-LED1-" pad="1"/>
 <contactref element="ON-LED1-" pad="1"/>
 <contactref element="B1" pad="2"/>
-<wire x1="50.8" y1="5.08" x2="29.21" y2="5.08" width="3.81" layer="16"/>
-<wire x1="50.8" y1="5.08" x2="59.69" y2="5.08" width="3.81" layer="16"/>
-<wire x1="59.69" y1="5.08" x2="69.85" y2="13.97" width="3.81" layer="16"/>
-<wire x1="69.85" y1="13.97" x2="69.85" y2="19.05" width="3.81" layer="16"/>
-<wire x1="69.85" y1="19.05" x2="67.31" y2="21.59" width="3.81" layer="16"/>
-<wire x1="67.31" y1="21.59" x2="63.5" y2="21.59" width="3.81" layer="16"/>
-<wire x1="6.35" y1="22.86" x2="6.35" y2="12.7" width="3.81" layer="16"/>
-<wire x1="6.35" y1="12.7" x2="15.24" y2="5.08" width="3.81" layer="16"/>
-<wire x1="15.24" y1="5.08" x2="29.21" y2="5.08" width="3.81" layer="16"/>
+<polygon width="0.4064" layer="16" isolate="1.4224">
+<vertex x="0" y="0"/>
+<vertex x="75" y="0"/>
+<vertex x="74.93" y="24.13"/>
+<vertex x="0" y="24.13"/>
+</polygon>
 </signal>
 <signal name="V-2">
 <contactref element="V-" pad="2"/>
 <contactref element="FUSE-LED2-" pad="1"/>
 <contactref element="ON-LED2-" pad="1"/>
 <contactref element="B2" pad="1"/>
-<wire x1="50.8" y1="44.45" x2="29.21" y2="44.45" width="3.81" layer="16"/>
-<wire x1="50.8" y1="44.45" x2="59.69" y2="44.45" width="3.81" layer="16"/>
-<wire x1="59.69" y1="44.45" x2="69.85" y2="36.83" width="3.81" layer="16"/>
-<wire x1="69.85" y1="36.83" x2="69.85" y2="30.48" width="3.81" layer="16"/>
-<wire x1="69.85" y1="30.48" x2="67.31" y2="27.94" width="3.81" layer="16"/>
-<wire x1="67.31" y1="27.94" x2="63.5" y2="27.94" width="3.81" layer="16"/>
-<wire x1="29.21" y1="44.45" x2="13.97" y2="44.45" width="3.81" layer="16"/>
-<wire x1="13.97" y1="44.45" x2="6.35" y2="36.83" width="3.81" layer="16"/>
-<wire x1="6.35" y1="36.83" x2="6.35" y2="27.94" width="3.81" layer="16"/>
+<polygon width="0.4064" layer="16" isolate="1.4224">
+<vertex x="0" y="26.67"/>
+<vertex x="74.93" y="26.67"/>
+<vertex x="75" y="50"/>
+<vertex x="0" y="50"/>
+</polygon>
 </signal>
 <signal name="N$9">
 <contactref element="ON-LED1+" pad="1"/>
 <contactref element="R1-ON" pad="1"/>
-<wire x1="29.21" y1="13.97" x2="29.21" y2="10.16" width="3.048" layer="16"/>
+<wire x1="29.21" y1="12.7" x2="29.21" y2="10.16" width="3.048" layer="16"/>
 </signal>
 <signal name="N$10">
 <contactref element="ON-LED2+" pad="1"/>
 <contactref element="R2-ON" pad="1"/>
-<wire x1="29.21" y1="39.37" x2="29.21" y2="35.56" width="3.048" layer="16"/>
+<wire x1="29.21" y1="40.64" x2="29.21" y2="38.1" width="3.048" layer="16"/>
 </signal>
 </signals>
 </board>
