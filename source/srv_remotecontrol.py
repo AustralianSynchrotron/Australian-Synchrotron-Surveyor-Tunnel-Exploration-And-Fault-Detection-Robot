@@ -16,7 +16,7 @@ class RemoteControl(object):
 
 	@cherrypy.expose
 	def index(self):
-		return "ASS-Bot Remote Control Home Page<p><img src='/?action=stream' />"
+		return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.199:8090/?action=stream' width = '720'/>"
 		# Use for web page control
 
 	@cherrypy.expose
