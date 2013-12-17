@@ -21,7 +21,8 @@ byte mac[] = {0x00, 0xDE, 0xFA, 0xCE, 0xD0, 0x69};
 IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
 IPAddress gateway(10, 6, 0, 254);
 IPAddress subnet(255, 255, 0, 0);
-IPAddress server(10, 6, 0, 17); //connection server
+//IPAddress server(10, 6, 0, 17); //testing connection server
+IPAddress server(10, 3, 1, 199); //production connection server
 EthernetClient client;
 int port = 8080;
 

@@ -4,8 +4,8 @@ import math
 
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
-#motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
-motors_socket.connect("tcp://localhost:8558") # Comment out for production
+motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
+#motors_socket.connect("tcp://localhost:8558") # Comment out for production
 
 class RemoteControl(object):
 	neutral_max = 137
@@ -16,7 +16,7 @@ class RemoteControl(object):
 
 	@cherrypy.expose
 	def index(self):
-		return "ASS-Bot Remote Control Home Page"
+		return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.199:8090/?action=stream' width = '720'/>"
 		# Use for web page control
 
 	@cherrypy.expose
@@ -107,8 +107,8 @@ class RemoteControl(object):
 		return quad
 
 cherrypy.config.update({
-    #'server.socket_host': '10.6.100.199',
-    'server.socket_host': '10.6.0.17', #uncomment for windows box testing
+    'server.socket_host': '10.3.1.199',
+    #'server.socket_host': '10.6.0.17', #uncomment for windows box testing
     'server.socket_port': 8080
 })
 
