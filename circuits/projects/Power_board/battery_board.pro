@@ -2,8 +2,8 @@ EAGLE AutoRouter Statistics:
 
 Job           : C:/Users/Stephen/Documents/GitHub/Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot/circuits/projects/Power_board/battery_board.brd
 
-Start at      : 08:53:18 (17/12/2013)
-End at        : 08:53:21 (17/12/2013)
+Start at      : 19:01:35 (23/12/2013)
+End at        : 19:01:38 (23/12/2013)
 Elapsed time  : 00:00:03
 
 Signals       :    19   RoutingGrid: 5 mil  Layers: 2
