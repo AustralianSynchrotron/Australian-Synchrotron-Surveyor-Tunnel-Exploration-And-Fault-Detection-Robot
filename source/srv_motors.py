@@ -27,6 +27,8 @@ from time import sleep
 
 import zmq
 
+import logging
+from datetime import datetime
 
 #Create an motorcontrol object
 try:
@@ -168,6 +170,8 @@ while True:
 
     else:
         print("Absolute Settings...")
+        print("%s :: leftV = %s, rightV = %s" % (str(datetime.now()),result['leftV'],result['rightV']) )
+        #logging.debug('Received: %s, %s, %s, %s' % (result['leftA'],result['rightA'],result['leftV'],result['rightV']))
         try:
             motorControlL.setAcceleration(0, int(result['leftA']))
             motorControlR.setAcceleration(0, int(result['rightA']))
