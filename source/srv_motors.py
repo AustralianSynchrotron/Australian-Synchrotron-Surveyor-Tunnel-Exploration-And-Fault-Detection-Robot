@@ -136,7 +136,7 @@ else:
 #chr = sys.stdin.read(1)
 
 context = zmq.Context()
-motors_receiver = context.socket(zmq.SUB)
+motors_receiver = context.socket(zmq.PULL)
 motors_receiver.connect("ipc:///tmp/motors.ipc")
 
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
