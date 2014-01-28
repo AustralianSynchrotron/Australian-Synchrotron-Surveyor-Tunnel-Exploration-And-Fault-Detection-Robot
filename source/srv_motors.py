@@ -136,7 +136,7 @@ else:
 #chr = sys.stdin.read(1)
 
 context = zmq.Context()
-motors_receiver = context.socket(zmq.PULL)
+motors_receiver = context.socket(zmq.SUB)
 motors_receiver.connect("ipc:///tmp/motors.ipc")
 
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
@@ -178,7 +178,7 @@ while True:
             motorControlL.setVelocity(0, int(result['leftV']))
             motorControlR.setVelocity(0, int(result['rightV']))
         except PhidgetException as e:
-            print("Phidget Exception %i: %s" % (e.code, e.details))
+            print("BanG: Phidget Exception %i: %s" % (e.code, e.details))
     
 #Control the motor a bit.
 #print("Will now simulate motor operation....")
