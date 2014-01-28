@@ -22,7 +22,10 @@ IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
 IPAddress gateway(10, 6, 0, 254);
 IPAddress subnet(255, 255, 0, 0);
 //IPAddress server(10, 6, 0, 17); //testing connection server
-IPAddress server(10, 3, 1, 199); //production connection server
+// The server address may need to be altered as the host uses DHCP
+// This will change to a fixed IP in the future
+//IPAddress server(10, 3, 1, 199); //production connection server
+IPAddress server(10, 3, 1, 83); //production connection server
 EthernetClient client;
 int port = 8080;
 
