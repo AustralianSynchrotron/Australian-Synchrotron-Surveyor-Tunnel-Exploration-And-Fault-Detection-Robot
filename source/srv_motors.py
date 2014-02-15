@@ -135,6 +135,10 @@ else:
 #print("Press Enter to continue....")
 #chr = sys.stdin.read(1)
 
+Amax = motorControlL.getAccelerationMax(0)
+Amin = motorControlL.getAccelerationMin(0)
+print("minimum acceleration = %f, maximum accelration = %f" % ( Amin, Amax))
+
 context = zmq.Context()
 motors_receiver = context.socket(zmq.PULL)
 motors_receiver.connect("ipc:///tmp/motors.ipc")
@@ -170,11 +174,25 @@ while True:
 
     else:
         print("Absolute Settings...")
-        print("%s :: leftV = %s, rightV = %s" % (str(datetime.now()),result['leftV'],result['rightV']) )
-        #logging.debug('Received: %s, %s, %s, %s' % (result['leftA'],result['rightA'],result['leftV'],result['rightV']))
+	print("%s :: leftV = %s, rightV = %s, leftA = %s, rightA = %s" % (str(datetime.now()),result['leftV'],result['rightV'],result['leftA'],result['rightA']) )
+        #fix bad accelearation values
+	if result['leftA'] < Amin:
+		leftA = Amin
+	elif result['leftA'] > Amax:
+		leftA = Amax
+	else:
+		leftA = result['leftA']
+	if result['rightA'] < Amin:
+		rightA = Amin
+	elif result['rightA'] > Amax:
+		rightA = Amax
+	else:
+		rightA = result['rightA']
+	print("leftA = %f, rightA = %f" % ( leftA, rightA))	
+	#logging.debug('Received: %s, %s, %s, %s' % (result['leftA'],result['rightA'],result['leftV'],result['rightV']))
         try:
-            motorControlL.setAcceleration(0, int(result['leftA']))
-            motorControlR.setAcceleration(0, int(result['rightA']))
+            motorControlL.setAcceleration(0, leftA)#int(result['leftA']))
+            motorControlR.setAcceleration(0, rightA)#int(result['rightA']))
             motorControlL.setVelocity(0, int(result['leftV']))
             motorControlR.setVelocity(0, int(result['rightV']))
         except PhidgetException as e:
