@@ -177,13 +177,13 @@ while True:
 	print("%s :: leftV = %s, rightV = %s, leftA = %s, rightA = %s" % (str(datetime.now()),result['leftV'],result['rightV'],result['leftA'],result['rightA']) )
         #fix bad accelearation values
 	if result['leftA'] < Amin:
-		leftA = Amin
+		leftA = Amax
 	elif result['leftA'] > Amax:
 		leftA = Amax
 	else:
 		leftA = result['leftA']
 	if result['rightA'] < Amin:
-		rightA = Amin
+		rightA = Amax
 	elif result['rightA'] > Amax:
 		rightA = Amax
 	else:
