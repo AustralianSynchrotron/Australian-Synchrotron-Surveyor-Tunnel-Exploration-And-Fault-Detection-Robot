@@ -21,11 +21,8 @@ byte mac[] = {0x00, 0xDE, 0xFA, 0xCE, 0xD0, 0x69};
 IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
 IPAddress gateway(10, 6, 0, 254);
 IPAddress subnet(255, 255, 0, 0);
-//IPAddress server(10, 6, 0, 17); //testing connection server
-// The server address may need to be altered as the host uses DHCP
-// This will change to a fixed IP in the future
-//IPAddress server(10, 3, 1, 199); //production connection server
-IPAddress server(10, 3, 1, 83); //production connection server
+//IPAddress server(10, 6, 0, 17); //connection server
+IPAddress server(10, 3, 1, 83); //connection server - Office Network
 EthernetClient client;
 int port = 8080;
 
@@ -47,7 +44,7 @@ void setup() {
  //  Vibe:    Red:      5v0
  
   if(error == 0){
-   Serial.println("Found Controller, configured successful");
+   //Serial.println("Found Controller, configured successful");
   }
    
   else if(error == 1)
@@ -78,7 +75,7 @@ void setup() {
   Serial.println("Connecting to ASS-Bot...");
   if( Ethernet.begin(mac) == 0)
   {
-    Serial.println("Failed to configure Ethernet using DHCP");
+    //Serial.println("Failed to configure Ethernet using DHCP");
     Ethernet.begin(mac, ip);
   }
   Serial.println(Ethernet.localIP());
@@ -136,13 +133,13 @@ void loop() {
   //  Serial.print(ps2x.Analog(PSS_LX),DEC); //X-axis
   //}
   
-  delay(1000);
+  //delay(1000);
 }
 
 void sendData(String myData)
 {
-  Serial.print("Preparing to send html data: ");
-  Serial.println(myData);
+  //Serial.print("Preparing to send html data: ");
+  //Serial.println(myData);
   // if there's a successful connection:
   
   int state = client.connect(server, port);
@@ -150,7 +147,7 @@ void sendData(String myData)
   //Serial.println(state);
   
   if ( state ) {
-    Serial.println("connecting...");
+    //Serial.println("connecting...");
     // send the HTTP PUT request:
     client.println("POST /control HTTP/1.1");
     client.println("Host: 10.6.0.4");
@@ -167,7 +164,7 @@ void sendData(String myData)
     client.println(myData);
     client.println();
     
-    Serial.println("Message sent...");
+    //Serial.println("Message sent...");
     
     client.stop();
   } 
@@ -176,13 +173,13 @@ void sendData(String myData)
     Serial.println("connection failed");
 
     //if no connection, restart the connection
-    Serial.println("Restarting connection.");
+    //Serial.println("Restarting connection.");
       // give the ethernet module time to boot up:
 
     client.stop();
     //client.flush();
     //client.connect(server, port);
-    delay(1000);
+    delay(100);
   }
   
 }
