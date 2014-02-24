@@ -1,0 +1,21 @@
+D4: Red LED:  Solid: Device power on.
+D5: Blue LED: Solid Blue: Bootloaders is loaded. 
+              Blinking: Bootloaders loaded the kernel.
+D6: Blue LED: Heartbeat: a cycle of two flashes, the frequency of which are determined by the current CPU job queue.
+
+Normal Startup (Booting):
+D4 = On
+D5 = Blinking
+D6 = Off
+
+Normal operation:
+D4 = On
+D5 = Off
+D6 = Blinking (Heartbeat)
+
+Reboot Button Pressed:
+D4 = On
+D5 = On
+D6 = On
+
+If D5 or D6 are on solid, it usually indicates there is an fault with the startup, this is not normal.
