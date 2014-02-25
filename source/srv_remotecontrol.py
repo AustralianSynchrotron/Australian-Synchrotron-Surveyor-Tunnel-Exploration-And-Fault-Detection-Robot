@@ -111,7 +111,8 @@ class RemoteControl(object):
 cherrypy.config.update({
     #'server.socket_host': '10.3.1.199',
     #'server.socket_host': '10.6.0.17', #uncomment for windows box testing
-    'server.socket_host': '10.3.1.83',
+    #'server.socket_host': '10.3.1.83',
+    'server.socket_host': '10.6.0.177',
     'server.socket_port': 8080
 })
 
