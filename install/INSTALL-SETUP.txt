@@ -1,0 +1,39 @@
+sudo dpkg-reconfigure tzdata
+sudo apt-get remove chrome gimp xbmc
+sudo apt-get autoremove
+cd ~
+mkdir GitHub
+cd GitHub
+git clone https://github.com/AustralianSynchrotron/Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot.git ./ass-bot
+cd ~
+sudo apt-get install libzmq3 libzmq3-dev
+sudo apt-get install python-pip python2.7-dev
+sudo pip install pyzmq
+sudo apt-get install libusb-1.0-0-dev
+mkdir phidgets
+cd phidgets
+wget http://www.phidgets.com/downloads/libraries/libphidget.tar.gz
+tar -zxvf libphidget.tar.gz
+cd libphidget-2.1.8.20130723/
+./configure
+make
+sudo make install
+wget http://www.phidgets.com/downloads/libraries/PhidgetsPython.zip
+unzip PhidgetsPython.zip
+cd PhidgetsPython/
+sudo python setup.py install
+cd ~
+sudo pip install cherrypy
+*************************************************************************
+*  http://forum.odroid.com/viewtopic.php?f=21&t=20
+*  Slow network Errors... smsc95xx eth0: kevent 2 may have been dropped
+sudo echo 'vm.min_free_kbytes = 65536' >> /etc/sysctl.conf
+sudo sysctl -p
+sudo echo 'smsc95xx turbo_mode=N' >> /etc/modules 
+*************************************************************************
+sudo apt-get install subversion libv4l-dev libjpeg8-dev imagemagick
+mkdir mjpeg-streamer
+svn checkout svn://svn.code.sf.net/p/mjpg-streamer/code/
+cd code/mjpg-streamer-experimental/
+make USE_LIBV4L2=true clean all
+sudo make DESTDIR=/usr install
