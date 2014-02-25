@@ -37,3 +37,4 @@ svn checkout svn://svn.code.sf.net/p/mjpg-streamer/code/
 cd code/mjpg-streamer-experimental/
 make USE_LIBV4L2=true clean all
 sudo make DESTDIR=/usr install
+sudo apt-get install sysstat
