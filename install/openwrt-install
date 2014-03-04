@@ -1,6 +1,7 @@
 Router: TP-Link MR-3420 v2.3
 Goal: Setup client mode (not possible with factory firmware)
 Goal: Install openwrt
+(http://wiki.openwrt.org/toh/tp-link/tl-mr3420)
 
 From the virgin router (factory reset if necessary) upload the openwrt firmware using the firmware update
 http://downloads.openwrt.org/snapshots/trunk/ar71xx/openwrt-ar71xx-generic-tl-mr3420-v2-squashfs-factory.bin
