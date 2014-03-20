@@ -1,0 +1,51 @@
+Router: TP-Link MR-3420 v2.3
+Goal: Setup client mode (not possible with factory firmware)
+Goal: Install openwrt
+(http://wiki.openwrt.org/toh/tp-link/tl-mr3420)
+
+From the virgin router (factory reset if necessary) upload the openwrt firmware using the firmware update
+http://downloads.openwrt.org/snapshots/trunk/ar71xx/openwrt-ar71xx-generic-tl-mr3420-v2-squashfs-factory.bin
+
+== Change the root password
+telnet 192.168.1.1
+passwd root
+exit
+
+== Configure the device
+ssh root@192.168.1.1
+-- Enable wifi
+(wiki.openwrt.org/doc/uci/wireless)
+vi /etc/config/wireless
+.. option channel auto
+.. option disabled 0 ## or comment out line
+-- Enable client mode and network to join
+(wiki.openwrt.org/doc/howto/clientmode)
+.. config wifi-iface
+.. .. option network wan
+.. .. option mode sta
+.. .. option ssid PrivateFacilityWireless
+.. .. option encryption psk2
+.. .. option key ******************
+
+-- Configure the network
+vi /etcconfig/network
+.. config interface 'wan'
+.. .. #option ifname 'eth0'
+.. .. option proto 'dhcp'
+
+-- Reload the networking service config files
+/etc/init.d/network reload
+
+-- Check...
+ping www.google.com.au
+
+== Install GUI interface
+(wiki.openwrt.org/doc/howto/luci.essentials)
+opkg update
+opkg install luci
+**Note: luci-ssl maxs out the hdd, only 4kB remaining, which means no settings can be changed and making it essentially useless
+-- Start the web server
+/etc/init.d/uhttpd start
+-- Enable it to start on reboot
+/etc/init.d/uhttpd enable
+
