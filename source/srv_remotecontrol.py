@@ -87,6 +87,22 @@ class RemoteControl(object):
 				tmpDeg = math.degrees(math.atan2(lfy,lfx))
 				rightV = (tmpDeg / 90) * self.v_min
 
+			elif quad == 5:
+				leftV = self.v_max
+				rightV = self.v_max
+
+			elif quad == 6:
+                                leftV = self.v_min
+                                rightV = self.v_min
+
+			elif quad == 7:
+                                leftV = self.v_min
+                                rightV = self.v_max
+
+			elif quad == 8:
+                                leftV = self.v_max
+                                rightV = self.v_min
+
 			else:  #neutral
 				leftV = 0
 				rightV = 0
@@ -100,15 +116,26 @@ class RemoteControl(object):
 		return "Received... leftH:%s leftV:%s rightH:%s rightV:%s" % (lx, ly, rx, ry)
 
 	def which_quadrant(self, horiz, vert):
-		quad = 0
-		if ((horiz > self.neutral_max) and (vert < self.neutral_min)):
-			quad = 1
-		if ((horiz < self.neutral_min) and (vert < self.neutral_min)):
-			quad = 2
-		if ((horiz < self.neutral_min) and (vert > self.neutral_max)):
-			quad = 3
-		if ((horiz > self.neutral_max) and (vert > self.neutral_max)):
-			quad = 4
+		#quad = 0
+		
+		if ((vert > self.neutral_max) and (horiz > self.neutral_min) and (horiz < neutral_max)):
+			quad = 5	# Full steam ahead
+		if ((vert < self.neutral_min) and (horiz > self.neutral_min) and (horiz < neutral_max)):
+                        quad = 6        # Full steam behind
+		if ((horiz < self.neutral_min) and (vert > self.neutral_min) and (vert < neutral_max)):
+                        quad = 7        # Full spin left
+		if ((horiz > self.neutral_max) and (vert > self.neutral_min) and (vert < neutral_max)):
+                        quad = 8        # Full spin right
+		elif ((horiz > self.neutral_max) and (vert < self.neutral_min)):
+			quad = 1	# behind right
+		elif ((horiz < self.neutral_min) and (vert < self.neutral_min)):
+			quad = 2	# behind left
+		elif ((horiz < self.neutral_min) and (vert > self.neutral_max)):
+			quad = 3	# ahead left
+		elif ((horiz > self.neutral_max) and (vert > self.neutral_max)):
+			quad = 4	# ahead right
+		else:
+			quad = 0	# neutral, no move
 
 		return quad
 
