@@ -9,8 +9,8 @@ motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment o
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
 
 class RemoteControl(object):
-	neutral_max = 137
-	neutral_min = 118
+	neutral_max = 150
+	neutral_min = 105
 	neutral = 128
 	v_max = 100
 	v_min = -100
