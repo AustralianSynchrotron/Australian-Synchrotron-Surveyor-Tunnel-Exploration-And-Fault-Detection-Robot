@@ -22,7 +22,7 @@ IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
 IPAddress gateway(10, 6, 0, 254);
 IPAddress subnet(255, 255, 0, 0);
 //IPAddress server(10, 6, 0, 17); //connection server
-IPAddress server(10, 3, 1, 83); //connection server - Office Network
+IPAddress server(10, 3, 1, 103); //connection server - Office Network
 EthernetClient client;
 int port = 8080;
 
@@ -114,6 +114,7 @@ void loop() {
   controlString+=ps2x.Analog(PSS_LY);
   controlString+="&BtnX=";
   controlString+=ps2x.Analog(PSAB_BLUE);
+  controlString+="&Mode=Arduino";
   
 //  Serial.println(ps2x.Analog(PSS_LY),DEC);
 //  Serial.println(ps2x.Analog(PSS_RY),DEC);

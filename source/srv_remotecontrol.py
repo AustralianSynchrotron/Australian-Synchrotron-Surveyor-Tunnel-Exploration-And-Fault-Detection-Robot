@@ -28,7 +28,8 @@ class RemoteControl(object):
 		accel = 0
 		
 		print(kws)
-
+		if "mode" in kws:
+			mode = str(kws['mode'])
 		if "Lx" in kws:
 			lx = int(kws['Lx'])
 		if "Ly" in kws:
@@ -53,39 +54,42 @@ class RemoteControl(object):
 		#convert coordinate system 0 - 128
 		#convert to a number between 0 and 100 or 0 and -100 for reverse.
 
-		quad = self.which_quadrant(lx,ly)
+		#conversion from the arduino/ps2 controller
+		if mode == 'arduino':
 
-		if quad == 1:
-			leftV = self.v_max
-			lfx = lx - self.neutral
-			lfy = self.neutral - ly
-			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			rightV = (tmpDeg / 90) * self.v_max
+			quad = self.which_quadrant(lx,ly)
 
-		elif quad == 2:
-			rightV = self.v_max
-			lfx = self.neutral - lx
-			lfy = self.neutral - ly
-			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			leftV = (tmpDeg / 90) * self.v_max
+			if quad == 1:
+				leftV = self.v_max
+				lfx = lx - self.neutral
+				lfy = self.neutral - ly
+				tmpDeg = math.degrees(math.atan2(lfy,lfx))
+				rightV = (tmpDeg / 90) * self.v_max
 
-		elif quad == 3:
-			rightV = self.v_min
-			lfx = self.neutral - lx
-			lfy = ly - self.neutral
-			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			leftV = (tmpDeg / 90) * self.v_min
+			elif quad == 2:
+				rightV = self.v_max
+				lfx = self.neutral - lx
+				lfy = self.neutral - ly
+				tmpDeg = math.degrees(math.atan2(lfy,lfx))
+				leftV = (tmpDeg / 90) * self.v_max
 
-		elif quad == 4:
-			leftV = self.v_min
-			lfx = lx - self.neutral
-			lfy = ly - self.neutral
-			tmpDeg = math.degrees(math.atan2(lfy,lfx))
-			rightV = (tmpDeg / 90) * self.v_min
+			elif quad == 3:
+				rightV = self.v_min
+				lfx = self.neutral - lx
+				lfy = ly - self.neutral
+				tmpDeg = math.degrees(math.atan2(lfy,lfx))
+				leftV = (tmpDeg / 90) * self.v_min
 
-		else:  #neutral
-			leftV = 0
-			rightV = 0
+			elif quad == 4:
+				leftV = self.v_min
+				lfx = lx - self.neutral
+				lfy = ly - self.neutral
+				tmpDeg = math.degrees(math.atan2(lfy,lfx))
+				rightV = (tmpDeg / 90) * self.v_min
+
+			else:  #neutral
+				leftV = 0
+				rightV = 0
 
 		leftA = rightA = accel
 
