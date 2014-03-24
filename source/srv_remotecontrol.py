@@ -92,7 +92,8 @@ class RemoteControl(object):
 				leftV = 0
 				rightV = 0
 
-		leftA = rightA = accel
+		#leftA = rightA = accel
+		leftA = rightA = 25  # 25%/s^2 change in velocity requests
 
 		msg = {'leftA': leftA, 'rightA': rightA, 'leftV': leftV, 'rightV': rightV}
 		#Send the zmq message tothe motor server
