@@ -175,6 +175,22 @@ distance_socket = context.socket(zmq.PUB)
 distance_socket.setsockopt(zmq.LINGER, 1000)
 distance_socket.bind("ipc:///tmp/distance.ipc")
 
+##########################################################
+#
+#		S (rear)
+#		---------
+#		|	|
+#		|	|
+# E (left)	|	|	W (right)
+#		|	|
+#		|	|
+#		---------
+#
+#		N (front)
+#
+##########################################################
+
+
 array = ['ne','e','se','nw','w','sw','front','rear']
 
 #print out the array distance...
@@ -225,7 +241,7 @@ while True:
                 interfaceKitHUB.setOutputState(i,False)
                 sleep(0.4)
                 #save value into array
-                message.append(distance_mm)
+                #message.append(distance_mm)
             else:
                 #IR range 20cm - 150cm (2.5V - 0.4V)
                 #Read seonsor value
@@ -239,10 +255,13 @@ while True:
                 sleep(0.5)
 
                 #save value into array
-                message.append(distance_mm)
+                #message.append(distance_mm)
+
+	    #message.append("%s: %s," % (array[i], distance_mm))
+	    message.append(distance_mm)
 
             print( "Distance - Device %i: %smm" % ( i, distance_mm ) )
-            #print( distance_mm )
+            print( message )
         except PhidgetException as e:
             print("Phidget Exception %i: %s" % (e.code, e.details))
     print("==============================")
@@ -251,6 +270,8 @@ while True:
     #msg = {'front': '32.543'}
     #Export distance array via json to ipc://distance.ipc
     msg = dict(zip(array,message))
+    print("Sending Message: %s" % msg )
+    print("==============================")
     distance_socket.send_json(msg)
 
 #print "Sensor ValueHUB",interfaceKitHUB.getSensorValue(0)
