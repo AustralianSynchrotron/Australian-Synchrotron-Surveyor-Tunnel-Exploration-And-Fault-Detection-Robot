@@ -7,8 +7,8 @@ import commands
 
 context = zmq.Context()
 zmq_socket = context.socket(zmq.PUSH)
-zmq_socket.bind("ipc:///tmp/motors.ipc")
-
+#zmq_socket.connect("ipc:///tmp/motors.ipc")
+zmq_socket.connect("tcp://127.0.0.2:1100")
 
 while True:
    lval = input('Left speed: ')

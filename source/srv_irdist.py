@@ -172,8 +172,9 @@ signal.signal(signal.SIGINT, signal_handler)
 #Setup zmq sockets
 context = zmq.Context()
 distance_socket = context.socket(zmq.PUB)
-distance_socket.setsockopt(zmq.LINGER, 1000)
-distance_socket.bind("ipc:///tmp/distance.ipc")
+distance_socket.setsockopt(zmq.LINGER, 10)
+#distance_socket.bind("ipc:///tmp/distance.ipc")
+distance_socket.bind("tcp://127.0.0.2:1000")
 
 ##########################################################
 #
@@ -191,7 +192,7 @@ distance_socket.bind("ipc:///tmp/distance.ipc")
 ##########################################################
 
 
-array = ['ne','e','se','nw','w','sw','front','rear']
+array = ["ne","e","se","nw","w","sw","front","rear"]
 
 #print out the array distance...
 #seems to be accurate to around +/-2mm
@@ -273,7 +274,6 @@ while True:
     print("Sending Message: %s" % msg )
     print("==============================")
     distance_socket.send_json(msg)
-
 #print "Sensor ValueHUB",interfaceKitHUB.getSensorValue(0)
 #print "Sensor ValueLCD",interfaceKitLCD.getSensorValue(0)
 
