@@ -4,7 +4,7 @@ Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot
 Australian Synchrotron Tunnel Bot
 ![](https://raw.github.com/AustralianSynchrotron/Australian-Synchrotron-Surveyor-Tunnel-Exploration-And-Fault-Detection-Robot/master/drawings/logos/RoboDonkey.png)
 
-Requirements
+###Requirements
 ------------
 
 1. Python 2.7.x
@@ -18,3 +18,18 @@ Requirements
 -- PS2X by Bill Porter
 9. supervisor 3.0b2-1
 10. ROOter Huntsman 2014-01-25red
+
+
+###Changes
+-------
+
+ipc doesn't seem to be wlorking on this current configuration (except for LCD screen) so motors and IR Sensors using zmq on tcp://127.0.0.2
+ports:
+irsensor 1000
+motors 1100
+
+
+note: srv_motor.py now has the bind command for the motors zmq socket, since it is the service which is always running.
+
+
+
