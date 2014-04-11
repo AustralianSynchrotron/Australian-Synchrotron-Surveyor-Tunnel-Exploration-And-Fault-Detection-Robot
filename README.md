@@ -23,10 +23,10 @@ Australian Synchrotron Tunnel Bot
 ###Changes
 -------
 
-ipc doesn't seem to be wlorking on this current configuration (except for LCD screen) so motors and IR Sensors using zmq on tcp://127.0.0.2
+ipc doesn't seem to be working on this current configuration (except for LCD screen) so motors and IR Sensors using zmq on tcp://127.0.0.2
 ports:
-irsensor 1000
-motors 1100
+irsensor 127.0.0.2:1000
+motors 127.0.0.2:1100
 
 
 note: srv_motor.py now has the bind command for the motors zmq socket, since it is the service which is always running.
