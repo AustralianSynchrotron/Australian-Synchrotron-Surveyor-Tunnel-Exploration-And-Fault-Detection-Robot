@@ -1,14 +1,12 @@
 /*
- 
   The circuit:
- * LCD RS pin to digital pin 12
- * LCD Enable pin to digital pin 11
+ * LCD RS pin to digital pin 11
+ * LCD Enable pin to digital pin 13
  * LCD D4 pin to digital pin 5
  * LCD D5 pin to digital pin 4
  * LCD D6 pin to digital pin 3
  * LCD D7 pin to digital pin 2
- * LCD R/W pin to ground
-  
+ * LCD R/W pin to 12 
  */
 
 // include the library code:
@@ -16,24 +14,39 @@
 
 #define batt_1Pin  0
 #define batt_2Pin  1
-#define v1_add  10.96
-#define v2_add  22.48
+#define v1_add  10.94
+#define v2_add  22.55
 // initialize the library with the numbers of the interface pins
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(11, 12, 13, 5, 4, 3, 2);
 int in_1 = 0;
 int in_2 = 0;
 float volt_1 = 0.0;
 float volt_2 = 0.0;
 float test = 0.0;
+boolean flip = true;
 
 void setup() {
   // set up the LCD's number of columns and rows: 
   lcd.begin(20, 4);
-  // Print a message to the LCD.
-  
   analogReference(DEFAULT);
+  Serial.begin(9600);
   
+  // Print start message to the LCD.
+  lcd.setCursor(6,0);
+  lcd.print("ASS BOT");
+  lcd.setCursor(2,1);
+  lcd.print("POWERING UP!!!");
+  lcd.setCursor(1,2);
+  lcd.print("monitoring in...");
+  for(int i= 4; i > 0; i--){
+    lcd.setCursor(9,3);
+    lcd.print(i);
+    delay(1000);
+  }
+  lcd.setCursor(1,3);
+  lcd.print("ASS-POWER ONLINE!!");
+  delay(1000);
 }
 
 void loop() {
@@ -46,25 +59,35 @@ void loop() {
   
   lcd.clear();
   
-  lcd.setCursor(0,0);
-  lcd.print("ASS-POWER ");
+  lcd.setCursor(5,0);
+  lcd.print("ASS-POWER!");
   lcd.setCursor(0,2);
   lcd.print("Battery 1: ");
   if(volt_1 < 12.0) {
-    lcd.blink();
-    lcd.print("Low!!!");
-    lcd.noBlink();
+    if(flip)
+      lcd.print("Low!!!");
   } else {
     lcd.print(volt_1);
+    lcd.print("V");
   }
   lcd.setCursor(0,3);
   lcd.print("Battery 2: ");
   if(volt_2 < 12.0) {
-    lcd.print("Low!!!");
+    if(flip)
+      lcd.print("Low!!!");
   } else {
     lcd.print(volt_2);
+    lcd.print("V");
   }
   
-  delay(1000);
+  if(flip){
+    Serial.print("{\"v1\":");
+    Serial.print(volt_1);
+    Serial.print(", \"v2\":");
+    Serial.print(volt_2);
+    Serial.print("}\r\n");
+  }
+  flip = !flip;
+  delay(500);
 }
 
