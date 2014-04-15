@@ -14,8 +14,8 @@
 
 #define batt_1Pin  0
 #define batt_2Pin  1
-#define v1_add  10.94
-#define v2_add  22.55
+#define v1_add  10.84
+#define v2_add  22.48
 // initialize the library with the numbers of the interface pins
 
 LiquidCrystal lcd(11, 12, 13, 5, 4, 3, 2);
@@ -35,9 +35,9 @@ void setup() {
   // Print start message to the LCD.
   lcd.setCursor(6,0);
   lcd.print("ASS BOT");
-  lcd.setCursor(2,1);
-  lcd.print("POWERING UP!!!");
-  lcd.setCursor(1,2);
+  lcd.setCursor(4,1);
+  lcd.print("POWERING UP");
+  lcd.setCursor(2,2);
   lcd.print("monitoring in...");
   for(int i= 4; i > 0; i--){
     lcd.setCursor(9,3);
