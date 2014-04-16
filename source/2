@@ -172,9 +172,9 @@ signal.signal(signal.SIGINT, signal_handler)
 #Setup zmq sockets
 context = zmq.Context()
 distance_socket = context.socket(zmq.PUB)
-distance_socket.setsockopt(zmq.LINGER, 100)
-#distance_socket.bind("ipc:///tmp/distance.ipc")
-distance_socket.bind("tcp://127.0.0.2:1000")
+distance_socket.setsockopt(zmq.LINGER, 10)
+distance_socket.bind("ipc://distance.ipc")
+#distance_socket.bind("tcp://127.0.0.1:6969")
 
 ##########################################################
 #
@@ -230,7 +230,7 @@ while True:
                 #turn on the sonar sensor via digital output 'i'
                 interfaceKitHUB.setOutputState(i,True)
                 #intval = interfaceKitHUB.getSensorValue(i)
-                #sleep(0.1) # Wait for sonar to activate
+                sleep(0.1) # Wait for sonar to activate
                 intval = interfaceKitHUB.getSensorRawValue(i) #Read sonar
                 print intval, i
                 distance_mm = (intval / 4.095 ) * 12.96 #convert raw value to mm
@@ -253,7 +253,7 @@ while True:
                 #Not a reliable mesaurement below 200mm (20cm) or above 1500 (150cm)
                 if (distance_mm < 200.0) or (distance_mm > 1500.0):
                     distance_mm = -1
-                sleep(0.4)
+                sleep(0.5)
 
                 #save value into array
                 #message.append(distance_mm)
@@ -266,7 +266,7 @@ while True:
         except PhidgetException as e:
             print("Phidget Exception %i: %s" % (e.code, e.details))
     print("==============================")
-    sleep(0.2)
+    sleep(1)
 
     #msg = {'front': '32.543'}
     #Export distance array via json to ipc://distance.ipc

@@ -12,10 +12,10 @@ zmq_socket.connect("tcp://127.0.0.2:1000")
 zmq_socket.setsockopt(zmq.SUBSCRIBE, '') #recv all messages
 
 while True:
-    msg = {'leftA': '200', 'rightA': '300', 'leftV': '100', 'rightV': '50'}
+    #msg = {'leftA': '200', 'rightA': '300', 'leftV': '100', 'rightV': '50'}
 
-    print ("Waiting to receive message...")
+    #print ("Waiting to receive message...")
     msg = zmq_socket.recv_json()
     print( msg )
-    print( "sleeping 2" )
-    time.sleep(2)
+    print( "sleeping 0.5" )
+    time.sleep(0.5)
