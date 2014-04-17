@@ -5,8 +5,8 @@ import math
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
 #motors_socket = context.socket(zmq.PUB)
-#motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
-motors_socket.connect("tcp://127.0.0.2:1100")
+motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
+#motors_socket.connect("tcp://127.0.0.2:1100")
 
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
 

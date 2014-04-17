@@ -173,8 +173,8 @@ signal.signal(signal.SIGINT, signal_handler)
 context = zmq.Context()
 distance_socket = context.socket(zmq.PUB)
 distance_socket.setsockopt(zmq.LINGER, 100)
-#distance_socket.bind("ipc:///tmp/distance.ipc")
-distance_socket.bind("tcp://127.0.0.2:1000")
+distance_socket.bind("ipc:///tmp/distance.ipc")
+#distance_socket.bind("tcp://127.0.0.2:1000")
 
 ##########################################################
 #
@@ -182,7 +182,7 @@ distance_socket.bind("tcp://127.0.0.2:1000")
 #		---------
 #		|	|
 #		|	|
-# E (left)	|	|	W (right)
+# E (right)	|	|	W (left)
 #		|	|
 #		|	|
 #		---------

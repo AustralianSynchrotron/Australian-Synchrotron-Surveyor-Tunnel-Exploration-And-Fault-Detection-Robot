@@ -100,8 +100,8 @@ def motorControlVelocityChanged(e):
 print("Opening phidget object....")
 
 try:
-    motorControlL.openPhidget()
-    motorControlR.openPhidget()
+    motorControlL.openPhidget(serial=298857)
+    motorControlR.openPhidget(serial=298856)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
@@ -141,8 +141,8 @@ print("minimum acceleration = %f, maximum accelration = %f" % ( Amin, Amax))
 
 context = zmq.Context()
 motors_receiver = context.socket(zmq.PULL)
-#motors_receiver.connect("ipc:///tmp/motors.ipc")
-motors_receiver.bind("tcp://127.0.0.2:1100")
+motors_receiver.connect("ipc:///tmp/motors.ipc")
+#motors_receiver.bind("tcp://127.0.0.2:1100")
 
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
 # velocity: -100 to 100; 0 is stop
