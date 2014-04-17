@@ -5,7 +5,7 @@ import math
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
 #motors_socket = context.socket(zmq.PUB)
-motors_socket.bind("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
+motors_socket.connect("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
 #motors_socket.connect("tcp://127.0.0.2:1100")
 
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
@@ -63,32 +63,32 @@ class RemoteControl(object):
 			quad = self.which_quadrant(lx,ly)
 
 			if quad == 1:
-				rightV = self.v_max
-				lfx = lx - self.neutral
-				lfy = self.neutral - ly
-				tmpDeg = math.degrees(math.atan2(lfy,lfx))
-				leftV = (tmpDeg / 90) * self.v_max
-
-			elif quad == 2:
 				leftV = self.v_max
-				lfx = self.neutral - lx
+				lfx = lx - self.neutral
 				lfy = self.neutral - ly
 				tmpDeg = math.degrees(math.atan2(lfy,lfx))
 				rightV = (tmpDeg / 90) * self.v_max
 
+			elif quad == 2:
+				rightV = self.v_max
+				lfx = self.neutral - lx
+				lfy = self.neutral - ly
+				tmpDeg = math.degrees(math.atan2(lfy,lfx))
+				leftV = (tmpDeg / 90) * self.v_max
+
 			elif quad == 3:
-				leftV = self.v_min
+				rightV = self.v_min
 				lfx = self.neutral - lx
 				lfy = ly - self.neutral
 				tmpDeg = math.degrees(math.atan2(lfy,lfx))
-				rightV = (tmpDeg / 90) * self.v_min
+				leftV = (tmpDeg / 90) * self.v_min
 
 			elif quad == 4:
-				rightV = self.v_min
+				leftV = self.v_min
 				lfx = lx - self.neutral
 				lfy = ly - self.neutral
 				tmpDeg = math.degrees(math.atan2(lfy,lfx))
-				leftV = (tmpDeg / 90) * self.v_min
+				rightV = (tmpDeg / 90) * self.v_min
 
 			else:  #neutral
 				leftV = 0

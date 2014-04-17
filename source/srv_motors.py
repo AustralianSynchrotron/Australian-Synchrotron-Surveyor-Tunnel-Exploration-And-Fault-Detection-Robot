@@ -141,7 +141,7 @@ print("minimum acceleration = %f, maximum accelration = %f" % ( Amin, Amax))
 
 context = zmq.Context()
 motors_receiver = context.socket(zmq.PULL)
-motors_receiver.connect("ipc:///tmp/motors.ipc")
+motors_receiver.bind("ipc:///tmp/motors.ipc")
 #motors_receiver.bind("tcp://127.0.0.2:1100")
 
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
