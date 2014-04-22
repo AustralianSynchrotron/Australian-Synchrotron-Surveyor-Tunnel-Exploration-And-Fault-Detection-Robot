@@ -1,6 +1,7 @@
 import cherrypy
 import zmq
 import math
+import os
 
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
@@ -9,6 +10,8 @@ motors_socket.connect("ipc:///tmp/motors.ipc") #Not supported by windows, commen
 #motors_socket.connect("tcp://127.0.0.2:1100")
 
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
+
+HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'html')
 
 class RemoteControl(object):
 	neutral_max = 150
@@ -19,12 +22,15 @@ class RemoteControl(object):
 
 	@cherrypy.expose
 	def index(self):
+		print HTML_DIR
 		#return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.199:8090/?action=stream' width = '720'/>"
-		return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.103:8090/?action=stream' width = '720'/>"
+		#return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.103:8090/?action=stream'/>"
+		return open(os.path.join(HTML_DIR, 'control.html'))
 		# Use for web page control
 
 	@cherrypy.expose
 	def control(self, **kws):
+		print HTML_DIR
 		# if no message is received the set position to neutral, 0 acceleration
 		lx = ly = rx = ry = self.neutral
 		accel = 0
@@ -147,4 +153,13 @@ cherrypy.config.update({
     'server.socket_port': 8080
 })
 
-cherrypy.quickstart(RemoteControl())
+config = {'/html':
+		{'tools.staticdir.on': True,
+		'tools.statucdir.dir': HTML_DIR,
+		}
+	}
+
+#cherrypy.quickstart(RemoteControl())
+#cherrypy.engine.subscribe('start', open_page)
+cherrypy.tree.mount(RemoteControl(), '/', config = config)
+cherrypy.engine.start()
