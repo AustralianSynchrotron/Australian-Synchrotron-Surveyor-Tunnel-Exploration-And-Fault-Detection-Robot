@@ -90,12 +90,20 @@ class RemoteControl(object):
 				tmpDeg = math.degrees(math.atan2(lfy,lfx))
 				rightV = (tmpDeg / 90) * self.v_min
 
+			elif quad == 5:
+				leftV = self.v_min
+				rightV = self.v_max
+
+			elif quad == 6:
+				leftV = self.v_max
+				rightV = self.v_min
+
 			else:  #neutral
 				leftV = 0
 				rightV = 0
 
 		#leftA = rightA = accel
-		leftA = rightA = 25  # 25%/s^2 change in velocity requests
+		leftA = rightA = 50  # 25%/s^2 change in velocity requests
 
 		msg = {'leftA': leftA, 'rightA': rightA, 'leftV': leftV, 'rightV': rightV}
 		#Send the zmq message tothe motor server
@@ -119,6 +127,12 @@ class RemoteControl(object):
 		if ((horiz > self.neutral) and (vert > self.neutral)):
 			quad = 4	# behind right
 			print("Quad 4  vert:%s  horiz:%s" % (horiz, vert))
+		if ((horiz < 20) and (vert > 115) and (vert < 140)):
+			quad = 5
+			print("Spin Left!")
+		if ((horiz > 230) and (vert > 115) and (vert <140)):
+			quad = 6
+			print("Spin Right!")
 		if ((horiz > self.neutral_min) and (horiz < self.neutral_max) and (vert > self.neutral_min) and (vert < self.neutral_max)):
 			quad = 0	# overwrite the neutral square
 			print("Quad 0  vert:%s  horiz:%s" % (horiz, vert))
