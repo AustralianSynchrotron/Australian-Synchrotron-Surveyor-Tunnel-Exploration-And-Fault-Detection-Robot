@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title> ASS-Bot Control Centre</title>
+	<script type='text/javascript' src='/html/tween.js'></script>
+	<script type='text/javascript' src='/html/steelseries.js'></script>
+	<script type='text/javascript' src='/html/virtualjoystick.js'></script>
+
+    <script type='text/javascript'>
+    var bat_breakpoints = Array(steelseries.Section(11, 12, 'rgba(220,0,0,0.3)'),
+				steelseries.Section(12, 13.8, 'rgba(0,220,0,0.3)'),
+				steelseries.Section(13.8, 15, 'rgba(220,220,0,0.3)'));
+    var bat_areas = Array(steelseries.Section(11,12,'rgba(220,0,0,0.3)'));
+
+    var radial_bat1 = new steelseries.Radial(
+	'canvas_bat1', {
+	section: bat_breakpoints,
+	area:	 bat_areas,
+	titleString: 'Batt 1',
+	unitString:  'V',
+	pointerType: steelseries
+</head>
+<body onload='init()'>
+    <h1>Robot Control-Z</h1><p>
+    <img src='http://10.3.1.103:8090/?action=stream' />
+</body>
+	
