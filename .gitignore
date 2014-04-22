@@ -16,6 +16,11 @@ local.properties
 .settings/
 .loadpath
 
+# text editor tmp files
+.save
+.swo
+.swn
+
 # External tool builders
 .externalToolBuilders/
 
