@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <head>
 	<title> ASS-Bot Control Centre</title>
-	<script type='text/javascript' src='/html/tween.js'></script>
-	<script type='text/javascript' src='/html/steelseries.js'></script>
-	<script type='text/javascript' src='/html/virtualjoystick.js'></script>
+	<script type='text/javascript' src='html/tween.js'></script>
+	<script type='text/javascript' src='html/steelseries.js'></script>
+	<script type='text/javascript' src='html/virtualjoystick.js'></script>
+	<script type='text/javascript' src='html/raphael.js'</script>
+	<script type='text/javascript' src='html/eve.js'</script>
 
+    <!-- http://harmoniccode.blogspot.com.au/2011/04/steelseries-javascript-edition.html
+	 http://harmoniccode.blogspot.com.au/2011/06/html5-canvas-update.html
+     -->
     <script type='text/javascript'>
-    function init()
-    {
+    window.onload = function () {
+    window.alert("entering function init");
+
     var bat_breakpoints = Array(steelseries.Section(11, 12, 'rgba(220,0,0,0.3)'),
 				steelseries.Section(12, 13.8, 'rgba(0,220,0,0.3)'),
 				steelseries.Section(13.8, 15, 'rgba(220,220,0,0.3)'));
@@ -16,19 +22,38 @@
     var radial_bat1 = new steelseries.Radial(
         'canvas_bat1', {
         section: bat_breakpoints,
-        area:    bat_areas,
-        titleString: 'Batt 1',
+        area: bat_areas,
+        titleString: 'Battery 1',
         unitString:  'V',
-        pointerType: steelseries.PointerType.TYPE8
+	minValue: 11,
+	maxValue: 15,
+        pointerType: steelseries.PointerType.TYPE11
 	});
+
+    var radial_bat2 = new steelseries.Radial(
+	'canvas_bat2', {
+	section: bat_breakpoints,
+	area: bat_areas,
+	titleString: 'Battery 2',
+	unitString: 'V',
+	minValue: 11,
+	maxValue: 15,
+	pointerType: steelseries.PointerType.TYPE11
+	});
+
     radial_bat1.setValueAnimated(12.8);
-    }
+    radial_bat2.setValueAnimated(12.75);
+
+    };
+
+    window.alert("started javascript");
     </script>
 
 </head>
-<body onload='init()'>
+<body>
     <h1>Robot Control-Z</h1><p>
     <img src='http://10.3.1.103:8090/?action=stream' />
-    <canvas id='canvas_bat1' width='200' height='200'> Canvas isn't supported by your browser </canvas>
+    <canvas id='canvas_bat1' width='150' height='150'> Canvas isn't supported by your browser </canvas>
+    <canvas id='canvas_bat2' width='150' height='150'></canvas>
 </body>
 </html>

@@ -11,11 +11,11 @@ motors_socket.connect("ipc:///tmp/motors.ipc") #Not supported by windows, commen
 
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
 
-HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'html')
+HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'html/')
 
 class RemoteControl(object):
-	neutral_max = 150
-	neutral_min = 105
+	neutral_max = 155
+	neutral_min = 100
 	neutral = 128
 	v_max = 100
 	v_min = -100
@@ -153,9 +153,13 @@ cherrypy.config.update({
     'server.socket_port': 8080
 })
 
-config = {'/html':
+config = {'/':
+		{'tools.staticdir.debug': True,
+		 'log.screen': True
+		},
+	'/html':
 		{'tools.staticdir.on': True,
-		'tools.statucdir.dir': HTML_DIR,
+		 'tools.staticdir.dir': HTML_DIR,
 		}
 	}
 
