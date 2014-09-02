@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CADFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0.9.8.0" Name="20-15">
+  <layers>
+    <layer name="Default" color="127,255,0">
+      <ModificationCount>0</ModificationCount>
+      <objects>
+        <points id="1">
+          <ModificationCount>6</ModificationCount>
+          <mat m="Identity" />
+          <pts>
+            <p>10,10</p>
+            <p>10,45</p>
+          </pts>
+        </points>
+        <arc id="2" p="10,10,0" r="10" s="180" w="180">
+          <ModificationCount>9</ModificationCount>
+          <mat m="Identity" />
+        </arc>
+        <arc id="3" p="10,45,0" r="10" s="0" w="180">
+          <ModificationCount>7</ModificationCount>
+          <mat m="Identity" />
+        </arc>
+        <pline id="4">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />
+          <pts>
+            <p>0,10,0</p>
+            <p>0,45,0</p>
+          </pts>
+        </pline>
+        <pline id="5">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />
+          <pts>
+            <p>20,10,0</p>
+            <p>20,45,0</p>
+          </pts>
+        </pline>
+        <pline id="6">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />
+          <pts>
+            <p>0,30,0</p>
+            <p>20,30,0</p>
+          </pts>
+        </pline>
+      </objects>
+    </layer>
+  </layers>
+  <MachiningOptions>
+    <Stock>
+      <PMin>0,0</PMin>
+      <PMax>0,0</PMax>
+      <Color>255,165,0</Color>
+    </Stock>
+    <ToolProfile>Unspecified</ToolProfile>
+  </MachiningOptions>
+  <parts />
+  <ActiveLayer>Default</ActiveLayer>
+</CADFile>
