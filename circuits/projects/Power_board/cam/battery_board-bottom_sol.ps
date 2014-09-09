@@ -257,6 +257,16 @@
    1 setlinecap
    1 setlinejoin
    
+   % invert drawing:
+   newpath
+   MinDrawX MinDrawY moveto
+   MaxDrawX MinDrawY lineto
+   MaxDrawX MaxDrawY lineto
+   MinDrawX MaxDrawY lineto
+   0 setgray
+   closepath fill
+   1 setgray
+   
    } def
 
 % TheDrawing
