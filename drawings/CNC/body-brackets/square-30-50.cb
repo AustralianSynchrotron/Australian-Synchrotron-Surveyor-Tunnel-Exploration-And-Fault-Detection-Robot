@@ -5,7 +5,7 @@
       <ModificationCount>0</ModificationCount>
       <objects>
         <points id="1">
-          <ModificationCount>8</ModificationCount>
+          <ModificationCount>10</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>10,10</p>
@@ -15,23 +15,23 @@
           </pts>
         </points>
         <arc id="2" p="10,10,0" r="10" s="180" w="180">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
         </arc>
         <arc id="4" p="10.022649114443,40.0250859741127,0" r="10.022680508593629" s="84.403971072186579" w="95.739435867814535">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
         </arc>
         <arc id="5" p="59.949752530806,39.949752530806,0" r="10.050373077662338" s="0.28645502883617258" w="89.427089942328948">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
         </arc>
         <arc id="6" p="60,10,0" r="10" s="180" w="180">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
         </arc>
         <pline id="7">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>0,37,0</p>
@@ -39,7 +39,7 @@
           </pts>
         </pline>
         <pline id="8">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>57,50,0</p>
@@ -47,7 +47,7 @@
           </pts>
         </pline>
         <pline id="9">
-          <ModificationCount>9</ModificationCount>
+          <ModificationCount>11</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>70,13,0</p>
@@ -55,7 +55,7 @@
           </pts>
         </pline>
         <pline id="15">
-          <ModificationCount>10</ModificationCount>
+          <ModificationCount>12</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>20,10,0</p>
@@ -63,7 +63,7 @@
           </pts>
         </pline>
         <pline id="16">
-          <ModificationCount>10</ModificationCount>
+          <ModificationCount>12</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>50,30,0</p>
@@ -71,7 +71,7 @@
           </pts>
         </pline>
         <pline id="17">
-          <ModificationCount>8</ModificationCount>
+          <ModificationCount>10</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>22,32,0</p>
@@ -79,7 +79,7 @@
           </pts>
         </pline>
         <pline id="20">
-          <ModificationCount>8</ModificationCount>
+          <ModificationCount>10</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>20,30,0</p>
@@ -87,7 +87,7 @@
           </pts>
         </pline>
         <pline id="21">
-          <ModificationCount>8</ModificationCount>
+          <ModificationCount>10</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>50,30,0</p>
@@ -95,15 +95,15 @@
           </pts>
         </pline>
         <arc id="22" p="22,30,0" r="2" s="180" w="-90">
-          <ModificationCount>13</ModificationCount>
+          <ModificationCount>15</ModificationCount>
           <mat m="Identity" />
         </arc>
         <arc id="23" p="48,30,0" r="2" s="90" w="-90">
-          <ModificationCount>11</ModificationCount>
+          <ModificationCount>13</ModificationCount>
           <mat m="Identity" />
         </arc>
         <pline id="24">
-          <ModificationCount>8</ModificationCount>
+          <ModificationCount>10</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>30,50,0</p>
@@ -111,7 +111,7 @@
           </pts>
         </pline>
         <points id="3">
-          <ModificationCount>6</ModificationCount>
+          <ModificationCount>8</ModificationCount>
           <mat m="Identity" />
           <pts>
             <p>3,30</p>
@@ -144,9 +144,9 @@
           <WorkPlane state="Default">XY</WorkPlane>
           <OptimisationMode state="Default">Experimental</OptimisationMode>
           <RoughingFinishing state="Default">Roughing</RoughingFinishing>
-          <ToolDiameter state="Default">0</ToolDiameter>
-          <ToolNumber state="Default">0</ToolNumber>
-          <ToolProfile state="Default">Unspecified</ToolProfile>
+          <ToolDiameter state="Default">1.5</ToolDiameter>
+          <ToolNumber state="Value">202</ToolNumber>
+          <ToolProfile state="Default">EndMill</ToolProfile>
           <PlungeFeedrate state="Default">300</PlungeFeedrate>
           <CutFeedrate state="Value">300</CutFeedrate>
           <MaxCrossoverDistance state="Default">0.7</MaxCrossoverDistance>
