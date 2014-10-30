@@ -9,10 +9,11 @@
 
     <!-- http://harmoniccode.blogspot.com.au/2011/04/steelseries-javascript-edition.html
 	 http://harmoniccode.blogspot.com.au/2011/06/html5-canvas-update.html
+	 demos: http://www.acmesystems.it/steelseriescanvas
      -->
     <script type='text/javascript'>
     window.onload = function () {
-    window.alert("entering function init");
+    //window.alert("entering function init");
 
     var bat_breakpoints = Array(steelseries.Section(11, 12, 'rgba(220,0,0,0.3)'),
 				steelseries.Section(12, 13.8, 'rgba(0,220,0,0.3)'),
@@ -28,6 +29,12 @@
 	minValue: 11,
 	maxValue: 15,
         pointerType: steelseries.PointerType.TYPE11
+	});
+
+    var linear_bat = new steelseries.Battery(
+	'canvas_bat_linear', {
+	size: 100,
+	value: 80
 	});
 
     var radial_bat2 = new steelseries.Radial(
@@ -46,14 +53,15 @@
 
     };
 
-    window.alert("started javascript");
+    //window.alert("started javascript");
     </script>
 
 </head>
 <body>
     <h1>Robot Control-Z</h1><p>
-    <img src='http://10.3.1.103:8090/?action=stream' />
+    <img src='http://10.3.1.103:8090/?action=stream' width='800'/>
     <canvas id='canvas_bat1' width='150' height='150'> Canvas isn't supported by your browser </canvas>
     <canvas id='canvas_bat2' width='150' height='150'></canvas>
+    <canvas id='canvas_bat_linear'></canvas>
 </body>
 </html>

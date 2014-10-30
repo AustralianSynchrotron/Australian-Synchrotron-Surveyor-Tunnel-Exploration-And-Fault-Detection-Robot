@@ -2,14 +2,18 @@ import cherrypy
 import zmq
 import math
 import os
+import simplejson
 
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
 #motors_socket = context.socket(zmq.PUB)
 motors_socket.connect("ipc:///tmp/motors.ipc") #Not supported by windows, comment out for testing
 #motors_socket.connect("tcp://127.0.0.2:1100")
-
 #motors_socket.connect("tcp://localhost:8558") # Comment out for production
+
+battery_socket = context.socket(zmq.SUB)
+battery_socket.connect("ipc:///tmp/battery.ipc")
+battery_socket.setsockopt(zmq.SUBSCRIBE, "") #subscribe all messages
 
 HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'html/')
 
@@ -27,6 +31,12 @@ class RemoteControl(object):
 		#return "ASS-Bot Remote Control Home Page<p><img src='http://10.3.1.103:8090/?action=stream'/>"
 		return open(os.path.join(HTML_DIR, 'control.html'))
 		# Use for web page control
+
+	@cherrypy.expose
+	def batteries(self):
+		msg = battery_socket.recv_json()
+		print(msg)
+		return msg
 
 	@cherrypy.expose
 	def control(self, **kws):
@@ -148,8 +158,9 @@ class RemoteControl(object):
 cherrypy.config.update({
     #'server.socket_host': '10.3.1.199',
     #'server.socket_host': '10.6.0.17', #uncomment for windows box testing
-    'server.socket_host': '10.3.1.103',
+    #'server.socket_host': '10.3.1.103',
     #'server.socket_host': '10.6.0.177',
+    'server.socket_host': '10.3.1.236',
     'server.socket_port': 8080
 })
 

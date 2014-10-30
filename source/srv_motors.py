@@ -144,12 +144,22 @@ motors_receiver = context.socket(zmq.PULL)
 motors_receiver.bind("ipc:///tmp/motors.ipc")
 #motors_receiver.bind("tcp://127.0.0.2:1100")
 
+battery_socket = context.socket(zmq.PUB)
+battery_socket.bind("ipc:///tmp/battery.ipc")
+
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
 # velocity: -100 to 100; 0 is stop
 # acceleration: AccMin(24.51) to AccMax (6250)
 # rel: relative or absolute settings
 
 while True:
+
+    bat1 = motorControlL.getSupplyVoltage()
+    bat2 = motorControlR.getSupplyVoltage()
+    print("Battery1: %s, Battery2: %s" % (bat1, bat2))
+    msg = {'battery1': bat1, 'battery2': bat2}
+    battery_socket.send_json(msg)
+
     print("Going into forever loop mode")
     result = motors_receiver.recv_json()
     print(result)
