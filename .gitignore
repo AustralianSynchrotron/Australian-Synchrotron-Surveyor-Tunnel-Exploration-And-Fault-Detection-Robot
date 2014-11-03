@@ -231,3 +231,5 @@ pip-log.txt
 # AutoCAD
 ################
 *.dwl*
+
+.idea
