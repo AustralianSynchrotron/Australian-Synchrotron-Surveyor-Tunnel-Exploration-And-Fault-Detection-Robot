@@ -66,9 +66,53 @@ def interfaceKitError(e):
     except PhidgetException as e:
         print("Phidget Exception %i: %s" % (e.code, e.details))
 
-def interfaceKitInputChanged(e):
+def interfaceKitHUBInputChanged(e):
+    global bumper_socket
     source = e.device
-    print("InterfaceKit %i: Input %i: %s" % (source.getSerialNum(), e.index, e.state))
+
+    if e.index == 0:
+        if e.state:
+            msg = {"nw": "1"}
+        else:
+            msg = {"nw": "0"}
+
+    if e.index == 1:
+        if e.state:
+            msg = {"n": "1"}
+        else:
+            msg = {"n": "0"}
+
+    if e.index == 2:
+        if e.state:
+            msg = {"ne": "1"}
+        else:
+            msg = {"ne": "0"}
+
+    if e.index == 3:
+        if e.state:
+            msg = {"sw": "1"}
+        else:
+            msg = {"sw": "0"}
+
+    if e.index == 4:
+        if e.state:
+            msg = {"s": "1"}
+        else:
+            msg = {"s": "0"}
+
+    if e.index == 5:
+        if e.state:
+            msg = {"se": "1"}
+        else:
+            msg = {"se": "0"}
+
+    bumper_socket.send_json(msg)
+
+    print("InterfaceKitHUB %i: Input %i: %s... message: %s" % (source.getSerialNum(), e.index, e.state, msg))
+
+def interfaceKitLCDInputChanged(e):
+    source = e.device
+    print("InterfaceKitLCD %i: Input %i: %s" % (source.getSerialNum(), e.index, e.state))
 
 def interfaceKitSensorChanged(e):
     source = e.device
@@ -103,14 +147,14 @@ try:
 #    interfaceKitHUB.setOnAttachHandler(interfaceKitAttached)
 #    interfaceKitHUB.setOnDetachHandler(interfaceKitDetached)
     interfaceKitHUB.setOnErrorhandler(interfaceKitError)
-#    interfaceKitHUB.setOnInputChangeHandler(interfaceKitInputChanged)
+    interfaceKitHUB.setOnInputChangeHandler(interfaceKitHUBInputChanged)
 #    interfaceKitHUB.setOnOutputChangeHandler(interfaceKitOutputChanged)
 #    interfaceKitHUB.setOnSensorChangeHandler(interfaceKitSensorChanged)
 
 #    interfaceKitLCD.setOnAttachHandler(interfaceKitAttached)
 #    interfaceKitLCD.setOnDetachHandler(interfaceKitDetached)
     interfaceKitLCD.setOnErrorhandler(interfaceKitError)
-#    interfaceKitLCD.setOnInputChangeHandler(interfaceKitInputChanged)
+    interfaceKitLCD.setOnInputChangeHandler(interfaceKitLCDInputChanged)
 #    interfaceKitLCD.setOnOutputChangeHandler(interfaceKitOutputChanged)
 #    interfaceKitLCD.setOnSensorChangeHandler(interfaceKitSensorChanged)
 
@@ -175,6 +219,10 @@ distance_socket = context.socket(zmq.PUB)
 distance_socket.setsockopt(zmq.LINGER, 100)
 distance_socket.bind("ipc:///tmp/distance.ipc")
 #distance_socket.bind("tcp://127.0.0.2:1000")
+
+bumper_socket = context.socket(zmq.PUB)
+bumper_socket.setsockopt(zmq.LINGER, 100)
+bumper_socket.bind("ipc://tmp/bumper.ipc")
 
 ##########################################################
 #
