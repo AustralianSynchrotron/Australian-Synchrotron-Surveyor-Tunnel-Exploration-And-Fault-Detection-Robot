@@ -1,6 +1,6 @@
 #include <NewPing.h>
 
-const int MAX_DISTANCE = 300;
+const int MAX_DISTANCE = 200;
 
 const int NUMBER_OF_SENSORS = 6;
 long readback[6];
@@ -41,7 +41,7 @@ void loop()
     Serial.print("\":\"");
     Serial.print(readback[sensor_no]);
     if(sensor_no < NUMBER_OF_SENSORS-1){
-      Serial.print("\",");
+      Serial.print("\",\"");
     }else{
       Serial.print("\"}");
     }
