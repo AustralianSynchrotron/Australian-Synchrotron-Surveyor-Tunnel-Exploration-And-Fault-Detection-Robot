@@ -14,8 +14,8 @@
 
 #define batt_1Pin  0
 #define batt_2Pin  1
-#define v1_add  10.71
-#define v2_add  21.80
+#define v1_add  11.14
+#define v2_add  22.50
 // initialize the library with the numbers of the interface pins
 
 LiquidCrystal lcd(11, 12, 13, 5, 4, 3, 2);
