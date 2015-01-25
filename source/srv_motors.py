@@ -147,6 +147,9 @@ motors_receiver.bind("ipc:///tmp/motors.ipc")
 battery_socket = context.socket(zmq.PUB)
 battery_socket.bind("ipc:///tmp/battery.ipc")
 
+bumper_reciever = context.socket(zmq.SUB)
+bumper_reciever.connect("ipc://tmp/bumper.ipc")
+
 # messages passed in as {left acc, left vel, right acc, right vel, rel}
 # velocity: -100 to 100; 0 is stop
 # acceleration: AccMin(24.51) to AccMax (6250)
@@ -200,7 +203,7 @@ while True:
 	else:
 		rightA = result['rightA']
 	print("leftA = %f, rightA = %f" % ( leftA, rightA))	
-	#logging.debug('Received: %s, %s, %s, %s' % (result['leftA'],result['rightA'],result['leftV'],result['rightV']))
+        #logging.debug('Received: %s, %s, %s, %s' % (result['leftA'],result['rightA'],result['leftV'],result['rightV']))
         try:
             motorControlL.setAcceleration(0, leftA)#int(result['leftA']))
             motorControlR.setAcceleration(0, rightA)#int(result['rightA']))

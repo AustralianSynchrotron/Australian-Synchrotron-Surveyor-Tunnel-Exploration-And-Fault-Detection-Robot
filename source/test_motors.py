@@ -19,7 +19,7 @@ while True:
    if dur > 5000:
       dur = 5000
 
-   msg = {'leftA': '300', 'rightA': '300', 'leftV': lval, 'rightV': rval}
+   msg = {'leftA': '1000', 'rightA': '1000', 'leftV': lval, 'rightV': rval}
 
    print "moving for " + str(dur) + "ms"
    zmq_socket.send_json(msg)
