@@ -10,14 +10,15 @@ Australian Synchrotron Tunnel Bot
 1. Python 2.7.x
 2. ZeroMQ 3.2.x
 3. pyzmq  13.1.0
-4. libphidget LATEST (currently 2.1.8.20130723)
-5. libusb 1.0-0
-6. mjpg-streamer experimental
-7. cherrypy 3.2.x
-8. Arduino 1.5
+4. Pyserial
+5. libphidget LATEST (currently 2.1.8.20130723)
+6. libusb 1.0-0
+7. mjpg-streamer experimental
+8. cherrypy 3.2.x
+9. Arduino 1.5
 -- PS2X by Bill Porter
-9. supervisor 3.0b2-1
-10. ROOter Huntsman 2014-01-25red
+10. supervisor 3.0b2-1
+11. ROOter Huntsman 2014-01-25red
 
 
 ###Changes
@@ -29,7 +30,7 @@ irsensor 127.0.0.2:1000
 motors 127.0.0.2:1100
 
 
-note: srv_motor.py now has the bind command for the motors zmq socket, since it is the service which is always running.
+note: srv_motor.py now has the bind command for the motors zmq socket, since it is the service which is always running. If testing run py script with sudo
 
 
 
