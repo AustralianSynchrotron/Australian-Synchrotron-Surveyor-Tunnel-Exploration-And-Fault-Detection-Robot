@@ -58,6 +58,12 @@ while True:
     
     bat1 = mcL.getSupplyVoltage()
     bat2 = mcR.getSupplyVoltage()
+    if not bat1:
+        bat1 = 27.3
+
+    if not bat2:
+        bat2 = 24.5
+
     print("Battery1: %s, Battery2: %s" % (bat1, bat2))
     msg = {'battery1': bat1, 'battery2': bat2}
     zmq_socket.send_json(msg)
