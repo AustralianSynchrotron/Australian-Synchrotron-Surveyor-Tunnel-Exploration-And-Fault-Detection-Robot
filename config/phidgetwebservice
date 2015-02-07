@@ -22,6 +22,11 @@ CFG=/etc/default/$NAME
 # Gracefully exit if the package has been removed
 test -x $DAEMON || exit 0
 
+# Nice display colours
+red="\033[0;31m"
+green="\033[0;32m"
+NC="\033[0m"
+
 # Load config
 pws_port="5001"
 pws_serverid=""
@@ -38,22 +43,36 @@ start() {
                 OPTIONS="$OPTIONS -n $pws_serverid"
         fi
 
+        echo
         echo -n "Starting $DESC: "
-        start-stop-daemon -S -b -q -p $PIDFILE -m -x $DAEMON -- $OPTIONS && echo "OK..." || echo "ALREADY RUNNING..."
+        start-stop-daemon -S -b -q -p $PIDFILE -m -x $DAEMON -- $OPTIONS && echo "${green}OK...${NC}" || echo "${red}ALREADY RUNNING...${NC}"
+        echo
 }
 
 stop() {
+        echo
         echo -n "Stopping $DESC: "
-        start-stop-daemon -K -q -p $PIDFILE -x $DAEMON && echo "OK..." || echo "NOT RUNNING..."
+        start-stop-daemon -K -q -p $PIDFILE -x $DAEMON && echo "${green}OK...${NC}" || echo "${red}NOT RUNNING...${NC}"
+        echo
 }
 
 status() {
-        if (( $(ps -ef | grep -v grep | grep $BIN | wc -l) > 0 ))
-        then
-                echo -n "$DESC: is Running..."
-        else
-                echo -n "$DESC: is Not Running..."
-        fi
+        case "$(pidof phidgetwebservice21 | wc -w)" in
+        0)
+                echo
+                echo "$DESC: is ${red}Not Running...${NC}"
+                echo
+                ;;
+        1)
+                echo
+                echo "$DESC: is ${green}Running...${NC}"
+                echo
+                ;;
+        *)
+                echo
+                echo "$DESC: an ${red}Error Occurred...${NC}"
+                echo
+        esac
 }
 
 case "$1" in
