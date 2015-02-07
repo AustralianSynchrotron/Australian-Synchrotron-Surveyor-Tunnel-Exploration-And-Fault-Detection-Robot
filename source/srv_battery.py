@@ -27,8 +27,10 @@ except RuntimeError as e:
     exit(1)
 
 try:
-    mcL.openPhidget(serial=298857)
-    mcR.openPhidget(serial=298856)
+    #mcL.openPhidget(serial=298857)
+    #mcR.openPhidget(serial=298856)
+    mcL.openRemote('odroid',serial=298857)
+    mcR.openRemote('odroid',serial=298856)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
@@ -49,22 +51,20 @@ except PhidgetException as e:
     print("Exiting....")
     exit(1)
 
+print("mcL attached to WebService: %s" % mcL.isAttachedToServer())
+print("mcR attached to WebService: %s" % mcR.isAttachedToServer())
+
 context = zmq.Context()
 zmq_socket = context.socket(zmq.PUB)
 zmq_socket.bind("ipc:///tmp/battery.ipc")
- 
+
 
 while True:
     
     bat1 = mcL.getSupplyVoltage()
     bat2 = mcR.getSupplyVoltage()
-    if not bat1:
-        bat1 = 27.3
-
-    if not bat2:
-        bat2 = 24.5
 
     print("Battery1: %s, Battery2: %s" % (bat1, bat2))
     msg = {'battery1': bat1, 'battery2': bat2}
     zmq_socket.send_json(msg)
-    time.sleep(0.1)
+    time.sleep(10.0) #battery voltage only changes relatively slowly - no need for great update rate
