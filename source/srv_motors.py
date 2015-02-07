@@ -137,15 +137,15 @@ else:
 
 Amax = motorControlL.getAccelerationMax(0)
 Amin = motorControlL.getAccelerationMin(0)
-print("minimum acceleration = %f, maximum accelration = %f" % ( Amin, Amax))
+print("minimum acceleration = %f, maximum acceleration = %f" % ( Amin, Amax))
 
 context = zmq.Context()
 motors_receiver = context.socket(zmq.PULL)
 motors_receiver.bind("ipc:///tmp/motors.ipc")
 #motors_receiver.bind("tcp://127.0.0.2:1100")
 
-battery_socket = context.socket(zmq.PUB)
-battery_socket.bind("ipc:///tmp/battery.ipc")
+#battery_socket = context.socket(zmq.PUB)
+#battery_socket.bind("ipc:///tmp/battery.ipc")
 
 bumper_reciever = context.socket(zmq.SUB)
 bumper_reciever.connect("ipc://tmp/bumper.ipc")
@@ -157,11 +157,11 @@ bumper_reciever.connect("ipc://tmp/bumper.ipc")
 
 while True:
 
-    bat1 = motorControlL.getSupplyVoltage()
-    bat2 = motorControlR.getSupplyVoltage()
-    print("Battery1: %s, Battery2: %s" % (bat1, bat2))
-    msg = {'battery1': bat1, 'battery2': bat2}
-    battery_socket.send_json(msg)
+    #bat1 = motorControlL.getSupplyVoltage()
+    #bat2 = motorControlR.getSupplyVoltage()
+    #print("Battery1: %s, Battery2: %s" % (bat1, bat2))
+    #msg = {'battery1': bat1, 'battery2': bat2}
+    #battery_socket.send_json(msg)
 
     print("Going into forever loop mode")
     result = motors_receiver.recv_json()
