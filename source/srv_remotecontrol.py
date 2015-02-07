@@ -2,7 +2,7 @@ import cherrypy
 import zmq
 import math
 import os
-import simplejson
+import simplejson as json
 
 context = zmq.Context()
 motors_socket = context.socket(zmq.PUSH)
@@ -37,7 +37,7 @@ class RemoteControl(object):
         msg = battery_socket.recv_json()
         #print("Battery1: %s, Battery2: %s" ( msg['battery1'],msg['battery2'] ))
         print(msg)
-        return msg
+        return json.dumps(msg)
 
     @cherrypy.expose
     def control(self, **kws):
