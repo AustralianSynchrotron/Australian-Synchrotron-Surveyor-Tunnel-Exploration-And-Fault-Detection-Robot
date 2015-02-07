@@ -41,12 +41,12 @@ except RuntimeError as e:
 
 #Information Display Function
 def displayDeviceInfo():
-    print("|------------|----------------------------------|--------------|------------|")
-    print("|- Attached -|-              Type              -|- Serial No. -|-  Version -|")
-    print("|------------|----------------------------------|--------------|------------|")
-    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (motorControlL.isAttached(), motorControlL.getDeviceName(), motorControlL.getSerialNum(), motorControlL.getDeviceVersion()))
-    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (motorControlR.isAttached(), motorControlR.getDeviceName(), motorControlR.getSerialNum(), motorControlR.getDeviceVersion()))
-    print("|------------|----------------------------------|--------------|------------|")
+    print("|------------|------------------------------------|--------------|------------|")
+    print("|- Attached -|-              Type                -|- Serial No. -|-  Version -|")
+    print("|------------|------------------------------------|--------------|------------|")
+    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (motorControlL.isAttachedToServer(), motorControlL.getDeviceName(), motorControlL.getSerialNum(), motorControlL.getDeviceVersion()))
+    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (motorControlR.isAttachedToServer(), motorControlR.getDeviceName(), motorControlR.getSerialNum(), motorControlR.getDeviceVersion()))
+    print("|------------|------------------------------------|--------------|------------|")
 
 #Event Handler Callback Functions
 def motorControlAttached(e):
@@ -97,15 +97,23 @@ def motorControlVelocityChanged(e):
 #    print("Exiting....")
 #    exit(1)
 
-print("Opening phidget object....")
+print("Opening phidget object on Phidgets WebService 'odroid'...")
 
 try:
-    motorControlL.openPhidget(serial=298857)
-    motorControlR.openPhidget(serial=298856)
+    #motorControlL.openPhidget(serial=298857)
+    #motorControlR.openPhidget(serial=298856)
+    motorControlL.openRemote('odroid',serial=298857)
+    motorControlR.openRemote('odroid',serial=298856)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
     exit(1)
+
+if not motorControlL.isAttachedToServer():
+    sleep(2)
+
+print('motorControlL attached to server status: %s' % motorControlL.isAttachedToServer() )
+print('motorControlR attached to server status: %s' % motorControlR.isAttachedToServer() )
 
 print("Waiting for attach....")
 
