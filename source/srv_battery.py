@@ -55,22 +55,18 @@ print("mcL attached to WebService: %s" % mcL.isAttachedToServer())
 print("mcR attached to WebService: %s" % mcR.isAttachedToServer())
 
 context = zmq.Context()
-zmq_socket = context.socket(zmq.PUB)
-zmq_socket.bind("ipc:///tmp/battery.ipc")
+bat_socket = context.socket(zmq.PUB)
+bat_socket.bind("ipc:///tmp/battery.ipc")
 
 
 while True:
-    try:    
-        bat1 = mcL.getSupplyVoltage()
-        bat2 = mcR.getSupplyVoltage()
-    except PhidgetException as e:
-        print("Phidget Exception %i: %s" % (e.code, e.details))
-        print("Exiting....")
-        exit(1)
-
-    print("Battery1: %s, Battery2: %s" % (bat1, bat2))
+    bat1 = str(mcL.getSupplyVoltage())
+    bat2 = str(mcR.getSupplyVoltage())
+    
+    #print("Battery1: %s, Battery2: %s" % (bat1, bat2))
     msg = {'battery1': bat1, 'battery2': bat2}
-    zmq_socket.send_json(msg)
+    print msg
+    bat_socket.send_json(msg)
     time.sleep(10.0) #battery voltage only changes relatively slowly - no need for great update rate
 
 
