@@ -28,6 +28,7 @@ def background_thread():
             namespace='')
 
         msg = zmq_socket.recv_json()
+        print('Message Recieved: %s' % msg )
         socketio.emit('battery response',
             {'data': msg},
             namespace='')
@@ -44,6 +45,7 @@ def index():
 def update_battery(message):
     emit('battery response',
         {'data': message['data']})
+    print message['data']
 
 @socketio.on('my event', namespace='')
 def test_message(message):
@@ -90,4 +92,4 @@ def test_disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(app,port=8002,host="10.3.2.2")
+    socketio.run(app,port=8002,host="10.3.1.173")
