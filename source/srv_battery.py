@@ -60,11 +60,16 @@ bat_socket.bind("ipc:///tmp/battery.ipc")
 
 
 while True:
-    bat1 = str(mcL.getSupplyVoltage())
-    bat2 = str(mcR.getSupplyVoltage())
+    bat1 = mcL.getSupplyVoltage()
+    bat2 = mcR.getSupplyVoltage()
+
+    if ((bat1 > 26.0) or (bat2 > 26.0)):
+        onCharge = 'Charging'
+    else:
+        onCharge = 'Discharging'
     
     #print("Battery1: %s, Battery2: %s" % (bat1, bat2))
-    msg = {'battery1': bat1, 'battery2': bat2}
+    msg = {'battery1': str(bat1), 'battery2': str(bat2), 'onCharge': onCharge}
     print msg
     bat_socket.send_json(msg)
     time.sleep(10.0) #battery voltage only changes relatively slowly - no need for great update rate

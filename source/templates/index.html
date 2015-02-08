@@ -13,10 +13,10 @@ $(document).ready(function(){
     ////////////////
     var bat_breakpoints = Array(steelseries.Section(23,24, 'rgba(220,0,0,0.3)'),
                                 steelseries.Section(24,25.5, 'rgba(0,220,0,0.3)'),
-                                steelseries.Section(25.5,27, 'rgba(220,220,0,0.3)'),
-                                steelseries.Section(27,28, 'rgba(220,0,0,0.3)'));
+                                steelseries.Section(25.5,27.5, 'rgba(220,220,0,0.3)'),
+                                steelseries.Section(27.5,28, 'rgba(220,0,0,0.3)'));
     var bat_areas = Array(steelseries.Section(23,24, 'rgba(220,0,0,0.3)'),
-                          steelseries.Section(27,28, 'rgba(220,0,0,0.3)'));
+                          steelseries.Section(27.5,28, 'rgba(220,0,0,0.3)'));
 
     var radial_bat1 = new steelseries.Radial(
         'canvas_bat1', {
@@ -64,7 +64,12 @@ $(document).ready(function(){
     // event handler for battery update data sent from the server
     socket.on('battery response', function(msg) {
         //$('#battery').append(msg.data['battery1'] + 'Volts ' + msg.data['battery2'] + 'Volts');
-        battdiv.innerHTML = 'B1: ' + msg.data['battery1'] + 'Volts<br>' + 'B2: ' + msg.data['battery2'] + 'Volts' ;
+        battdiv.innerHTML = 'B1: ' + msg.data['battery1'] + 'Volts<br>' + 'B2: ' + msg.data['battery2'] + 'Volts';
+        if (msg.data['onCharge'] == 'Charging'){
+            $('#battery').append('<br>State: <font color="green">' + msg.data['onCharge'] + '</font>');
+        } else {
+            $('#battery').append('<br>State: <font color="red">' + msg.data['onCharge'] + '</font>');
+        }
         radial_bat1.setValueAnimated(msg.data['battery1']);
         radial_bat2.setValueAnimated(msg.data['battery2']);
     });
