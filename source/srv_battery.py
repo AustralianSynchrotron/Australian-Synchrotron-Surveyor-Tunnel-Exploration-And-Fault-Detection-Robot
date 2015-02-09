@@ -58,6 +58,7 @@ context = zmq.Context()
 bat_socket = context.socket(zmq.PUB)
 bat_socket.bind("ipc:///tmp/battery.ipc")
 
+charging = 1
 
 while True:
     bat1 = mcL.getSupplyVoltage()
@@ -71,8 +72,9 @@ while True:
         chargeState = 'Discharging'
         if charging:
             # if previous state charging, then save a time stamp to calc time on battery
-            bat_time = int(time.time())
+            start_time = int(time.time())
         charging = 0
+        bat_time = (int(time.time()) - start_time) / 60.0
     
     #print("Battery1: %s, Battery2: %s" % (bat1, bat2))
     msg = {'battery1': str(bat1), 'battery2': str(bat2), 'onCharge': chargeState, 'batODO': bat_time }

@@ -71,10 +71,10 @@ $(document).ready(function(){
             $('#battery').append('<br>State: <font color="green">' + msg.data['onCharge'] + '</font><br>Time: N/A');
         } else {
             var timeon = msg.data['batODO'];
-            var timenow = new Date() / 1000 | 0; // current time in seconds since epoch
-            var result = (timenow - timeon) / 60; // minutes running on battery
+            //var timenow = new Date() / 1000 | 0; // current time in seconds since epoch
+            //var result = (timenow - timeon) / 60; // minutes running on battery
             //alert(timeon + ", " + timenow + ", " + result);
-            $('#battery').append('<br>State: <font color="red">' + msg.data['onCharge'] + '</font><br>Time on Battery: ' + Number(result).toFixed(2) + ' mins');
+            $('#battery').append('<br>State: <font color="red">' + msg.data['onCharge'] + '</font><br>Time on Battery: ' + Number(timeon).toFixed(2) + ' mins');
         }
         radial_bat1.setValueAnimated(msg.data['battery1']);
         radial_bat2.setValueAnimated(msg.data['battery2']);
