@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>Flask-SocketIO Test</title>
+
+<link rel="stylesheet" href="/static/remotecontrol.css" type="text/css" />
+
 <script type="text/javascript" src="static/tween.js"></script>
 <script type="text/javascript" src="static/steelseries.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
@@ -101,17 +104,34 @@ $(document).ready(function(){
         <img src="http://10.3.1.173:8090/?action=stream" width="800" />
     </div>
     <div id="battery_box">
-        <div style="float: left">        
+        <div id="battery_data">        
             <h2>Battery Data:</h2>
             <div id="battery"></div>
         </div>
-        <div id="battery_dials" style="float:left">
+        <div id="battery_dials">
             <canvas id="canvas_bat1" width="150" height="150">Canvas isn't supported by your Browser</canvas>
             <canvas id="canvas_bat2" width="150" height="150"></canvas>
             <!-- <canvas id="canvas_bat_linear"></canvas> -->
         </div>
     </div>
-    <div style="clear: both">
+    <div id="bumper_box">
+        <div id="north">
+            <img width="50px" src="/static/triangle_nw_green.png">
+            <img width="50px" src="/static/square_green.png">
+            <img width="50px" src="/static/triangle_ne_green.png">
+        </div>
+        <div id="middle">
+            <img width="50px" src="/static/box_black.png">
+            <img width="50px" src="/static/box_black.png">
+            <img width="50px" src="/static/box_black.png">
+        </div>
+        <div id="south">
+            <img width="50px" src="/static/triangle_sw_green.png">
+            <img width="50px" src="/static/square_green.png">
+            <img width="50px" src="/static/triangle_se_green.png">
+        </div>
+    </div>
+    <div id="status_box">
         <h2>Status:</h2>
         <div id="log"></div>
     </div>

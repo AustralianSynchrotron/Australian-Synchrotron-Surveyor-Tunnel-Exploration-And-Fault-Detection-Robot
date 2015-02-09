@@ -1,0 +1,25 @@
+#battery_box {
+    float: left;
+    padding: 10px;
+}
+
+#battery_data {
+    float: left;
+    width: 200px;
+}
+
+#battery_dials {
+    float: left;
+}
+
+#bumper_box {
+    float: left;
+}
+
+#status_box {
+    clear: both;
+}
+
+#viewer {
+}
+
