@@ -68,9 +68,13 @@ $(document).ready(function(){
         //$('#battery').append(msg.data['battery1'] + 'Volts ' + msg.data['battery2'] + 'Volts');
         battdiv.innerHTML = 'B1: ' + msg.data['battery1'] + 'Volts<br>' + 'B2: ' + msg.data['battery2'] + 'Volts';
         if (msg.data['onCharge'] == 'Charging'){
-            $('#battery').append('<br>State: <font color="green">' + msg.data['onCharge'] + '</font>');
+            $('#battery').append('<br>State: <font color="green">' + msg.data['onCharge'] + '</font><br>Time: N/A');
         } else {
-            $('#battery').append('<br>State: <font color="red">' + msg.data['onCharge'] + '</font>');
+            var timeon = msg.data['batODO'];
+            var timenow = new Date() / 1000 | 0; // current time in seconds since epoch
+            var result = (timenow - timeon) / 60; // minutes running on battery
+            //alert(timeon + ", " + timenow + ", " + result);
+            $('#battery').append('<br>State: <font color="red">' + msg.data['onCharge'] + '</font><br>Time on Battery: ' + Number(result).toFixed(2) + ' mins');
         }
         radial_bat1.setValueAnimated(msg.data['battery1']);
         radial_bat2.setValueAnimated(msg.data['battery2']);

@@ -64,12 +64,18 @@ while True:
     bat2 = mcR.getSupplyVoltage()
 
     if ((bat1 > 26.0) or (bat2 > 26.0)):
-        onCharge = 'Charging'
+        chargeState = 'Charging'
+        bat_time = 0
+        charging = 1
     else:
-        onCharge = 'Discharging'
+        chargeState = 'Discharging'
+        if charging:
+            # if previous state charging, then save a time stamp to calc time on battery
+            bat_time = int(time.time())
+        charging = 0
     
     #print("Battery1: %s, Battery2: %s" % (bat1, bat2))
-    msg = {'battery1': str(bat1), 'battery2': str(bat2), 'onCharge': onCharge}
+    msg = {'battery1': str(bat1), 'battery2': str(bat2), 'onCharge': chargeState, 'batODO': bat_time }
     print msg
     bat_socket.send_json(msg)
     time.sleep(10.0) #battery voltage only changes relatively slowly - no need for great update rate
