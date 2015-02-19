@@ -57,6 +57,7 @@ $(document).ready(function(){
     // this is specially important when using the global namespace
     var battdiv = document.getElementById('battery');
     var logdiv = document.getElementById('log');
+    var bmpdiv = document.getElementById('bumper');
     var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
     
     socket.on('connect', function() {
@@ -87,6 +88,11 @@ $(document).ready(function(){
         radial_bat2.setValueAnimated(msg.data['battery2']);
     });
 
+    // event handler for bumper update data sent from the server
+    socket.on('bumper response', function(msg) {
+        bmpdiv.append(msg.data);
+    });
+
     // handlers for the different forms in the page
     // these send data to the server in a variety of ways
     $('form#emit').submit(function(event) {
@@ -105,7 +111,7 @@ $(document).ready(function(){
 <body>
     <h1>Robot Control-Z</h1>
     <div id="viewer">
-        <img src="http://10.3.1.173:8090/?action=stream" width="800" />
+        <img src="http://10.3.2.76:8090/?action=stream" width="800" />
     </div>
     <div id="battery_box">
         <div id="battery_data">        
@@ -119,6 +125,7 @@ $(document).ready(function(){
         </div>
     </div>
     <div id="bumper_box">
+        <div id="bumper"></<div>
         <div id="north">
             <img width="50px" src="/static/triangle_nw_green.png">
             <img width="50px" src="/static/square_green.png">

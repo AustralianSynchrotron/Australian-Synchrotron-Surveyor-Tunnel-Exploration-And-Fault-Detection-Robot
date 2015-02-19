@@ -14,9 +14,13 @@ socketio = SocketIO(app)
 thread = None
 def background_thread():
     context = zmq.Context()
-    zmq_socket = context.socket(zmq.SUB)
-    zmq_socket.connect("ipc:///tmp/battery.ipc")
-    zmq_socket.setsockopt(zmq.SUBSCRIBE, '') #subscribe to all messages
+    battery_socket = context.socket(zmq.SUB)
+    battery_socket.connect("ipc:///tmp/battery.ipc")
+    battery_socket.setsockopt(zmq.SUBSCRIBE, '') #subscribe to all messages
+
+    bumper_socket = context.socket(zmq.SUB)
+    bumper_socket.connect("ipc:///tmp/bumper.ipc")
+    bumper_socket.setsockopt(zmq.SUBSCRIBE, '') #subscribe to all messages
 
     """Example of how to send server generated events to clients."""
     count = 0
@@ -27,10 +31,16 @@ def background_thread():
             {'data': 'Server generated event', 'count': count},
             namespace='')
 
-        msg = zmq_socket.recv_json()
+        msg = battery_socket.recv_json()
         print('Message Recieved: %s' % msg )
         socketio.emit('battery response',
             {'data': msg},
+            namespace='')
+
+        bmp = bumper_socket.recv_json()
+        print('Message Recieved: %s' % bmp )
+        socketio.emit('bumper response',
+            {'data': bmp},
             namespace='')
 
 @app.route('/')
@@ -44,6 +54,12 @@ def index():
 @socketio.on('update_battery', namespace='')
 def update_battery(message):
     emit('battery response',
+        {'data': message['data']})
+    print message['data']
+
+@socketio.on('update_bumper', namespace='')
+def update_bumper(message):
+    emit('bumper response',
         {'data': message['data']})
     print message['data']
 
@@ -92,4 +108,4 @@ def test_disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(app,port=8002,host="10.3.1.173")
+    socketio.run(app,port=8002,host="10.3.2.76")
