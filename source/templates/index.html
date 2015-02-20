@@ -92,7 +92,13 @@ $(document).ready(function(){
 
     // event handler for bumper update data sent from the server
     socket.on('bumper response', function(msg) {
+        var dirs = ["n", "ne", "se", "s", "sw", "nw"]
         console.log(msg.data);
+
+        for( t=0; t < dirs.length; t++ ){
+            //if dirs[t] :
+                bmp.div.append("Detected: " + key + ": " + msg.data[dirs[t]]);
+        }
         bmpdiv.append(msg.data);
     });
 
