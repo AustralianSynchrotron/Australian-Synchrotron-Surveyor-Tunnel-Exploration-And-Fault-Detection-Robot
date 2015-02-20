@@ -87,10 +87,12 @@ $(document).ready(function(){
         }
         radial_bat1.setValueAnimated(msg.data['battery1']);
         radial_bat2.setValueAnimated(msg.data['battery2']);
+        console.log(msg.data['battery1']);
     });
 
     // event handler for bumper update data sent from the server
     socket.on('bumper response', function(msg) {
+        console.log(msg.data);
         bmpdiv.append(msg.data);
     });
 
