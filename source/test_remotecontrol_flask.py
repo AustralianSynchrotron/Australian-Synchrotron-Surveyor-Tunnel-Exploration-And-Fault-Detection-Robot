@@ -46,7 +46,8 @@ def background_thread():
 @app.route('/')
 def index():
     global thread
-    if thread is None:
+    #if thread is None:
+    if not thread.isAlive():
         thread = Thread(target=background_thread)
         thread.start()
     return render_template('index.html')

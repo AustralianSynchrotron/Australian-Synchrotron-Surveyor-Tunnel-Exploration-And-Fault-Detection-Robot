@@ -58,6 +58,7 @@ $(document).ready(function(){
     var battdiv = document.getElementById('battery');
     var logdiv = document.getElementById('log');
     var bmpdiv = document.getElementById('bumper');
+
     var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
     
     socket.on('connect', function() {
