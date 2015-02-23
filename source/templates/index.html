@@ -92,8 +92,10 @@ $(document).ready(function(){
 
     // event handler for bumper update data sent from the server
     socket.on('bumper response', function(msg) {
-        var dirs = ["n", "ne", "se", "s", "sw", "nw"]
+        var dirs = ["n", "ne", "se", "s", "sw", "nw"];
+        var obj = JSON.parse(msg.data);
         console.log(msg.data);
+        console.log(obj);
 
         for( t=0; t < dirs.length; t++ ){
             //if dirs[t] :
