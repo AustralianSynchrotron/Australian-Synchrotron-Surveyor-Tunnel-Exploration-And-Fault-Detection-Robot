@@ -124,4 +124,4 @@ def test_disconnect():
     print('Client disconnected')
 
 if __name__ == '__main__':
-    socketio.run(app,port=8002,host="10.3.2.76")
+    socketio.run(app,port=8002,host="10.3.1.98")
