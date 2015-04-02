@@ -23,7 +23,7 @@ from Phidgets.Phidget import PhidgetID
 from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
 from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
 from Phidgets.Devices.TextLCD import TextLCD, TextLCD_ScreenSize
-from Phidgets.Devices.InterfaceKit import InterfaceKit
+#from Phidgets.Devices.InterfaceKit import InterfaceKit
 
 #Create an TextLCD object
 try:
@@ -33,12 +33,12 @@ except RuntimeError as e:
     print("Exiting....")
     exit(1)
 
-try:
-    interfaceKitLCD = InterfaceKit()
-except RuntimeError as e:
-    print("Runtime Exception: %s" % e.details)
-    print("Exiting....")
-    exit(1)
+#try:
+#    interfaceKitLCD = InterfaceKit()
+#except RuntimeError as e:
+#    print("Runtime Exception: %s" % e.details)
+#    print("Exiting....")
+#    exit(1)
 
 def TextLCDError(e):
     try:
@@ -59,7 +59,7 @@ except PhidgetException as e:
 #Open the textLCD
 try:
     textLCD.openPhidget()
-    interfaceKitLCD.openPhidget(serial=120517)
+#    interfaceKitLCD.openPhidget(serial=120517)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
@@ -68,12 +68,12 @@ except PhidgetException as e:
 #Wait for the device to attach
 try:
     textLCD.waitForAttach(10000)
-    interfaceKitLCD.waitForAttach(10000)
+#    interfaceKitLCD.waitForAttach(10000)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     try:
         textLCD.closePhidget()
-        interfaceKitLCD.closePhidget()
+#        interfaceKitLCD.closePhidget()
     except PhidgetException as e:
         print("Phidget Exception %i: %s" % (e.code, e.details))
         print("Exiting....")
@@ -132,28 +132,28 @@ while True:
             exit(1)
 
 
-    if 'up' in result:
-        interfaceKitLCD.setOutputState(0,True)
-        interfaceKitLCD.setOutputState(1,False)
+#    if 'up' in result:
+#        interfaceKitLCD.setOutputState(0,True)
+#        interfaceKitLCD.setOutputState(1,False)#
 
-        sleep(int(result['up']))
+#        sleep(int(result['up']))
 
-        interfaceKitLCD.setOutputState(0,False)
-        interfaceKitLCD.setOutputState(1,False)
+#        interfaceKitLCD.setOutputState(0,False)
+#        interfaceKitLCD.setOutputState(1,False)
 
-    elif 'down' in result:
-        interfaceKitLCD.setOutputState(0,False)
-        interfaceKitLCD.setOutputState(1,True)
+#    elif 'down' in result:
+#        interfaceKitLCD.setOutputState(0,False)
+#        interfaceKitLCD.setOutputState(1,True)
 
-        sleep(int(relayed['down']))
+#        sleep(int(relayed['down']))
 
-        interfaceKitLCD.setOutputState(0,False)
-        interfaceKitLCD.setOutputState(1,False)
+#        interfaceKitLCD.setOutputState(0,False)
+#        interfaceKitLCD.setOutputState(1,False)
 
-    else:
+#    else:
         #default to stop moving to avoid colisions
-        interfaceKitLCD.setOutputState(0,False)
-        interfaceKitLCD.setOutputState(1,False)
+#        interfaceKitLCD.setOutputState(0,False)
+#        interfaceKitLCD.setOutputState(1,False)
 
 
 #print("Press Enter to quit....")

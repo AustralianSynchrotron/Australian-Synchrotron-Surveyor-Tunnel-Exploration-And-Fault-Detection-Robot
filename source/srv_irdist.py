@@ -44,7 +44,7 @@ def displayDeviceInfo():
     print("|- Attached -|-              Type              -|- Serial No. -|-  Version -|")
     print("|------------|----------------------------------|--------------|------------|")
     print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitHUB.isAttached(), interfaceKitHUB.getDeviceName(), interfaceKitHUB.getSerialNum(), interfaceKitHUB.getDeviceVersion()))
-    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitLCD.isAttached(), interfaceKitLCD.getDeviceName(), interfaceKitLCD.getSerialNum(), interfaceKitLCD.getDeviceVersion()))
+#    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitLCD.isAttached(), interfaceKitLCD.getDeviceName(), interfaceKitLCD.getSerialNum(), interfaceKitLCD.getDeviceVersion()))
     print("|------------|----------------------------------|--------------|------------|")
     print("Number of Digital Inputs: %i" % (interfaceKitHUB.getInputCount()))
     print("Number of Digital Outputs: %i" % (interfaceKitHUB.getOutputCount()))
