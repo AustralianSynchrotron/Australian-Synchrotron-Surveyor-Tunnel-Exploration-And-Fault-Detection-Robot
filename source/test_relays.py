@@ -15,8 +15,8 @@ def signal_handler(signum, frame):
 
 
 context = zmq.Context()
-zmq_socket = context.socket(zmq.PUB)
-zmq_socket.connect("ipc:///tmp/shaft.ipc")
+zmq_socket = context.socket(zmq.PUSH)
+zmq_socket.connect("ipc:///tmp/lcd.ipc")
 
 
 
@@ -26,7 +26,7 @@ print("moving for %s seconds" % msg['up'])
 print("sending message %s", msg)
 zmq_socket.send_json(msg)
 
-print("sleeping 5")
-time.sleep(5)
+#print("sleeping 1")
+#time.sleep(5)
 
 sys.exit()

@@ -32,7 +32,7 @@ def signal_handler(signum, frame):
 #Create an interfacekit object
 try:
     interfaceKitHUB = InterfaceKit()
-    interfaceKitLCD = InterfaceKit()
+    #interfaceKitLCD = InterfaceKit()
 except RuntimeError as e:
     print("Runtime Exception: %s" % e.details)
     print("Exiting....")
@@ -110,9 +110,9 @@ def interfaceKitHUBInputChanged(e):
 
     print("InterfaceKitHUB %i: Input %i: %s... message: %s" % (source.getSerialNum(), e.index, e.state, msg))
 
-def interfaceKitLCDInputChanged(e):
-    source = e.device
-    print("InterfaceKitLCD %i: Input %i: %s" % (source.getSerialNum(), e.index, e.state))
+#def interfaceKitLCDInputChanged(e):
+#    source = e.device
+#    print("InterfaceKitLCD %i: Input %i: %s" % (source.getSerialNum(), e.index, e.state))
 
 def interfaceKitSensorChanged(e):
     source = e.device
@@ -153,8 +153,8 @@ try:
 
 #    interfaceKitLCD.setOnAttachHandler(interfaceKitAttached)
 #    interfaceKitLCD.setOnDetachHandler(interfaceKitDetached)
-    interfaceKitLCD.setOnErrorhandler(interfaceKitError)
-    interfaceKitLCD.setOnInputChangeHandler(interfaceKitLCDInputChanged)
+#    interfaceKitLCD.setOnErrorhandler(interfaceKitError)
+#    interfaceKitLCD.setOnInputChangeHandler(interfaceKitLCDInputChanged)
 #    interfaceKitLCD.setOnOutputChangeHandler(interfaceKitOutputChanged)
 #    interfaceKitLCD.setOnSensorChangeHandler(interfaceKitSensorChanged)
 
@@ -168,7 +168,7 @@ print("Opening phidget object....")
 try:
 # Open interfaceKit by serial number to avoid conflicts with future interface kits...
 # As displayed by displayDeviceInfo()
-    interfaceKitLCD.openPhidget(serial=120517)
+#    interfaceKitLCD.openPhidget(serial=120517)
     interfaceKitHUB.openPhidget(serial=337662)
     
 except PhidgetException as e:
@@ -180,13 +180,13 @@ print("Waiting for attach....")
 
 try:
     interfaceKitHUB.waitForAttach(10000)
-    interfaceKitLCD.waitForAttach(10000)
+    #interfaceKitLCD.waitForAttach(10000)
 
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     try:
         interfaceKitHUB.closePhidget()
-        interfaceKitLCD.closePhidget()
+        #interfaceKitLCD.closePhidget()
         
     except PhidgetException as e:
         print("Phidget Exception %i: %s" % (e.code, e.details))
@@ -253,7 +253,7 @@ while True:
         #try and shut down the interface kits
         try:
             interfaceKitHUB.closePhidget()
-            interfaceKitLCD.closePhidget()
+            #interfaceKitLCD.closePhidget()
 
         except PhidgetException as e:
             print("Phidget Exception %i: %s" % (e.code, e.details))
@@ -335,7 +335,7 @@ print("Closing...")
 
 try:
     interfaceKitHUB.closePhidget()
-    interfaceKitLCD.closePhidget()
+    #interfaceKitLCD.closePhidget()
 
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))

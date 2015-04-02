@@ -23,10 +23,18 @@ from Phidgets.Phidget import PhidgetID
 from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
 from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
 from Phidgets.Devices.TextLCD import TextLCD, TextLCD_ScreenSize
+from Phidgets.Devices.InterfaceKit import InterfaceKit
 
 #Create an TextLCD object
 try:
     textLCD = TextLCD()
+except RuntimeError as e:
+    print("Runtime Exception: %s" % e.details)
+    print("Exiting....")
+    exit(1)
+
+try:
+    interfaceKitLCD = InterfaceKit()
 except RuntimeError as e:
     print("Runtime Exception: %s" % e.details)
     print("Exiting....")
@@ -51,6 +59,7 @@ except PhidgetException as e:
 #Open the textLCD
 try:
     textLCD.openPhidget()
+    interfaceKitLCD.openPhidget(serial=120517)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
@@ -59,10 +68,12 @@ except PhidgetException as e:
 #Wait for the device to attach
 try:
     textLCD.waitForAttach(10000)
+    interfaceKitLCD.waitForAttach(10000)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     try:
         textLCD.closePhidget()
+        interfaceKitLCD.closePhidget()
     except PhidgetException as e:
         print("Phidget Exception %i: %s" % (e.code, e.details))
         print("Exiting....")
@@ -76,37 +87,73 @@ textLCD.setBrightness(128)
 print("lcd setup complete, ready for use")
 
 context = zmq.Context()
+
 lcd_receiver = context.socket(zmq.PULL)
-#lcd_receiver.bind("ipc://lcd.ipc")
 lcd_receiver.bind("ipc:///tmp/lcd.ipc")
-print("PULL socket complete on ipc://lcd.ipc")
-#message = {}
+print("PULL socket complete on ipc://tmp/lcd.ipc")
+
+#relay_receiver = context.socket(zmq.SUB)
+#relay_receiver.bind("ipc:///tmp/shaft.ipc")
+#relay_receiver.setsockopt(zmq.SUBSCRIBE, "") #subscribe to all messages
+#relay_receiver.setsockopt(zmq.RCVTIMEO, 500) #set a timeout of 500ms for a receive operation (prevent hangs)
+#print("SUB socket complete on ipc://tmp/shaft.ipc")
 
 #The MEAT goes here...
-#result = lcd_receiver.recv_json()
 
 while True:
     print("going into forever loop mode")
+
+    #first collect shaft movement messages...  
+    #try:
+    #    relayed = relay_receiver.recv_json()
+    #    print(result)
+
+       
+    #Then worry about displaying messages on the LCD...
     result = lcd_receiver.recv_json()
     print(result)
     #print result['message'],result['line'],result['delay']
 
-
-    try:
-        #clear the specified line...
-        textLCD.setDisplayString(int(result['line']),"")
-        #print the required text...
-        textLCD.setDisplayString(int(result['line']),str(result['message']))
+    if 'message' in result:
+        try:
+            #clear the specified line...
+            textLCD.setDisplayString(int(result['line']),"")
+            #print the required text...
+            textLCD.setDisplayString(int(result['line']),str(result['message']))
         
-        if 'delay' in result:
-            print("Waiting for Delay...")
-            sleep(int(result['delay']))
+            if 'delay' in result:
+                print("Waiting for Delay...")
+                sleep(int(result['delay']))
 
 
-    except PhidgetException as e:
-        print("Phidget Exception %i: %s" % (e.code, e.details))
-        print("Exiting....")
-        exit(1)
+        except PhidgetException as e:
+            print("Phidget Exception %i: %s" % (e.code, e.details))
+            print("Exiting....")
+            exit(1)
+
+
+    if 'up' in result:
+        interfaceKitLCD.setOutputState(0,True)
+        interfaceKitLCD.setOutputState(1,False)
+
+        sleep(int(result['up']))
+
+        interfaceKitLCD.setOutputState(0,False)
+        interfaceKitLCD.setOutputState(1,False)
+
+    elif 'down' in result:
+        interfaceKitLCD.setOutputState(0,False)
+        interfaceKitLCD.setOutputState(1,True)
+
+        sleep(int(relayed['down']))
+
+        interfaceKitLCD.setOutputState(0,False)
+        interfaceKitLCD.setOutputState(1,False)
+
+    else:
+        #default to stop moving to avoid colisions
+        interfaceKitLCD.setOutputState(0,False)
+        interfaceKitLCD.setOutputState(1,False)
 
 
 #print("Press Enter to quit....")
