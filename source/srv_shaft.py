@@ -22,14 +22,6 @@ from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
 from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
 from Phidgets.Devices.InterfaceKit import InterfaceKit
 
-import signal
-
-interupt = False
-
-def signal_handler(signum, frame):
-    global interupt
-    interupt = True
-
 #Create an interfacekit object
 try:
     interfaceKitLCD = InterfaceKit()
@@ -111,8 +103,6 @@ else:
     displayDeviceInfo()
 
 print('lcd setup complete, ready for use')
-#Register interupt callback
-signal.signal(signal.SIGINT, signal_handler)
 
 #Setup zmq sockets
 context = zmq.Context()
@@ -122,24 +112,11 @@ shaft_socket.setsockopt(zmq.SUBSCRIBE, "") #subscribe to all messages
 print("SUB socket complete on ipc://tmp/shaft.ipc")
 
 while True:
-    if interupt:
-        print('Interupt: Shutting down script...')
-        #try and shut down the interface kits
-        try:
-            interfaceKitLCD.closePhidget()
-
-        except PhidgetException as e:
-            print("Phidget Exception %i: %s" % (e.code, e.details))
-            print("Exiting....")
-            exit(1)
-
-        print("Done.")
-        exit(2)
-        break
 
     try:
         relayed = shaft_socket.recv_json()
         print(relayed)
+
 
         if 'down' in relayed:
             interfaceKitLCD.setOutputState(0,True)
@@ -164,20 +141,17 @@ while True:
             interfaceKitLCD.setOutputState(0,False)
             interfaceKitLCD.setOutputState(1,False)
 
+    except KeyboardInterrupt:
+        print('Exiting...')
+        interfaceKitLCD.closePhidget()
+        exit(2)
+
     except:
         print("nothing received... waiting")
         pass
 
-print("Press Enter to quit....")
-
-chr = sys.stdin.read(1)
-
-print("Closing...")
-
 try:
-    interfaceKitHUB.closePhidget()
     interfaceKitLCD.closePhidget()
-
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
