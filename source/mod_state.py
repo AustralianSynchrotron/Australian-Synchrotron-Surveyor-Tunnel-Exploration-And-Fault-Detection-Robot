@@ -14,7 +14,7 @@ import time
 
 
 context = zmq.Context()
-zmq_socket = context.socket(zmq.PUSH)
+zmq_socket = context.socket(zmq.PUB)
 zmq_socket.connect("ipc:///tmp/lcd.ipc")
  
 

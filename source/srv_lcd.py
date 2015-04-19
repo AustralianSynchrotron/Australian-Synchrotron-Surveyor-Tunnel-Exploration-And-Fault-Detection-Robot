@@ -58,12 +58,18 @@ except PhidgetException as e:
 
 #Open the textLCD
 try:
-    textLCD.openPhidget()
+#    textLCD.openPhidget()
 #    interfaceKitLCD.openPhidget(serial=120517)
+    textLCD.openRemote('odroid',serial=120517)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
     exit(1)    
+
+if not textLCD.isAttachedToServer():
+    sleep(2)
+
+print('textLCD webservice status: %s' % textLCD.isAttachedToServer())
 
 #Wait for the device to attach
 try:
@@ -88,9 +94,11 @@ print("lcd setup complete, ready for use")
 
 context = zmq.Context()
 
-lcd_receiver = context.socket(zmq.PULL)
+lcd_receiver = context.socket(zmq.SUB)
 lcd_receiver.bind("ipc:///tmp/lcd.ipc")
-print("PULL socket complete on ipc://tmp/lcd.ipc")
+lcd_receiver.setsockopt(zmq.SUBSCRIBE, "") #subscribe to all messages
+#lcd_receiver.setsockopt(zmq.RCVTIMEO, 500) # set a timeout to avoid hangs when waiting to recieve...
+print("SUB socket complete on ipc://tmp/lcd.ipc")
 
 #relay_receiver = context.socket(zmq.SUB)
 #relay_receiver.bind("ipc:///tmp/shaft.ipc")
@@ -99,9 +107,9 @@ print("PULL socket complete on ipc://tmp/lcd.ipc")
 #print("SUB socket complete on ipc://tmp/shaft.ipc")
 
 #The MEAT goes here...
+print("going into forever loop mode")
 
 while True:
-    print("going into forever loop mode")
 
     #first collect shaft movement messages...  
     #try:
