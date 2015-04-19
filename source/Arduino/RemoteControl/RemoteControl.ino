@@ -22,7 +22,7 @@ IPAddress ip(10, 6, 0, 230); //arduino fixed IP if dhcp fails
 IPAddress gateway(10, 6, 0, 254);
 IPAddress subnet(255, 255, 0, 0);
 //IPAddress server(10, 6, 0, 17); //connection server
-IPAddress server(10, 3, 1, 103); //connection server - Office Network
+IPAddress server(10, 3, 1, 68); //connection server - Office Network
 EthernetClient client;
 int port = 8080;
 
@@ -101,19 +101,24 @@ void loop() {
   // Left analogue stick to control robot movements
   // Right analogue stick to control peripheral movements
   // Using select to switch between peripherals
+  // Control pad to raise and lower platform...
   
   String controlString = "";
   
   controlString+="Rx=";
-  controlString+=ps2x.Analog(PSS_RX);
+  controlString+=ps2x.Analog(PSS_RX); //analog joystick right
   controlString+="&Ry=";
   controlString+=ps2x.Analog(PSS_RY);
   controlString+="&Lx=";
-  controlString+=ps2x.Analog(PSS_LX);
+  controlString+=ps2x.Analog(PSS_LX); //analog joystick left
   controlString+="&Ly=";
   controlString+=ps2x.Analog(PSS_LY);
   controlString+="&BtnX=";
-  controlString+=ps2x.Analog(PSAB_BLUE);
+  controlString+=ps2x.Analog(PSAB_BLUE); //analog reading of button X
+  controlString+="&BtnUp=";
+  controlString+=ps2x.Button(PSB_PAD_UP); //up button on control pad, don't care about force
+  controlString+="&BtnDn=";
+  controlString+=ps2x.Button(PSB_PAD_DOWN); //down button on control pad, don't care about force
   controlString+="&Mode=Arduino";
   
 //  Serial.println(ps2x.Analog(PSS_LY),DEC);
