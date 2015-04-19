@@ -18,15 +18,22 @@ context = zmq.Context()
 zmq_socket = context.socket(zmq.PUB)
 zmq_socket.connect("ipc:///tmp/shaft.ipc")
 
+dir = sys.argv[1]
+len = sys.argv[2]
 
+def send_message(dir,len):
+    msg={dir:len}
+    print("moving for %s seconds" % msg[dir])
 
-msg={"up":"3"}
-print("moving for %s seconds" % msg['up'])
+    print("sending message %s", msg)
+    zmq_socket.send_json(msg)
 
-print("sending message %s", msg)
-zmq_socket.send_json(msg)
+    #print("sleeping 1")
+    #time.sleep(5)
 
-#print("sleeping 1")
-#time.sleep(5)
+    sys.exit()
 
-sys.exit()
+if __name__ == "__main__":
+    send_message(dir,len)
+    
+
