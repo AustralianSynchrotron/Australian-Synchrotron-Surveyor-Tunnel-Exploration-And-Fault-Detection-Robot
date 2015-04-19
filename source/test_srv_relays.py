@@ -19,72 +19,78 @@ from time import sleep
 import zmq
 
 #Phidget specific imports
-#from Phidgets.Phidget import PhidgetID
-#from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
-#from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
-#from Phidgets.Devices.TextLCD import TextLCD, TextLCD_ScreenSize
+from Phidgets.Phidget import PhidgetID
+from Phidgets.PhidgetException import PhidgetErrorCodes, PhidgetException
+from Phidgets.Events.Events import AttachEventArgs, DetachEventArgs, ErrorEventArgs
+from Phidgets.Devices.TextLCD import TextLCD, TextLCD_ScreenSize
+from Phidgets.Devices.InterfaceKit import InterfaceKit
 
 #Create an TextLCD object
-#try:
-#    textLCD = TextLCD()
-#except RuntimeError as e:
-#    print("Runtime Exception: %s" % e.details)
-#    print("Exiting....")
-#    exit(1)
+try:
+    interfaceKitLCD = InterfaceKit()
+except RuntimeError as e:
+    print("Runtime Exception: %s" % e.details)
+    print("Exiting....")
+    exit(1)
 
-#def TextLCDError(e):
-#    try:
-#        source = e.device
-#        print("TextLCD %i: Phidget Error %i: %s" % (source.getSerialNum(), e.eCode, e.description))
-#    except PhidgetException as e:
-#        print("Phidget Exception %i: %s" % (e.code, e.details))
+def InterfaceKitLCDError(e):
+    try:
+        source = e.device
+        print("InterfaceKitLCD %i: Phidget Error %i: %s" % (source.getSerialNum(), e.eCode, e.description))
+    except PhidgetException as e:
+        print("Phidget Exception %i: %s" % (e.code, e.details))
 
 
 #Connect the event handlers
-#try:
-#    textLCD.setOnErrorhandler(TextLCDError)
-#except PhidgetException as e:
-#    print("Phidget Exception %i: %s" % (e.code, e.details))
-#    print("Exiting....")
-#    exit(1)      
+try:
+    interfaceKitLCD.setOnErrorhandler(InterfaceKitLCDError)
+except PhidgetException as e:
+    print("Phidget Exception %i: %s" % (e.code, e.details))
+    print("Exiting....")
+    exit(1)      
 
 #Open the textLCD
-#try:
-#    textLCD.openPhidget()
-#except PhidgetException as e:
-#    print("Phidget Exception %i: %s" % (e.code, e.details))
-#    print("Exiting....")
-#    exit(1)    
+try:
+    interfaceKitLCD.openRemote('odroid',serial=120517)
+except PhidgetException as e:
+    print("Phidget Exception %i: %s" % (e.code, e.details))
+    print("Exiting....")
+    exit(1)    
+
+if not interfaceKitLCD.isAttachedToServer():
+    sleep(2)
+
+print('interfaceKitLCD attached to server: %s' % interfaceKitLCD.isAttachedToServer())
 
 #Wait for the device to attach
-#try:
-#    textLCD.waitForAttach(10000)
-#except PhidgetException as e:
-#    print("Phidget Exception %i: %s" % (e.code, e.details))
-#    try:
-#        textLCD.closePhidget()
-#    except PhidgetException as e:
-#        print("Phidget Exception %i: %s" % (e.code, e.details))
-#        print("Exiting....")
-#        exit(1)
-#    print("Exiting....")
-#    exit(1)    
+try:
+    interfaceKitLCD.waitForAttach(10000)
+except PhidgetException as e:
+    print("Phidget Exception %i: %s" % (e.code, e.details))
+    try:
+        interfaceKitLCD.closePhidget()
+    except PhidgetException as e:
+        print("Phidget Exception %i: %s" % (e.code, e.details))
+        print("Exiting....")
+        exit(1)
+    print("Exiting....")
+    exit(1)    
 
 #textLCD.setBacklight(True)
 #textLCD.setBrightness(128)
 
-#print("lcd setup complete, ready for use")
+print("lcd setup complete, ready for use")
 
 context = zmq.Context()
 
-lcd_receiver = context.socket(zmq.PULL)
-lcd_receiver.bind("ipc:///tmp/lcd.ipc")
-print("PULL socket complete on ipc://tmp/lcd.ipc")
+#lcd_receiver = context.socket(zmq.PULL)
+#lcd_receiver.bind("ipc:///tmp/lcd.ipc")
+#print("PULL socket complete on ipc://tmp/lcd.ipc")
 
 relay_receiver = context.socket(zmq.SUB)
 relay_receiver.bind("ipc:///tmp/shaft.ipc")
 relay_receiver.setsockopt(zmq.SUBSCRIBE, "") #subscribe to all messages
-relay_receiver.setsockopt(zmq.RCVTIMEO, 500) #set a timeout of 500ms for a receive operation (prevent hangs)
+#relay_receiver.setsockopt(zmq.RCVTIMEO, 500) #set a timeout of 500ms for a receive operation (prevent hangs)
 print("SUB socket complete on ipc://tmp/shaft.ipc")
 
 #The MEAT goes here...
@@ -94,38 +100,45 @@ while True:
     #first collect shaft movement messages...  
     try:
         relayed = relay_receiver.recv_json()
-        print(result)
+        print(relayed)
+        
 
-        if 'up' in relayed:
-#            textLCD.setOutputState(0,True)
-#            textLCD.setOutputState(1,False)
-            print("going up")
-            sleep(int(relayed['up']))
-
-#            textLCD.setOutputState(0,False)
-#            textLCD.setOutputState(1,False)
-
-        elif 'down' in relayed:
-#            textLCD.setOutputState(0,False)
-#            textLCD.setOutputState(1,True)
+        if 'down' in relayed:
+            interfaceKitLCD.setOutputState(0,True)
+            interfaceKitLCD.setOutputState(1,False)
             print("going down")
             sleep(int(relayed['down']))
 
-#            textLCD.setOutputState(0,False)
-#            textLCD.setOutputState(1,False)
+            interfaceKitLCD.setOutputState(0,False)
+            interfaceKitLCD.setOutputState(1,False)
+
+        elif 'up' in relayed:
+            interfaceKitLCD.setOutputState(0,False)
+            interfaceKitLCD.setOutputState(1,True)
+            print("going up")
+            sleep(int(relayed['up']))
+
+            interfaceKitLCD.setOutputState(0,False)
+            interfaceKitLCD.setOutputState(1,False)
 
         else:
-            pass
+            #pass
             #default to stop moving to avoid colisions
-#            textLCD.setOutputState(0,False)
-#            textLCD.setOutputState(1,False)
+            interfaceKitLCD.setOutputState(0,False)
+            interfaceKitLCD.setOutputState(1,False)
+
+    except KeyboardInterrupt:
+        print('Exiting...')
+        interfaceKitLCD.closePhidget()
+        exit(2)
 
     except:
+        print("nothing recieved...")
         pass
 
     #Then worry about displaying messages on the LCD...
-    result = lcd_receiver.recv_json()
-    print(result)
+#    result = lcd_receiver.recv_json()
+#    print(result)
     #print result['message'],result['line'],result['delay']
 
 
@@ -156,13 +169,13 @@ while True:
 #textLCD.setDisplayString(1, "")
 #textLCD.setBacklight(False)
 
-#try:
-#    textLCD.closePhidget()
-#except PhidgetException as e:
-#    print("Phidget Exception %i: %s" % (e.code, e.details))
-#    print("Exiting....")
-#    exit(1)
+try:
+    interfaceKitLCD.closePhidget()
+except PhidgetException as e:
+    print("Phidget Exception %i: %s" % (e.code, e.details))
+    print("Exiting....")
+    exit(1)
 
-#print("Done.")
-#exit(0)
+print("Done.")
+exit(0)
 

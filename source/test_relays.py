@@ -15,12 +15,12 @@ def signal_handler(signum, frame):
 
 
 context = zmq.Context()
-zmq_socket = context.socket(zmq.PUSH)
-zmq_socket.connect("ipc:///tmp/lcd.ipc")
+zmq_socket = context.socket(zmq.PUB)
+zmq_socket.connect("ipc:///tmp/shaft.ipc")
 
 
 
-msg={"up":"1"}
+msg={"up":"3"}
 print("moving for %s seconds" % msg['up'])
 
 print("sending message %s", msg)
