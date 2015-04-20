@@ -17,7 +17,13 @@ def signal_handler(signum, frame):
 context = zmq.Context()
 zmq_socket = context.socket(zmq.PUB)
 zmq_socket.connect("ipc:///tmp/shaft.ipc")
-
+print("connected to socket shaft.ipc")
+print("===================================================")
+print("|       Must be run as root! Just Say'n           |")
+print("===================================================")
+print("")
+print("Usage: test_relays.py [direction<string> {'up'|'down'}] [seconds_of_movement<string> {'1'|'2'|'3'|'4'|'5'... etc}]")
+print("")
 dir = sys.argv[1]
 len = sys.argv[2]
 

@@ -35,7 +35,7 @@ def displayDeviceInfo():
     print("|------------|----------------------------------|--------------|------------|")
     print("|- Attached -|-              Type              -|- Serial No. -|-  Version -|")
     print("|------------|----------------------------------|--------------|------------|")
-    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitLCD.isAttached(), interfaceKitLCD.getDeviceName(), interfaceKitLCD.getSerialNum(), interfaceKitLCD.getDeviceVersion()))
+    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitLCD.isAttachedToServer(), interfaceKitLCD.getDeviceName(), interfaceKitLCD.getSerialNum(), interfaceKitLCD.getDeviceVersion()))
     print("|------------|----------------------------------|--------------|------------|")
     print("Number of Digital Inputs: %i" % (interfaceKitLCD.getInputCount()))
     print("Number of Digital Outputs: %i" % (interfaceKitLCD.getOutputCount()))
@@ -114,9 +114,9 @@ print("SUB socket complete on ipc://tmp/shaft.ipc")
 while True:
 
     try:
+        print("Waiting for message... on shaft.ipc")
         relayed = shaft_socket.recv_json()
         print(relayed)
-
 
         if 'down' in relayed:
             interfaceKitLCD.setOutputState(0,True)

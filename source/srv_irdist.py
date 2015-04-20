@@ -43,7 +43,7 @@ def displayDeviceInfo():
     print("|------------|----------------------------------|--------------|------------|")
     print("|- Attached -|-              Type              -|- Serial No. -|-  Version -|")
     print("|------------|----------------------------------|--------------|------------|")
-    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitHUB.isAttached(), interfaceKitHUB.getDeviceName(), interfaceKitHUB.getSerialNum(), interfaceKitHUB.getDeviceVersion()))
+    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitHUB.isAttached(),interfaceKitHUB.getDeviceName(), interfaceKitHUB.getSerialNum(), interfaceKitHUB.getDeviceVersion()))
 #    print("|- %8s -|- %30s -|- %10d -|- %8d -|" % (interfaceKitLCD.isAttached(), interfaceKitLCD.getDeviceName(), interfaceKitLCD.getSerialNum(), interfaceKitLCD.getDeviceVersion()))
     print("|------------|----------------------------------|--------------|------------|")
     print("Number of Digital Inputs: %i" % (interfaceKitHUB.getInputCount()))
@@ -170,11 +170,18 @@ try:
 # As displayed by displayDeviceInfo()
 #    interfaceKitLCD.openPhidget(serial=120517)
     interfaceKitHUB.openPhidget(serial=337662)
-    
+#Connect to phidgets webservice
+#    interfaceKitHUB.openRemote('odroid',serial=337662)
+
+#    print("interfaceKitHuB connected to webservice: %s" % interfaceKitHUB.isAttachedToServer())
+
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     print("Exiting....")
     exit(1)
+
+#if not interfaceKitHUB.isAttachedToServer():
+#    sleep(2)
 
 print("Waiting for attach....")
 
