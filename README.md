@@ -39,20 +39,20 @@ ssh to odroid. The following command line scripts can be used for some low level
 
 **move** \<direction\> \<duration\> \<speed\>
 
-direction: forward (f), back (b), left (l), right (r)
+* direction: forward (f), back (b), left (l), right (r)
 
-duration: time of movement in seconds
+* duration: time of movement in seconds
 
-speed: percentage of max speed. From 0 to 100
+* speed: percentage of max speed. From 0 to 100
 
 **shaft** \<direction\> \<duration\>
 
-direction: up or down (written in full)
+* direction: up or down (written in full)
 
-duration: time of movement in seconds
+* duration: time of movement in seconds
 
 **camera** \<direction\> \<PWM duration\>
 
-direction: Pan (p) or tilt (t)
+* direction: Pan (p) or tilt (t)
 
-PWM duration: Pulse width from 500 to 2500. Form tilt centre value is 900, for pan centre value is 1500
+* PWM duration: Pulse width from 500 to 2500. Form tilt centre value is 900, for pan centre value is 1500
