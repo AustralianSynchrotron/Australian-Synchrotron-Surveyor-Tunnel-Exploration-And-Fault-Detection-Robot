@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+#
+
+import zmq
+import time
+import commands
+import argparse
+
+def move_bracket(direction, duration):
+
+    context = zmq.Context()
+    zmq_socket = context.socket(zmq.PUSH)
+    zmq_socket.connect("ipc:///tmp/servo.ipc")
+
+
+    if direction == 'p':
+        dir_msg = "servo:00:pan"
+    elif direction == 't':
+        dir_msg = "servo:01:tilt"  
+
+    msg = {dir_msg:duration}
+    print "moving " + direction + " for " + str(duration) + "PWM"
+    zmq_socket.send_json(msg)
+    print "command sent."
+    time.sleep(1.)
+   
+if __name__ == "__main__":
+   parser = argparse.ArgumentParser(description='Moved the ass-bot\'s platform camera bracket.')
+   parser.add_argument('direction', help='Pan (p) or Tilt (t)')
+   parser.add_argument('duration', type=int, help='PWM duration')
+   args = parser.parse_args()
+   print args   
+   move_bracket(args.direction,args.duration)
