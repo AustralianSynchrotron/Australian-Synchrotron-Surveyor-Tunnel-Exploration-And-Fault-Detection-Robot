@@ -37,7 +37,7 @@ note: srv_motor.py now has the bind command for the motors zmq socket, since it 
 
 ssh to odroid. The following command line scripts can be used for some low level control of ass-bot
 
-**move** \<direction\> \<duration\> \<speed\>
+**move** *\<direction\> \<duration\> \<speed\>*
 
 * direction: forward (f), back (b), left (l), right (r)
 
@@ -45,13 +45,13 @@ ssh to odroid. The following command line scripts can be used for some low level
 
 * speed: percentage of max speed. From 0 to 100
 
-**shaft** \<direction\> \<duration\>
+**shaft** *\<direction\> \<duration\>*
 
 * direction: up or down (written in full)
 
 * duration: time of movement in seconds
 
-**camera** \<direction\> \<PWM duration\>
+**camera** *\<direction\> \<PWM duration\>*
 
 * direction: Pan (p) or tilt (t)
 
