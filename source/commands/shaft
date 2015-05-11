@@ -12,8 +12,12 @@ def move_shaft(direction, duration):
     context = zmq.Context()
     zmq_socket = context.socket(zmq.PUSH)
     zmq_socket.connect("ipc:///tmp/shaft.ipc")
-    msg = {direction: duration}
-    print "moving " + direction + "for " + str(duration) + "s"
+    if direction == 'u':
+        dir_msg = 'up'
+    elif direction == 'd':
+        dir_msg = 'down'
+    msg = {dir_msg: duration}
+    print "moving " + direction + " for " + str(duration) + "s"
     zmq_socket.send_json(msg)
     print "command sent."
    
@@ -21,7 +25,7 @@ def move_shaft(direction, duration):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Moved the ass-bot\'s shaft.')
-    parser.add_argument('direction', help='move up (up) or down (down)')
+    parser.add_argument('direction', help='move up (u) or down (d)')
     parser.add_argument('duration', type=int, help='move duration in seconds')
     args = parser.parse_args()
     print args   

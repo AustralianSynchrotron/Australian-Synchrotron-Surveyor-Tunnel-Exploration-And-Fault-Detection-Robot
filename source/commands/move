@@ -28,6 +28,7 @@ def move_ass(direction, duration, speed):
     if duration > 5:
        duration = 5
 
+
     lval = l_sign * speed
     rval = r_sign * speed
     msg = {'leftA': '1000', 'rightA': '1000', 'leftV': lval, 'rightV': rval}
@@ -43,7 +44,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Moved the ass-bot\'s ass.')
     parser.add_argument('direction', help='move forward (f), back (b), left (l) or right(r)')
-    parser.add_argument('duration', type=int, help='move duration in seconds')
+    parser.add_argument('duration', type=float, help='move duration in seconds')
     parser.add_argument('speed', type=int, help='speed percent of max speed (0-100)')
     args = parser.parse_args()
     print args   
