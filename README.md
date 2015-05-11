@@ -47,7 +47,7 @@ ssh to odroid. The following command line scripts can be used for some low level
 
 **shaft** *\<direction\> \<duration\>*
 
-* direction: up or down (written in full)
+* direction: up (u) or down (d)
 
 * duration: time of movement in seconds
 
