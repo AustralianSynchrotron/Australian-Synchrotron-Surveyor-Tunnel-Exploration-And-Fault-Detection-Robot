@@ -43,7 +43,7 @@ ssh to odroid. The following command line scripts can be used for some low level
 
 * duration: time of movement in seconds
 
-* speed: percentage of max speed. From 0 to 100
+* speed: percentage of max speed. From 1 to 100
 
 **shaft** *\<direction\> \<duration\>*
 
