@@ -33,7 +33,7 @@ void loop()
     //Serial.print(distance);
     //Serial.print("cm");  
     //Serial.println();
-    delay(60);
+    delay(100);
   }
   Serial.print("{\"");
   for(int sensor_no = 0; sensor_no < NUMBER_OF_SENSORS; sensor_no++){
