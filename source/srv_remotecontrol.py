@@ -162,7 +162,8 @@ cherrypy.config.update({
     #'server.socket_host': '10.3.1.103',
     #'server.socket_host': '10.6.0.177',
     #'server.socket_host': '10.3.1.236',
-    'server.socket_host': '10.3.1.173',
+    #'server.socket_host': '10.3.1.173',
+    'server.socket_host': '0.0.0.0',
     'server.socket_port': 8080
 })
 
